@@ -1,0 +1,119 @@
+module fsm_manual (
+    input clk,  // clock
+    input rst,  // reset
+    input button[2], //top button 
+    input in [3][8], // get the input from the dip switch
+    output outLED[16], //  output or result to be shown in the io_leds
+    output ledisplay[4][8], // seven segment display output
+    output aluled[6] // display ALUFN is running 
+  ) {
+  
+  .clk(clk){
+    .rst(rst) {
+      dff inputa[16](#INIT(0)); // store 16 bit input a
+      dff inputb[16](#INIT(0)); // store 16 bit input b
+      dff alufnreg[6](#INIT(0)); //  store 6 bit alufn
+      dff outputreg[16](#INIT(0)); // 16 bit output on led display
+      dff z[1](#INIT(0)); //  z
+      dff v[1](#INIT(0)); //  v
+      dff n[1](#INIT(0)); // n
+      dff outputled[4][8]; // 7 seg displays
+    }
+    fsm manual = {INPUTAA, INPUTBB, ALUFN, ENDRESULT}; // declare fsm to fetch input and display result
+  }
+  
+  alu16 alu16; // call the alu16.luc to run the operations 
+  
+
+  
+  always {
+  // store all the alufns as constants to check for errors or invalid values 
+    
+    alu16.a = inputa.q;
+    alu16.b = inputb.q;
+    alu16.alufn = alufnreg.q;
+    outLED = outputreg.q;
+    z.d = alu16.z;
+    v.d = alu16.v;
+    n.d = alu16.n;
+    ledisplay = outputled.q;
+    aluled = alufnreg.q;
+    
+    
+    case (manual.q) {
+      //a-state 
+      manual.INPUTAA:
+        if (button[1]) {
+          inputa.d[7:0] = in[0]; // first 8 bits
+          inputa.d[15:8] = in[1]; //  second 8 bits
+          manual.d = manual.INPUTBB; // change state to b 
+        }
+        
+        else {
+          outputreg.d[7:0] = in[0]; // first 8 bits at bank 0 
+          outputreg.d[15:8] = in[1]; // second 8 bits at bank 1 
+          outputled.d = {8ha, 8h14, 8h14, 8h14};  // 'A'
+          manual.d = manual.INPUTAA;
+        }
+        
+      // get user input B 
+      manual.INPUTBB:
+        if (button[1]) {
+          inputb.d[7:0] = in[0]; // store in second dff
+          inputb.d[15:8] = in[1];
+          manual.d = manual.ALUFN;
+        }
+        
+        else {
+          outputreg.d[7:0] = in[0]; //  first 8 bits at bank 0 
+          outputreg.d[15:8] = in[1]; //  second 8 bits at bank 1 
+          outputled.d = {8hb, 8h14, 8h14, 8h14};  // 'b'
+          manual.d = manual.INPUTBB;
+        }
+        
+      // get alufn from user 
+      manual.ALUFN:
+        
+        if (button[1]) {
+          alufnreg.d = in[0][5:0]; //store in third dff
+          manual.d = manual.ENDRESULT;
+        }
+          
+        else{
+           outputreg.d = in[0][5:0]; //first 6 bits at bank 0 
+           outputled.d = {8h0, 8hd, 8h14, 8h14};  // 'OP' 
+           manual.d = manual.ALUFN;
+        }
+        
+        
+      // output the results to the io_leds 
+      manual.ENDRESULT:
+        if (button[1]) { // reset manual mode to default
+          inputa.d[15:0] = 0;
+          inputb.d[15:0] = 0;
+          alufnreg.d[5:0] = 0;
+          z.d = 0;
+          v.d = 0;
+          n.d = 0;
+          manual.d = manual.INPUTAA;
+        }
+        
+        else {
+          outputled.d[3] = 8hd;
+          outputled.d[2] = z.q;
+          outputled.d[1] = v.q;
+          outputled.d[0] = n.q;
+          outputreg.d = alu16.out; // show the results
+          manual.d = manual.ENDRESULT;
+          
+          case(alu16.out){
+          
+            16b1010101010101010:
+              outputled.d = {8h10, 8ha, 8hc, 8h11}; //FAIL CASE 
+            
+            
+        }
+    }
+  }
+}
+

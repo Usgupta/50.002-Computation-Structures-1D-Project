@@ -1,0 +1,129 @@
+module alu16 (
+    input a[16],  // clock
+    input b[16],  // reset
+    input alufn[6], 
+    output out[16],
+    output z, 
+    output v, 
+    output n 
+  ) { 
+  
+  //5 components 
+  adder adder16; 
+  boolean bool;
+  shift shifter;
+  compare comparer;
+  multiplier mul;
+
+  always {
+    out = 0;
+    
+    //adder/sub
+    adder16.a = a; 
+    adder16.b = b; 
+    z = 0;
+    v = 0;
+    n = 0;
+    // assign alufn based on bit 5 and bit 6 
+    if (alufn[5:4] == 2b11){ 
+      adder16.alufn = b000001;
+    }
+    else{
+      adder16.alufn = alufn;
+    }
+    
+    //multiplier 
+    mul.a = a;
+    mul.b = b;
+    mul.alufn = alufn;
+     
+    
+    //boolean 
+    bool.a = a; 
+    bool.b = b; 
+    bool.alufnb = alufn; 
+    
+    //shift 
+    shifter.a = a; 
+    shifter.b = b; 
+    shifter.alufn = alufn;
+    
+    //compare
+    comparer.z = adder16.z;
+    comparer.v = adder16.v;
+    comparer.n = adder16.n;
+    comparer.alufnc = alufn[5:0];
+    
+    case(alufn){
+    
+      b000000: //Add
+        adder16.alufn = alufn;
+        z = adder16.z;
+        v = adder16.v;
+        n = adder16.n;
+        out = adder16.out;
+        
+      b000001: //Sub
+        z = adder16.z;
+        v = adder16.v;
+        n = adder16.n;
+        out = adder16.out; 
+        
+      b000011: //Inc
+        z = adder16.z;
+        v = adder16.v;
+        n = adder16.n;
+        out = adder16.out;
+        
+      b000111: //Dec   
+        z = adder16.z;
+        v = adder16.v;
+        n = adder16.n;
+        out = adder16.out;
+        
+      b000010: //Mul
+        out = mul.out;
+        
+      b001001: //Div
+       case(b){
+          h0000: //if divide by 0, assign error 
+            out = 16b1010101010101010;
+          default:
+            out = mul.out;
+            }
+        
+      b011000: //And 
+        out = bool.out; 
+        
+      b011110: //Or 
+        out = bool.out;
+        
+      b010110: //Xor
+        out = bool.out;
+      
+      b011010: //ALDR
+        out = bool.out;
+      
+      b100000: //SHL
+        out = shifter.out;
+      
+      b100001: //SHR 
+        out = shifter.out;
+      
+      b100011: //SRA 
+        out = shifter.out;
+      
+      b110011: //CMPEQ 
+        out = comparer.out;
+      
+      b110101: //CMPLT 
+        out = comparer.out;
+        
+      b110111: //CMPLE 
+        out = comparer.out;
+       
+      default: //default to error state, i.e if not any of the above alufn, assign error 
+         out = 16b1010101010101010; 
+    
+  }
+}

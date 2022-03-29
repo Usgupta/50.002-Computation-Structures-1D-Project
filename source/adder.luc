@@ -27,7 +27,7 @@ module adder (
         s = a - 1;
   }
     z = (s[15:0] == 0);  //true when all output is zero
-    v = (a[15] & b[15] & ~s[15]) | (~a[15] & ~b[15] & s[15]); // true when addition overflows
+    v = (a[15] & (b[15] ^ alufn[0]) & !s[15]) | (!a[15] & !(b[15] ^ alufn[0]) & s[15]); // true when addition overflows
     n = s[15]; //true when S is negative ie s31 = 1 (signed)
     out = s[15:0];
  }

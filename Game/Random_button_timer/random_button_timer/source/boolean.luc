@@ -1,0 +1,16 @@
+module boolean (
+    input a[16],
+    input b[16],
+    input alufnb[6],
+    output out[16]
+  ) {
+  always {
+      case(alufnb[3:0]) { //multiplexer
+        b1000: out = a & b; //AND:1000
+        b1110: out = a | b; //OR:1110    
+        b0110: out = a ^ b; //XOR:0110      
+        b1010: out = a;     //"A":1010 
+        default: out = b0000000000000000;
+        }
+    }
+}

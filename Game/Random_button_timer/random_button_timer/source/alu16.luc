@@ -1,0 +1,78 @@
+module alu16 (
+    input a[16],  // clock
+    input b[16],  // reset
+    input alufn[6],
+    output out[16],
+    output z, 
+    output v, 
+    output n 
+  ) { 
+  //4 components 
+  adder adder16; 
+  boolean bool;
+  shift shifter;
+  compare comparer;
+  multiplier mul;
+
+  always {
+    out = 0;
+    
+    //adder/sub
+    adder16.a= a; 
+    adder16.b= b; 
+    z = 0;
+    v = 0;
+    n = 0;
+    
+    if (alufn[5:4] == 2b11){
+      adder16.alufn = b000001;
+    }
+    else{
+      adder16.alufn = alufn;
+    }
+   
+    mul.a = a;
+    mul.b = b;
+    mul.alufn = alufn;
+     
+    
+    //boolean 
+    bool.a= a; 
+    bool.b= b; 
+    bool.alufnb= alufn[5:0]; 
+    
+    //shift 
+    shifter.alufn= alufn[5:0]; 
+    shifter.a = a; 
+    shifter.b= b; 
+    
+    //compare 
+    comparer.z= adder16.z ;
+    comparer.v= adder16.v ; 
+    comparer.n= adder16.n; 
+    comparer.alufnc= alufn[5:0]; 
+    
+    case(alufn[5:4]){
+      b00: 
+        if(alufn[1:0] == 2b10){
+          out = mul.out;
+        }
+        else{
+        z = adder16.z; 
+        v = adder16.v; 
+        n = adder16.n; 
+        out = adder16.out;
+        }
+        
+      b01: 
+        out = bool.out; 
+        
+      b10: 
+        out= shifter.out; 
+        
+      b11: 
+        out = comparer.out; 
+        
+    
+  }
+}

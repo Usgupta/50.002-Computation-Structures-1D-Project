@@ -1,0 +1,173 @@
+module fsm_manual (
+    input clk,  // clock
+    input rst,  // reset
+    input button[2], //top button 
+    input in[3][8], // get the input from the dip switch
+    output outLED[16], // alu output. to be shown in the io_leds
+    output ledisplay[4][8], // seven segment display output
+    output aluled[6] // display what aluFN it is running currently
+  ) {
+  
+  .clk(clk){
+    .rst(rst) {
+      dff inputa[16](#INIT(0)); // store 16 bit input a
+      dff inputb[16](#INIT(0)); // store 16 bit input b
+      dff alufnreg[6](#INIT(0)); // store 6 bit aluFN
+      dff outputreg[16](#INIT(0)); // store 16 bit for output on led
+      dff z[1](#INIT(0)); // store 1 bit z
+      dff v[1](#INIT(0)); // store 1 bit v
+      dff n[1](#INIT(0)); // store 1 bit n
+      dff outputled[4][8]; // store what to display on 7 segment displays
+    }
+    fsm manual = {INPUTAA, INPUTBB, ALUFN, ENDRESULT, SPECIAL}; // main fsm to get user inputs and display results
+  }
+  
+  alu16 alu16; // call the alu.luc //have not done 
+  
+  // store all the aluFNs to check if there is an illegal aluFN when user input
+  const ADD = 6b000000;
+  const SUB = 6b000001;
+  const MUL = 6b000010;
+  const DIV = 6b001001;
+  const INC = 6b000011;
+  const DEC = 6b000111;
+  const AND = 6b011000;
+  const OR = 6b011110;
+  const XOR = 6b010110;
+  const ALDR= 6b011010;
+  const SHL = 6b100000;
+  const SHR = 6b100001;
+  const SRA = 6b100011;
+  const CMPEQ = 6b110011;
+  const CMPLT = 6b110101;
+  const CMPLE = 6b110111;
+ 
+  always {
+    // the standard output of all the DFF and what to display to the combine fsm
+    
+    alu16.a = inputa.q;
+    alu16.b = inputb.q;
+    alu16.alufn = alufnreg.q;
+    outLED = outputreg.q;
+    z.d = alu16.z;
+    v.d = alu16.v;
+    n.d = alu16.n;
+    ledisplay = outputled.q;
+    aluled = alufnreg.q;
+    
+     
+    
+    case (manual.q) {
+      //a-state 
+      manual.INPUTAA:
+        if (button[1]) {
+          inputa.d[7:0] = in[0]; // dip switch bank 0: first 8 bits
+          inputa.d[15:8] = in[1]; // dip switch bank 1: second 8 bits
+          manual.d = manual.INPUTBB; // change state
+        }
+        
+        else {
+          outputreg.d[7:0] = in[0]; // dip switch bank 0: first 8 bits
+          outputreg.d[15:8] = in[1]; // dip switch bank 1: second 8 bits
+          outputled.d = {8ha, 8h14, 8h14, 8h14};  // 'IIIA'
+          manual.d = manual.INPUTAA;
+        }
+        
+      // get user input B *******************************************
+      manual.INPUTBB:
+        if (button[1]) {
+          inputb.d[7:0] = in[0]; // store in second dff
+          inputb.d[15:8] = in[1];
+          manual.d = manual.ALUFN;
+        }
+        
+        else {
+          outputreg.d[7:0] = in[0]; // dip switch bank 0: first 8 bits
+          outputreg.d[15:8] = in[1]; // dip switch bank 1: second 8 bits
+          outputled.d = {8hb, 8h14, 8h14, 8h14};  // 'IIIb'
+          manual.d = manual.INPUTBB;
+        }
+        
+      // get aluFN from user ***************************
+      manual.ALUFN:
+        alufnreg.d = in[0][5:0];
+        if (button[1]) {
+        
+          // check for illegal aluFN --------------------------------------------------------- 
+          if (alufnreg.q == ADD||alufnreg.q == SUB||alufnreg.q == MUL||alufnreg.q == DIV||alufnreg.q == INC||alufnreg.q == DEC||alufnreg.q == AND||\
+alufnreg.q == OR||alufnreg.q == XOR||alufnreg.q == ALDR||alufnreg.q == SHL||alufnreg.q == SHR||alufnreg.q == SRA || \
+alufnreg.q == CMPEQ||alufnreg.q == CMPLT||alufnreg.q == CMPLE) {
+            
+            if (alufnreg.q == DIV && inputb.q == 0) { // divide by 0, thus go to illegal operation
+              manual.d = manual.SPECIAL;
+            } else {
+              manual.d = manual.ENDRESULT;
+            }
+          }
+          else {
+          manual.d = manual.SPECIAL;}
+        }
+        
+       else {
+          
+          outputreg.d = in[0][5:0]; // dip switch bank 0: first 8 bits
+          //outputreg.d[15:8] = 1; // dip switch bank 1: second 8 bits
+          outputled.d = {8h0, 8hd, 8h14, 8h14};  // '3opo'
+          manual.d = manual.ALUFN;
+        }
+        
+      // if illegal aluFN or dvision by 0 ***********************************
+      manual.SPECIAL:
+        if (button[1]) { // back to aluFN mode to get another aluFN
+          if (alufnreg.q == DIV && inputb.q == 0) { // if divide by 0, get another input
+            manual.d = manual.INPUTBB;
+          } else {
+            manual.d = manual.ALUFN;
+          }
+        }
+        
+        else {
+          outputled.d = {8he, 8hf, 8hf, 8h14}; // 'ERRI'
+          manual.d = manual.SPECIAL;
+        }
+        
+      // output the results to the io_leds *****************************************
+      manual.ENDRESULT:
+        if (button[1]) { // reset manual mode to default
+          inputa.d[15:0] = 0;
+          inputb.d[15:0] = 0;
+          alufnreg.d[5:0] = 0;
+          z.d = 0;
+          v.d = 0;
+          n.d = 0;
+          manual.d = manual.INPUTAA;
+        }
+        
+        else {
+          outputled.d[3] = 8hf; 
+          outputled.d[2] = z.q;
+          outputled.d[1] = v.q;
+          outputled.d[0] = n.q;
+          outputreg.d = alu16.out; // show the results
+          manual.d = manual.ENDRESULT;
+          
+          if(in[2][7] == 1){
+            outputreg.d[15:1] = alu16.out[15:1];
+            outputreg.d[0] = ~alu16.out[0];
+          }
+          
+          if(alu16.out != outputreg.q){
+            outputled.d = {8h10, 8ha, 8hc, 8h11}; //Manipulated error
+          }
+          
+          case(alu16.out){
+          
+            16b1010101010101010:
+              outputled.d = {8h10, 8ha, 8hc, 8h11}; //FAIL CASE 
+          }
+         
+          
+        }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+module multiplier (
+    input a[16],
+    input b[16],
+    input alufn[6],
+    output out[16]
+  ) {
+
+  always {
+  
+      case(alufn){
+        
+        b000010:
+          out = $signed(a) * $signed(b); 
+      
+        b001001:
+          out = $signed(a) / $signed(b);
+      
+        default: 
+          out = 0;
+
+  }
+}

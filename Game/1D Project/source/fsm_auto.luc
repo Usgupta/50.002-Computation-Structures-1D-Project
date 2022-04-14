@@ -1,0 +1,166 @@
+module fsm_auto (
+    input clk,  // clock
+    input rst,  // reset
+
+    input start_button,
+    /*    
+    input reset_button,
+    input p1_button1,
+    input p1_button2, 
+    input p1_button3,
+    input p1_button4, 
+    input p2_button1,
+    input p2_button2, 
+    input p2_button3,
+    input p2_button4, 
+    input regfile_datain[16],
+    
+    */
+    input dec, 
+    
+    output alufn[6],
+    output asel[3],
+    output bsel[3],
+    output wdsel[2],
+    output regfile_wa[4],
+    output regfile_ra[4],
+    output regfile_rb[4],
+    output we_regfile,
+    
+    output main_timer_sel[4],
+    output main_timer_segs[8],
+    output mini_timer_segs[8]
+    //output p1_led[16],
+    //output p2_led[16]
+    
+  ) {
+  
+    .clk(clk){
+    
+    //edge_detector edge_detector_variableCounter (#RISE(1), #FALL(0));
+    //edge_detector edge_detector_slow_timer(#RISE(1), #FALL(0));
+    
+    .rst(rst) {
+      variable_counter vc;  
+      counter slow_timer(#SIZE(1),#DIV(26)); // higher div, slower the clock
+      
+      multi_seven_seg seg; 
+      multi_dec_ctr dec_ctr; 
+      decimal_counter_5 dctr (#INIT(d5));
+      //pn_gen random;
+      
+      dff mini_timer[4](#INIT(0)); 
+    }
+    
+    fsm states = {     
+      IDLE_1,  
+      START,
+      START_COUNTDOWN,
+      SET_MAIN_TIMER_60,
+      DECREASE_GAMETIMER,
+      MINITIMER_SET_5,
+      MINITIMER_SET_2,
+      DECREASE_MINITIMER,
+      INCREMENT_P1_SCORE,
+      INCREMENT_P2_SCORE,
+      GEN_LED_SEQUENCE,
+      IDLE_2,
+      SHR_P1_B1,
+      SHR_P1_B2,
+      SHR_P1_B3,
+      SHR_P1_B4,
+      SHR_P2_B1,
+      SHR_P2_B2,
+      SHR_P2_B3,
+      SHR_P2_B4,
+      SET_P1_B1_0,
+      SET_P1_B2_0,
+      SET_P1_B3_0,
+      SET_P1_B4_0,
+      SET_P2_B1_0,
+      SET_P2_B2_0,
+      SET_P2_B3_0,
+      SET_P2_B4_0,
+      CHECK_WIN_P1,
+      LOSE_P1,
+      CHECK_WIN_P2,
+      LOSE_P2}; // main fsm to get user inputs and display results
+  }
+  
+  seven_seg oneseg; //for the mini-timer
+  
+
+  always {
+  
+    alufn = 0;
+    asel = 0;
+    bsel = 0;
+    wdsel = 0;
+    regfile_wa = 1111; 
+    regfile_ra = 0000; 
+    regfile_rb = 0000; 
+    we_regfile = 0;
+    
+    dec_ctr.dec = dec; //dec is from au_top, to decrease the timer.
+    oneseg.char = 4b0;
+    
+    seg.values[1] = 4b0;
+    seg.values[0] = 4b0;
+    main_timer_sel = seg.sel;  //4 bit
+    main_timer_segs = ~seg.seg; //8 bit
+    mini_timer_segs = seg.seg; //8 bit 
+    
+    dctr.dec = 0;
+    
+    case(states.q){
+      
+      states.IDLE_1:
+      
+        if(start_button){
+          states.d = states.START; 
+        }
+      
+      //Set main timer to 60 seconds
+      states.START:
+      //if start button is pressed (Start_button == 1) 
+        
+        mini_timer.d = dctr.value;
+        oneseg.char = mini_timer.q; 
+        mini_timer_segs = oneseg.segs;
+        dctr.dec = dec;
+        
+        //OLD
+        //oneseg.char = dec_ctr.onedigit;
+        
+        
+        
+        if(mini_timer.q == 0){
+        
+          //FOR MAIN TIMER 
+          seg.values = dec_ctr.digits;
+          main_timer_segs = ~seg.seg; // connect segments to the driver
+          main_timer_sel = seg.sel; // connect digit select to the driver
+          //states.d = states.GEN_LED_SEQUENCE; 
+        }
+        
+      /*OLD CODE
+        if(oneseg.segs == 0){
+          seg.values = dec_ctr.digits;
+          main_timer_segs = ~seg.seg; // connect segments to the driver
+          main_timer_sel = seg.sel; // connect digit select to the driver
+          //states.d = states.GEN_LED_SEQUENCE;
+        }
+      */
+        
+      //states.GEN_LED_SEQUENCE:
+      
+        
+      
+        
+      
+        
+
+    }
+    
+  }
+}

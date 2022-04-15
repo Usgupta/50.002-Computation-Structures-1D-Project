@@ -1,0 +1,316 @@
+module fsm_auto (
+    input clk,  // clock
+    input rst,  // reset
+
+    
+    //Button inputs
+    input start_button,
+    input p1_button1,
+    input p1_button2, 
+    input p1_button3,
+    input p1_button4, 
+    /*
+    input reset_button,
+    input p2_button1,
+    input p2_button2, 
+    input p2_button3,
+    input p2_button4, 
+    */
+    
+    
+    //Other inputs from au_top
+    input dec, 
+    input rng16[16], 
+    /*
+    
+    */
+    
+    
+    //Inputs from REGFILE 
+    input data[13][16],
+    /*
+    
+    */
+    
+    
+    //Outputs for REGFILE
+    output alufn[6],
+    output asel[3],
+    output bsel[3],
+    output wdsel[2],
+    output wa[4],
+    output ra[4],
+    output rb[4],
+    output we,
+    
+    
+    //Outputs for 7 segment timers 
+    output main_timer_sel[4],
+    output main_timer_segs[8],
+    output mini_timer_5_segs[8],
+    
+    
+    //Outputs for LEDs
+    output p1_led1[16],
+    output p1_led2[16],
+    output p1_led3[16],
+    output p1_led4[16],
+    output p2_led1[16],
+    output p2_led2[16],
+    output p2_led3[16],
+    output p2_led4[16]
+
+    
+  ) {
+  
+    .clk(clk){
+    
+    //Variable counter is currently unused, not too sure if we need this
+    //edge_detector edge_detector_variableCounter (#RISE(1), #FALL(0));
+    
+    .rst(rst) {
+      variable_counter vc; //Variable counter is currently unused, not too sure if we need this   
+      
+      multi_seven_seg main_seg; 
+      multi_dec_ctr main_dctr; //To decrease the main timer's value
+      decimal_counter_5 mini_dctr_5 (#INIT(d5)); //To decrease the mini timer's value
+      
+      dff mini_timer_5[4] (#INIT(5)); //To store the current value of the mini timer
+      dff p1_col1[16] (#INIT(0)); //Registers for LED columns
+      dff p1_col2[16] (#INIT(0));
+      dff p1_col3[16] (#INIT(0));
+      dff p1_col4[16] (#INIT(0));
+      dff p2_col1[16] (#INIT(0));
+      dff p2_col2[16] (#INIT(0));
+      dff p2_col3[16] (#INIT(0));
+      dff p2_col4[16] (#INIT(0));
+    }
+    
+    fsm states = {     
+      IDLE_1,  
+      START,
+      START_COUNTDOWN,
+      SET_MAIN_TIMER_60,
+      DECREASE_GAMETIMER,
+      MINITIMER_SET_5,
+      MINITIMER_SET_2,
+      DECREASE_MINITIMER,
+      INCREMENT_P1_SCORE,
+      INCREMENT_P2_SCORE,
+      GEN_LED_SEQUENCE,
+      IDLE_2,
+      SHR_P1_B1,
+      SHR_P1_B2,
+      SHR_P1_B3,
+      SHR_P1_B4,
+      SHR_P2_B1,
+      SHR_P2_B2,
+      SHR_P2_B3,
+      SHR_P2_B4,
+      SET_P1_B1_0,
+      SET_P1_B2_0,
+      SET_P1_B3_0,
+      SET_P1_B4_0,
+      SET_P2_B1_0,
+      SET_P2_B2_0,
+      SET_P2_B3_0,
+      SET_P2_B4_0,
+      CHECK_WIN_P1,
+      LOSE_P1,
+      CHECK_WIN_P2,
+      LOSE_P2}; 
+  }
+  
+  seven_seg oneseg; //For the mini timer 
+  
+
+  always {
+  
+    //**NOTE** You always need to define your default OUTPUTS. You cannot only define the outputs inside the states as those are not the default! 
+    //**NOTE2** You also need to define you INPUTS for other modules you call. For example, we call seven_seg, so we need to provide the char[4] input!  
+    
+    //These are the default values for the Regfile! 
+    alufn = 0;
+    asel = 0;
+    bsel = 0;
+    wdsel = 0;
+    wa = 1111; 
+    ra = 0000; 
+    rb = 0000; 
+    we = 0;
+    
+    
+    //These are the default values for the main timer!
+    main_dctr.dec = 0; //Before start button is pressed, we do not decrease the main timer 
+    main_seg.values[1] = 4b0; //Connect default main timer 7 seg values to 0
+    main_seg.values[0] = 4b0;
+    main_timer_sel = main_seg.sel;  //4 bit
+    main_timer_segs = ~main_seg.seg; //8 bit
+    
+    
+    //These are the default values for the mini timer! (5 seconds) 
+    oneseg.char = 4b0; //Connect default mini timer 7 seg values to 0 
+    mini_timer_5_segs = oneseg.segs; //7 bit 
+    mini_dctr_5.dec = 0; //Before start button is pressed, we do not decrease the mini timer
+    
+    
+    
+    //These are the default values for the LEDs! The default is that all LEDs light up. 
+    p1_led1 = p1_col1.q; 
+    p1_led2 = p1_col2.q;
+    p1_led3 = p1_col3.q;
+    p1_led4 = p1_col4.q;
+      
+    p2_led1 = p2_col1.q; 
+    p2_led2 = p2_col2.q;
+    p2_led3 = p2_col3.q;
+    p2_led4 = p2_col4.q;
+    
+    
+    case(states.q){
+      
+      states.IDLE_1:
+      
+        //if start button is pressed (Start_button == 1) 
+        if(start_button){
+          states.d = states.START; 
+        }
+      
+      //Start countdown of 5 seconds in mini timer for players to ready up, and then start the game. 
+      states.START:
+        
+        mini_timer_5.d = mini_dctr_5.value; //mini_dctr_5 is the 5 second mini timer's decimal counter. (decimal_counter_5.luc) 
+        oneseg.char = mini_timer_5.q; //oneseg is the mini timer's 7 segment. (seven_seg.luc) 
+        mini_timer_5_segs = oneseg.segs; //mini_timer_5_segs is the 7 segment output. We pass this to au_top which then displays it with io_seg.
+        mini_dctr_5.dec = dec; //dec is based off the slow clock in au_top. It will decrease mini_dctr_5 by 1 every clock cycle. 
+              
+        
+        //Set main timer to 60 seconds when mini timer reaches 0
+        if(mini_timer_5.q == 0){
+        
+          //FOR MAIN TIMER 
+          main_seg.values = main_dctr.digits; //main_seg is the main timer's 7 segment. (multi_seven_seg) 
+          main_timer_segs = ~main_seg.seg; //Connect segments to the driver
+          main_timer_sel = main_seg.sel; //Connect digit select to the driver
+          main_dctr.dec = dec; //Start the countdown for main timer!
+          states.d = states.GEN_LED_SEQUENCE; 
+        }
+        
+        
+      //Generate the random LED sequence for both players
+      states.GEN_LED_SEQUENCE:
+      
+        //led_register.d = rng16; //Store the LED sequence. Probably not needed? 
+        alufn = b100001;
+        asel = b11;
+        wa = b0011;          
+        we = b1;
+        
+        p1_led1[3:0] = data[3][3:0];
+        
+        //Store the generated sequence into the column registers for each player
+
+        
+      
+        states.d = states.IDLE_2;
+        
+        
+      //This state does nothing, wait for button input and branch to next states
+      states.IDLE_2:
+ 
+        if(p1_button1){
+          states.d = states.SHR_P1_B1;
+        }  
+        if(p1_button2){
+          states.d = states.SHR_P1_B2; 
+        }
+        if(p1_button3){
+          states.d = states.SHR_P1_B3;
+        }
+        if(p1_button4){
+          states.d = states.SHR_P1_B4;  
+        }
+        /*
+        if(p2_button1){
+          states.d = states.SHR_P2_B1;
+        }
+        if(p2_button2){
+          states.d = states.SHR_P2_B2; 
+        }
+        if(p2_button3){
+          states.d = states.SHR_P2_B3;
+        }
+        if(p2_button4){
+          states.d = states.SHR_P2_B4;  
+        }
+        */
+        
+        states.d = states.IDLE_2; 
+        
+      /*
+        output alufn[6],
+        output asel[3],
+        output bsel[3],
+        output wdsel[2],
+        output regfile_wa[4],
+        output regfile_ra[4],
+        output regfile_rb[4],
+        output we_regfile,
+      */  
+        
+        
+      states.SHR_P1_B1: 
+      
+        if(p1_col1.q != 0){
+          alufn = b100001;
+          asel = 0;
+          bsel = b10; 
+          wdsel = 0;
+          wa = 0;   
+          ra = 0;
+          rb = 0; 
+        }
+        
+ 
+      states.SHR_P1_B2:
+      
+        if(p1_col2.q != 0){
+          alufn = b100001;
+          asel = 0;
+          bsel = b10; 
+          wdsel = 0;
+          wa = 0;   
+          ra = 0;
+          rb = 0; 
+        }
+        
+      
+      states.SHR_P1_B3:
+      
+        if(p1_col3.q != 0){
+          alufn = b100001;
+          asel = 0;
+          bsel = b10; 
+          wdsel = 0;
+          wa = 0;   
+          ra = 0;
+          rb = 0; 
+        }
+        
+      
+      states.SHR_P1_B4:
+      
+        if(p1_col4.q != 0){
+          alufn = b100001;
+          asel = 0;
+          bsel = b10; 
+          wdsel = 0;
+          wa = 0;   
+          ra = 0;
+          rb = 0; 
+        }
+        
+        
+    }
+  }
+}

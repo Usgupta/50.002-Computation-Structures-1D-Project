@@ -1,18 +1,27 @@
 
 module beta (
     input start_button,
-    input p1_button1,
-    input p1_button2,
-    input p1_button3,
-    input p1_button4,
+    //input p1_button1,
+    //input p1_button2,
+    //input p1_button3,
+    //input p1_button4,
     input clk,  // clock
     input rst,  // reset
     input rng16,
     input dec,
 
-    output main_timer_segs[4],
-    output main_timer_sel[8],
-    output mini_timer_5_segs[8]
+    output main_timer_segs[8],
+    output main_timer_sel[4],
+    output mini_timer_5_segs[8],
+
+    output p1_led1[16],
+    output p1_led2[16],
+    output p1_led3[16],
+    output p1_led4[16],
+    output p2_led1[16],
+    output p2_led2[16],
+    output p2_led3[16],
+    output p2_led4[16]
 
   ) {
 
@@ -50,20 +59,20 @@ module beta (
 
       //pass button press signal to CU unit
       game_controlunit.start_button = start_button;
-      game_controlunit.p1_button1 = p1_button1;
-      game_controlunit.p1_button2 = p1_button2;
-      game_controlunit.p1_button3 = p1_button3;
-     game_controlunit.p1_button4 = p1_button4;
+      //game_controlunit.p1_button1 = p1_button1;
+      //game_controlunit.p1_button2 = p1_button2;
+      //game_controlunit.p1_button3 = p1_button3;
+     //game_controlunit.p1_button4 = p1_button4;
       game_controlunit.rng16 = rng16;
       game_controlunit.dec = dec;
 
 
       //Setup REGFILE unit
-      players.we = game_controlunit.we;
-      players.write_address = game_controlunit.wa;
+      players.we = game_controlunit.we_regfile;
+      players.write_address = game_controlunit.regfile_wa;
 
-    players.read_address_a = game_controlunit.ra;
-    players.read_address_b = game_controlunit.rb;
+    players.read_address_a = game_controlunit.regfile_ra;
+    players.read_address_b = game_controlunit.regfile_rb;
 
     //bootstrap reg_b output to CU for convenient branching conditions
     //game_controlunit.regfile_datain = players.out_b;
@@ -107,6 +116,14 @@ module beta (
 
     main_timer_segs = game_controlunit.main_timer_segs;
     main_timer_sel = game_controlunit.main_timer_sel;
-    mini_timer_5_segs = game_controlunit.mini_timer_5_segs;
+    mini_timer_5_segs = game_controlunit.mini_timer_segs;
+    p1_led1 = game_controlunit.p1_led1;
+    p1_led2 = game_controlunit.p1_led2;
+    p1_led3 = game_controlunit.p1_led3;
+    p1_led4 = game_controlunit.p1_led4;
+    p2_led1 = game_controlunit.p2_led1;
+    p2_led2 = game_controlunit.p2_led2;
+    p2_led3 = game_controlunit.p2_led3;
+    p2_led4 = game_controlunit.p2_led4;
   }
 }

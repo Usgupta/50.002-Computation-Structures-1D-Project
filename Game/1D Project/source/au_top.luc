@@ -126,86 +126,64 @@ module au_top (
     }
     */
 
-
-
-    /*
-    For player 1 column 1 LEDs
-
-    pin io_led[1][6] A24;
-    pin io_led[1][7] A23;
-    pin io_led[2][0] A21;
-    pin io_led[2][1] A20;
-    */
-
-
-
-    /*
-    For player 1 column 2 LEDs
-
-    pin io_led[0][0] B21;
-    pin io_led[0][1] B20;
-    pin io_led[0][2] B18;
-    pin io_led[0][3] B17;
-    */
-
-
-
-
-    /*
-    For player 1 column 3 LEDs
-
-    pin io_led[1][0] B9;
-    pin io_led[1][1] B8;
-    pin io_led[1][2] B6;
-    pin io_led[1][3] B5;
-    */
-
-
-
-
-    /*
-    For player 1 column 4 LEDs
-
-    pin io_led[2][4] A15;
-    pin io_led[2][5] A14;
-    pin io_led[2][6] A12;
-    pin io_led[2][7] A11;
-    */
-
-
-
-
-    /*
-    For player 2 column 1 LEDs
-    */
-
-
-    /*
-    For player 2 column 2 LEDs
-    */
-
-
-    /*
-    For player 2 column 3 LEDs
-    */
-
-
-    /*
-    For player 2 column 4 LEDs
-    */
-
-
-    /*
-    For Start and Reset buttons
-    Start button uses C2 (in), C3(gnd) and Reset button uses C5(in), C6(gnd).
-
-      pin io_dip[2][4] C2 pulldown;
-      pin io_dip[2][5] C3 pulldown;
-      pin io_dip[2][6] C5 pulldown;
-      pin io_dip[2][7] C6 pulldown;
-      pin io_dip[1][6] A27 pulldown; USING THIS TEMPORARILY!
-    */
-
+/* 
+    For player 1 column 1 LEDs  
+        
+    pin io_led[1][6] A24; 
+    pin io_led[1][7] A23; 
+    pin io_led[2][0] A21; 
+    pin io_led[2][1] A20; 
+    */  
+     
+    io_led[1][6] = game_beta.p1_led1[0]; //A24 
+    io_led[1][7] = game_beta.p1_led1[1]; //A23 
+    io_led[2][0] = game_beta.p1_led1[2]; //A21  
+    io_led[2][1] = game_beta.p1_led1[3]; //A20  
+     
+  
+    /* 
+    For player 1 column 2 LEDs  
+        
+    pin io_led[0][0] B21; 
+    pin io_led[0][1] B20; 
+    pin io_led[0][2] B18; 
+    pin io_led[0][3] B17;    
+    */  
+     
+    io_led[0][0] = game_beta.p1_led2[0]; //B21   
+    io_led[0][1] = game_beta.p1_led2[1]; //B20    
+    io_led[0][2] = game_beta.p1_led2[2]; //B18  
+    io_led[0][3] = game_beta.p1_led2[3]; //B17  
+     
+     
+    /* 
+    For player 1 column 3 LEDs  
+        
+    pin io_led[1][0] B9; 
+    pin io_led[1][1] B8; 
+    pin io_led[1][2] B6; 
+    pin io_led[1][3] B5; 
+    */ 
+     
+    io_led[1][0] = game_beta.p1_led3[0]; //B9     
+    io_led[1][1] = game_beta.p1_led3[1]; //B8    
+    io_led[1][2] = game_beta.p1_led3[2]; //B6     
+    io_led[1][3] = game_beta.p1_led3[3]; //B5  
+     
+     
+    /* 
+    For player 1 column 4 LEDs 
+        
+    pin io_led[2][4] A15; 
+    pin io_led[2][5] A14; 
+    pin io_led[2][6] A12; 
+    pin io_led[2][7] A11; 
+    */ 
+     
+    io_led[2][4] = game_beta.p1_led4[0]; //A15  
+    io_led[2][5] = game_beta.p1_led4[1]; //A14 
+    io_led[2][6] = game_beta.p1_led4[2]; //A12 
+    io_led[2][7] = game_beta.p1_led4[3]; //A11
 
     //Start Button
     start_button.in = ~io_dip[1][6]; //MUST use ~ for button (Not sure why, but it is how it is)
@@ -239,10 +217,10 @@ module au_top (
     //game_fsm.p1_button4 = edge_p1_button4.out;
 
 
-    game_beta.p1_button1 = edge_p1_button1.out;
-    game_beta.p1_button2 = edge_p1_button2.out;
-    game_beta.p1_button3 = edge_p1_button3.out;
-    game_beta.p1_button4 = edge_p1_button4.out;
+    //game_beta.p1_button1 = edge_p1_button1.out;
+    //game_beta.p1_button2 = edge_p1_button2.out;
+    //game_beta.p1_button3 = edge_p1_button3.out;
+    //game_beta.p1_button4 = edge_p1_button4.out;
 
     //For Debugging
     /*

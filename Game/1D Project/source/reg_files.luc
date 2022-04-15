@@ -1,15 +1,13 @@
 //the regfile for all game information
-/*
 module reg_files (
     input clk,  // clock
     input rst,  // reset
     input write_address[4], // write address
     input we, // write enable
     input data[16], // data in
-    
-    
     input read_address_a[4], //address port a 
     input read_address_b[4], //address port b
+    
     output out_a[16], //read port a
     output out_b[16] //read port b
     
@@ -21,8 +19,14 @@ module reg_files (
       dff p1_score[16];
       dff p2_score[16];
       dff light_up[16];
-      dff p1_led[16];
-      dff p2_led[16];
+      dff p1_col1[16];
+      dff p1_col2[16];
+      dff p1_col3[16];
+      dff p1_col4[16];
+      dff p2_col1[16];
+      dff p2_col2[16];
+      dff p2_col3[16];
+      dff p2_col4[16];
       dff mini_timer[16];
       dff main_timer[16];
       dff p1_buttonPress[16];
@@ -39,14 +43,14 @@ module reg_files (
         b0000 :  p1_score.d = data;
         b0001 :  p2_score.d = data;
         b0010 :  light_up.d = data;
-        b0011 :  p1_led.d[3:0] = data[3:0];
-        b0100 :  p1_led.d[7:4] = data[7:4];
-        b0101 :  p1_led.d[11:8] = data[11:8];
-        b0110 :  p1_led.d[15:12] = data[15:12];
-        b0111 :  p2_led.d[3:0] = data[3:0];
-        b1000 :  p2_led.d[7:4] = data[7:4];
-        b1001 :  p2_led.d[11:8] = data[11:8];
-        b1010 :  p2_led.d[15:12] = data[15:12];
+        b0011 :  p1_col1.d = data;
+        b0100 :  p1_col2.d = data;
+        b0101 :  p1_col3.d = data;
+        b0110 :  p1_col4.d = data;
+        b0111 :  p2_col1.d = data;
+        b1000 :  p2_col2.d = data;
+        b1001 :  p2_col3.d = data;
+        b1010 :  p2_col4.d = data;
         b1011 :  mini_timer.d = data;
         b1100 :  main_timer.d = data;
     
@@ -60,14 +64,14 @@ module reg_files (
           b0000 : out_a = p1_score.q;
           b0001 : out_a = p2_score.q;
           b0010 : out_a = light_up.q;
-          b0011 :  p1_led.q[3:0];
-          b0100 :  p1_led.q[7:4]; 
-          b0101 :  p1_led.q[11:8];
-          b0110 :  p1_led.q[15:12];
-          b0111 :  p2_led.q[3:0];
-          b1000 :  p2_led.q[7:4];
-          b1001 :  p2_led.q[11:8];
-          b1010 :  p2_led.q[15:12];
+          b0011 : out_a = p1_col1.q;
+          b0100 : out_a = p1_col2.q;
+          b0101 : out_a = p1_col3.q;
+          b0110 : out_a = p1_col4.q;
+          b0111 : out_a = p2_col1.q;
+          b1000 : out_a = p2_col2.q;
+          b1001 : out_a = p2_col3.q;
+          b1010 : out_a = p2_col4.q;
           b1011 : out_a = mini_timer.q;
           b1100 : out_a = main_timer.q;
   
@@ -96,4 +100,3 @@ module reg_files (
     
   }
 }
-*/

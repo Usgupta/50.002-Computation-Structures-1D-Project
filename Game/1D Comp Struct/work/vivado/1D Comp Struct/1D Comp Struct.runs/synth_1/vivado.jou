@@ -2,8 +2,8 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Fri Apr 15 19:45:01 2022
-# Process ID: 19600
+# Start of session at: Fri Apr 15 20:15:19 2022
+# Process ID: 17596
 # Current directory: C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.runs/synth_1
 # Command line: vivado.exe -log au_top_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source au_top_0.tcl
 # Log file: C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.runs/synth_1/au_top_0.vds

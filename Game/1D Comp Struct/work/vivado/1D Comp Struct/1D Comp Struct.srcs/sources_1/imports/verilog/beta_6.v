@@ -46,8 +46,8 @@ module beta_6 (
     .n(M_game_alu_n)
   );
   
-  wire [4-1:0] M_lookup_led_Out;
-  reg [4-1:0] M_lookup_randgen;
+  wire [16-1:0] M_lookup_led_Out;
+  reg [16-1:0] M_lookup_randgen;
   look_up_table_9 lookup (
     .randgen(M_lookup_randgen),
     .led_Out(M_lookup_led_Out)
@@ -173,7 +173,7 @@ module beta_6 (
     M_game_controlunit_p1_button4 = p1_button4;
     M_game_controlunit_rng16 = rng16;
     M_game_controlunit_dec = dec;
-    M_lookup_randgen = rng16[0+3-:4];
+    M_lookup_randgen = rng16;
     M_players_we = M_game_controlunit_we;
     M_players_write_address = M_game_controlunit_wa;
     M_players_read_address_a = M_game_controlunit_ra;

@@ -5,65 +5,65 @@
 */
 
 module look_up_table_9 (
-    input [3:0] randgen,
-    output reg [3:0] led_Out
+    input [15:0] randgen,
+    output reg [15:0] led_Out
   );
   
   
   
   always @* begin
     
-    case (randgen)
+    case (randgen[0+3-:4])
       4'h1: begin
-        led_Out = 4'h1;
+        led_Out = 16'h0001;
       end
       4'h2: begin
-        led_Out = 4'h1;
+        led_Out = 16'h0001;
       end
       4'h4: begin
-        led_Out = 4'h1;
+        led_Out = 16'h0001;
       end
       4'h8: begin
-        led_Out = 4'h1;
+        led_Out = 16'h0001;
       end
       4'h3: begin
-        led_Out = 4'h3;
+        led_Out = 16'h0003;
       end
       4'h5: begin
-        led_Out = 4'h3;
+        led_Out = 16'h0003;
       end
       4'h9: begin
-        led_Out = 4'h3;
+        led_Out = 16'h0003;
       end
       4'hc: begin
-        led_Out = 4'h3;
+        led_Out = 16'h0003;
       end
       4'h7: begin
-        led_Out = 4'h7;
+        led_Out = 16'h0007;
       end
       4'hb: begin
-        led_Out = 4'h7;
+        led_Out = 16'h0007;
       end
       4'hd: begin
-        led_Out = 4'h7;
+        led_Out = 16'h0007;
       end
       4'he: begin
-        led_Out = 4'h7;
+        led_Out = 16'h0007;
       end
       4'hf: begin
-        led_Out = 4'hf;
+        led_Out = 16'h000f;
       end
       4'h6: begin
-        led_Out = 4'hf;
+        led_Out = 16'h000f;
       end
       4'ha: begin
-        led_Out = 4'hf;
+        led_Out = 16'h000f;
       end
       4'h0: begin
-        led_Out = 4'hf;
+        led_Out = 16'h000f;
       end
       default: begin
-        led_Out = 4'h0;
+        led_Out = 16'h0000;
       end
     endcase
   end

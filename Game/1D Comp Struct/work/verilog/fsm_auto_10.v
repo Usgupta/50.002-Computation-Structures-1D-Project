@@ -130,6 +130,7 @@ module fsm_auto_10 (
   always @* begin
     M_states_d = M_states_q;
     M_mini_timer_5_d = M_mini_timer_5_q;
+    M_p1_col1_d = M_p1_col1_q;
     
     alufn = 1'h0;
     asel = 1'h0;
@@ -176,11 +177,11 @@ module fsm_auto_10 (
         end
       end
       GEN_LED_SEQUENCE_states: begin
-        alufn = 6'h21;
+        alufn = 6'h1a;
         asel = 2'h3;
         wa = 4'h3;
         we = 1'h1;
-        p1_led1[0+3-:4] = data[48+0+3-:4];
+        M_p1_col1_d = data[64+15-:16];
         M_states_d = IDLE_2_states;
       end
       IDLE_2_states: begin
@@ -196,6 +197,14 @@ module fsm_auto_10 (
         if (p1_button4) begin
           M_states_d = SHR_P1_B4_states;
         end
+        p1_led1 = M_p1_col1_q;
+        p1_led2 = M_p1_col2_q;
+        p1_led3 = M_p1_col3_q;
+        p1_led4 = M_p1_col4_q;
+        p2_led1 = M_p2_col1_q;
+        p2_led2 = M_p2_col2_q;
+        p2_led3 = M_p2_col3_q;
+        p2_led4 = M_p2_col4_q;
         M_states_d = IDLE_2_states;
       end
       SHR_P1_B1_states: begin
@@ -246,8 +255,6 @@ module fsm_auto_10 (
   end
   
   always @(posedge clk) begin
-    M_states_q <= M_states_d;
-    
     if (rst == 1'b1) begin
       M_mini_timer_5_q <= 3'h5;
       M_p1_col1_q <= 1'h0;
@@ -269,6 +276,8 @@ module fsm_auto_10 (
       M_p2_col3_q <= M_p2_col3_d;
       M_p2_col4_q <= M_p2_col4_d;
     end
+    
+    M_states_q <= M_states_d;
   end
   
 endmodule

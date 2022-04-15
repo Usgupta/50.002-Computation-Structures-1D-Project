@@ -73,7 +73,7 @@ module beta (
       game_controlunit.dec = dec;
     
     //Generate the LED sequence by getting 4 bits for each column from the randomly generated 16 bit number. 
-    lookup.randgen = rng16[3:0];
+    lookup.randgen = rng16;
 
 
     //Setup REGFILE unit

@@ -244,6 +244,7 @@ module au_top (
     edge_p1_button4.in = p1_button4.out;
     
     //Input to FSM 
+    /*
     game_fsm.p1_button1 = edge_p1_button1.out;
     game_fsm.p1_button2 = edge_p1_button2.out;
     game_fsm.p1_button3 = edge_p1_button3.out;
@@ -296,7 +297,7 @@ module au_top (
     */
     
     //Light up the mini timer 7 segment
-    io_seg2 = game_fsm.mini_timer_5_segs;
+    io_seg2 = game_fsm.mini_timer_segs;
 
   }
 }

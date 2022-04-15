@@ -184,30 +184,21 @@ module fsm_auto_10 (
         asel = 2'h3;
         wa = 4'h3;
         we = 1'h1;
-        M_states_d = GEN_LED_SEQUENCEP12_states;
-      end
-      GEN_LED_SEQUENCEP12_states: begin
         alufn = 6'h1a;
         asel = 2'h3;
         wa = 4'h4;
         we = 1'h1;
-        M_states_d = GEN_LED_SEQUENCEP13_states;
-      end
-      GEN_LED_SEQUENCEP13_states: begin
-        alufn = 6'h1a;
-        asel = 2'h3;
-        wa = 4'h5;
-        we = 1'h1;
-        M_states_d = GEN_LED_SEQUENCEP14_states;
-      end
-      GEN_LED_SEQUENCEP14_states: begin
-        alufn = 6'h1a;
-        asel = 2'h3;
-        wa = 4'h6;
-        we = 1'h1;
+        M_states_d = IDLE_2_states;
         M_states_d = IDLE_2_states;
       end
       IDLE_2_states: begin
+        M_mini_timer_5_d = M_mini_dctr_5_value;
+        M_oneseg_char = M_mini_timer_5_q;
+        mini_timer_5_segs = M_oneseg_segs;
+        M_mini_dctr_5_dec = dec;
+        if (M_mini_timer_5_q == 1'h0) begin
+          M_states_d = GEN_LED_SEQUENCEP11_states;
+        end
         if (p1_button1) begin
           M_states_d = SHR_P1_B1_states;
         end
@@ -220,7 +211,6 @@ module fsm_auto_10 (
         if (p1_button4) begin
           M_states_d = SHR_P1_B4_states;
         end
-        M_states_d = IDLE_2_states;
       end
       SHR_P1_B1_states: begin
         if (M_p1_col1_q != 1'h0) begin

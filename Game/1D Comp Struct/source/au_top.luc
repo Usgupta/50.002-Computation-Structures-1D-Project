@@ -102,7 +102,7 @@ module au_top (
 
     //Used to generate our random sequence. The same seed is used on reset.
     random.seed = 128h843233523a613966423b622562592c62;
-    random.next = 1;
+    random.next = edge_detector_slow_timer.out;
 
 
     //Edge detector for slow timer

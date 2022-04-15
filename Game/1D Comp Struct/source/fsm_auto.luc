@@ -46,6 +46,7 @@ module fsm_auto (
     
     
     //Outputs for 7 segment timers 
+    
     output main_timer_sel[4],
     output main_timer_segs[8],
     output mini_timer_5_segs[8],
@@ -200,6 +201,7 @@ module fsm_auto (
           main_timer_segs = ~main_seg.seg; //Connect segments to the driver
           main_timer_sel = main_seg.sel; //Connect digit select to the driver
           main_dctr.dec = dec; //Start the countdown for main timer!
+          
           states.d = states.GEN_LED_SEQUENCEP11; 
         }
         
@@ -212,29 +214,26 @@ module fsm_auto (
         asel = b11;
         wa = b0011;          
         we = b1;
-        
-         
+   
         //Store the generated sequence into the column registers for each player
 
         
-      
-        states.d = states.GEN_LED_SEQUENCEP12;
         
         states.GEN_LED_SEQUENCEP12:
       
         //led_register.d = rng16; //Store the LED sequence. Probably not needed? 
+
         alufn = b011010;
         asel = b11;
         wa = b0100;          
         we = b1;
         
         
-        
          
         //Store the generated sequence into the column registers for each player
 
         
-      
+   /*   
         states.d = states.GEN_LED_SEQUENCEP13;
         states.GEN_LED_SEQUENCEP13:
       
@@ -260,7 +259,7 @@ module fsm_auto (
         wa = b0110;          
         we = b1;
         
-
+        */
         
          
         //Store the generated sequence into the column registers for each player
@@ -269,7 +268,17 @@ module fsm_auto (
         
       //This state does nothing, wait for button input and branch to next states
       states.IDLE_2:
- 
+      
+        mini_timer_5.d = mini_dctr_5.value; //mini_dctr_5 is the 5 second mini timer's decimal counter. (decimal_counter_5.luc) 
+        oneseg.char = mini_timer_5.q; //oneseg is the mini timer's 7 segment. (seven_seg.luc) 
+        mini_timer_5_segs = oneseg.segs; //mini_timer_5_segs is the 7 segment output. We pass this to au_top which then displays it with io_seg.
+        mini_dctr_5.dec = dec; //dec is based off the slow clock in au_top. It will decrease mini_dctr_5 by 1 every clock cycle.
+        
+        if(mini_timer_5.q == 0){
+          states.d = states.GEN_LED_SEQUENCEP11; 
+        }
+
+        
         if(p1_button1){
           states.d = states.SHR_P1_B1;
         }  
@@ -308,8 +317,8 @@ module fsm_auto (
         p2_led4 = p2_col4.q;
         */
        
-        states.d = states.IDLE_2; 
-        
+        //states.d = states.IDLE_2; 
+       
       /*
         output alufn[6],
         output asel[3],

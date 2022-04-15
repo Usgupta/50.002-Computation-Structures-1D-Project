@@ -172,7 +172,7 @@ module au_top_0 (
     io_seg = 1'h0;
     io_led = 24'h000000;
     M_random_seed = 128'h843233523a613966423b622562592c62;
-    M_random_next = 1'h1;
+    M_random_next = 14'h2710;
     M_edge_detector_slow_timer_in = M_slow_timer_value;
     M_game_beta_dec = M_edge_detector_slow_timer_out;
     M_game_beta_rng16 = M_random_num[0+15-:16];

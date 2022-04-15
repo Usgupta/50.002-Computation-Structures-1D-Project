@@ -1,5 +1,5 @@
-set_property SRC_FILE_INFO {cfile:{C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Project Computation Structures/work/constraint/io.xdc} rfile:../../../../../constraint/io.xdc id:1} [current_design]
-set_property SRC_FILE_INFO {cfile:{C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Project Computation Structures/work/constraint/alchitry.xdc} rfile:../../../../../constraint/alchitry.xdc id:2} [current_design]
+set_property SRC_FILE_INFO {cfile:{C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Project/work/constraint/io.xdc} rfile:../../../../../constraint/io.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:{C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Project/work/constraint/alchitry.xdc} rfile:../../../../../constraint/alchitry.xdc id:2} [current_design]
 set_property src_info {type:XDC file:1 line:1 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN B6 [get_ports {io_led[0]}]
 set_property src_info {type:XDC file:1 line:3 export:INPUT save:INPUT read:READ} [current_design]

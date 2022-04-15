@@ -28,6 +28,7 @@ module fsm_auto (
     
     //Inputs from REGFILE 
     input data[13][16],
+    input first_col[16],
     /*
     
     */
@@ -97,7 +98,10 @@ module fsm_auto (
       DECREASE_MINITIMER,
       INCREMENT_P1_SCORE,
       INCREMENT_P2_SCORE,
-      GEN_LED_SEQUENCE,
+      GEN_LED_SEQUENCEP11,
+      GEN_LED_SEQUENCEP12,
+      GEN_LED_SEQUENCEP13,
+      GEN_LED_SEQUENCEP14,
       IDLE_2,
       SHR_P1_B1,
       SHR_P1_B2,
@@ -156,16 +160,19 @@ module fsm_auto (
     
     
     //These are the default values for the LEDs! The default is that all LEDs light up. 
-    p1_led1 = p1_col1.q; 
-    p1_led2 = p1_col2.q;
-    p1_led3 = p1_col3.q;
-    p1_led4 = p1_col4.q;
+   
+    p1_led1 = data[6];
+    p1_led2 = data[4];
+    p1_led3 = data[5];
+    p1_led4 = data[3];
       
     p2_led1 = p2_col1.q; 
     p2_led2 = p2_col2.q;
     p2_led3 = p2_col3.q;
     p2_led4 = p2_col4.q;
     
+      
+   
     
     case(states.q){
       
@@ -193,12 +200,12 @@ module fsm_auto (
           main_timer_segs = ~main_seg.seg; //Connect segments to the driver
           main_timer_sel = main_seg.sel; //Connect digit select to the driver
           main_dctr.dec = dec; //Start the countdown for main timer!
-          states.d = states.GEN_LED_SEQUENCE; 
+          states.d = states.GEN_LED_SEQUENCEP11; 
         }
         
         
       //Generate the random LED sequence for both players
-      states.GEN_LED_SEQUENCE:
+      states.GEN_LED_SEQUENCEP11:
       
         //led_register.d = rng16; //Store the LED sequence. Probably not needed? 
         alufn = b011010;
@@ -206,14 +213,59 @@ module fsm_auto (
         wa = b0011;          
         we = b1;
         
-        p1_col1.d = data[4];
-        
+         
         //Store the generated sequence into the column registers for each player
 
         
       
-        states.d = states.IDLE_2;
+        states.d = states.GEN_LED_SEQUENCEP12;
         
+        states.GEN_LED_SEQUENCEP12:
+      
+        //led_register.d = rng16; //Store the LED sequence. Probably not needed? 
+        alufn = b011010;
+        asel = b11;
+        wa = b0100;          
+        we = b1;
+        
+        
+        
+         
+        //Store the generated sequence into the column registers for each player
+
+        
+      
+        states.d = states.GEN_LED_SEQUENCEP13;
+        states.GEN_LED_SEQUENCEP13:
+      
+        //led_register.d = rng16; //Store the LED sequence. Probably not needed? 
+        alufn = b011010;
+        asel = b11;
+        wa = b0101;          
+        we = b1;
+        
+        
+        
+         
+        //Store the generated sequence into the column registers for each player
+
+        
+      
+        states.d = states.GEN_LED_SEQUENCEP14;
+         states.GEN_LED_SEQUENCEP14:
+      
+        //led_register.d = rng16; //Store the LED sequence. Probably not needed? 
+        alufn = b011010;
+        asel = b11;
+        wa = b0110;          
+        we = b1;
+        
+
+        
+         
+        //Store the generated sequence into the column registers for each player
+
+        states.d = states.IDLE_2;
         
       //This state does nothing, wait for button input and branch to next states
       states.IDLE_2:
@@ -255,6 +307,7 @@ module fsm_auto (
         p2_led3 = p2_col3.q;
         p2_led4 = p2_col4.q;
         */
+       
         states.d = states.IDLE_2; 
         
       /*

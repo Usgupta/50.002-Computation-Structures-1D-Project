@@ -14,7 +14,8 @@ module reg_files_11 (
     input [3:0] read_address_b,
     output reg [15:0] out_a,
     output reg [15:0] out_b,
-    output reg [207:0] data_out
+    output reg [207:0] data_out,
+    output reg [15:0] first_col
   );
   
   
@@ -184,7 +185,8 @@ module reg_files_11 (
         out_b = 1'h0;
       end
     endcase
-    data_out = {M_p1_score_q, M_p2_score_q, M_light_up_q, M_p1_col1_q, M_p1_col2_q, M_p1_col3_q, M_p1_col4_q, M_p2_col1_q, M_p2_col2_q, M_p2_col3_q, M_p2_col4_q, M_mini_timer_q, M_main_timer_q};
+    first_col = M_p1_col1_q;
+    data_out = {M_main_timer_q, M_mini_timer_q, M_p2_col4_q, M_p2_col3_q, M_p2_col2_q, M_p2_col1_q, M_p1_col4_q, M_p1_col3_q, M_p1_col2_q, M_p1_col1_q, M_light_up_q, M_p2_score_q, M_p1_score_q};
   end
   
   always @(posedge clk) begin

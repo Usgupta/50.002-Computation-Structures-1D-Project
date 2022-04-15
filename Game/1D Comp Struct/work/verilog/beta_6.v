@@ -94,6 +94,7 @@ module beta_6 (
   reg [1-1:0] M_game_controlunit_dec;
   reg [16-1:0] M_game_controlunit_rng16;
   reg [208-1:0] M_game_controlunit_data;
+  reg [16-1:0] M_game_controlunit_first_col;
   fsm_auto_10 game_controlunit (
     .clk(clk),
     .rst(rst),
@@ -105,6 +106,7 @@ module beta_6 (
     .dec(M_game_controlunit_dec),
     .rng16(M_game_controlunit_rng16),
     .data(M_game_controlunit_data),
+    .first_col(M_game_controlunit_first_col),
     .alufn(M_game_controlunit_alufn),
     .asel(M_game_controlunit_asel),
     .bsel(M_game_controlunit_bsel),
@@ -128,6 +130,7 @@ module beta_6 (
   wire [16-1:0] M_players_out_a;
   wire [16-1:0] M_players_out_b;
   wire [208-1:0] M_players_data_out;
+  wire [16-1:0] M_players_first_col;
   reg [4-1:0] M_players_write_address;
   reg [1-1:0] M_players_we;
   reg [16-1:0] M_players_data;
@@ -143,7 +146,8 @@ module beta_6 (
     .read_address_b(M_players_read_address_b),
     .out_a(M_players_out_a),
     .out_b(M_players_out_b),
-    .data_out(M_players_data_out)
+    .data_out(M_players_data_out),
+    .first_col(M_players_first_col)
   );
   wire [1-1:0] M_vc_out;
   wire [16-1:0] M_vc_debug;
@@ -166,6 +170,7 @@ module beta_6 (
     M_game_timer_detector_in = M_slow_timer_value;
     M_edge_detector_variableCounter_in = M_vc_out;
     M_game_controlunit_data = M_players_data_out;
+    M_game_controlunit_first_col = M_players_first_col;
     M_game_controlunit_start_button = start_button;
     M_game_controlunit_p1_button1 = p1_button1;
     M_game_controlunit_p1_button2 = p1_button2;

@@ -15,6 +15,7 @@ module fsm_auto_10 (
     input dec,
     input [15:0] rng16,
     input [207:0] data,
+    input [15:0] first_col,
     output reg [5:0] alufn,
     output reg [2:0] asel,
     output reg [2:0] bsel,
@@ -85,40 +86,43 @@ module fsm_auto_10 (
   reg [15:0] M_p2_col2_d, M_p2_col2_q = 1'h0;
   reg [15:0] M_p2_col3_d, M_p2_col3_q = 1'h0;
   reg [15:0] M_p2_col4_d, M_p2_col4_q = 1'h0;
-  localparam IDLE_1_states = 5'd0;
-  localparam START_states = 5'd1;
-  localparam START_COUNTDOWN_states = 5'd2;
-  localparam SET_MAIN_TIMER_60_states = 5'd3;
-  localparam DECREASE_GAMETIMER_states = 5'd4;
-  localparam MINITIMER_SET_5_states = 5'd5;
-  localparam MINITIMER_SET_2_states = 5'd6;
-  localparam DECREASE_MINITIMER_states = 5'd7;
-  localparam INCREMENT_P1_SCORE_states = 5'd8;
-  localparam INCREMENT_P2_SCORE_states = 5'd9;
-  localparam GEN_LED_SEQUENCE_states = 5'd10;
-  localparam IDLE_2_states = 5'd11;
-  localparam SHR_P1_B1_states = 5'd12;
-  localparam SHR_P1_B2_states = 5'd13;
-  localparam SHR_P1_B3_states = 5'd14;
-  localparam SHR_P1_B4_states = 5'd15;
-  localparam SHR_P2_B1_states = 5'd16;
-  localparam SHR_P2_B2_states = 5'd17;
-  localparam SHR_P2_B3_states = 5'd18;
-  localparam SHR_P2_B4_states = 5'd19;
-  localparam SET_P1_B1_0_states = 5'd20;
-  localparam SET_P1_B2_0_states = 5'd21;
-  localparam SET_P1_B3_0_states = 5'd22;
-  localparam SET_P1_B4_0_states = 5'd23;
-  localparam SET_P2_B1_0_states = 5'd24;
-  localparam SET_P2_B2_0_states = 5'd25;
-  localparam SET_P2_B3_0_states = 5'd26;
-  localparam SET_P2_B4_0_states = 5'd27;
-  localparam CHECK_WIN_P1_states = 5'd28;
-  localparam LOSE_P1_states = 5'd29;
-  localparam CHECK_WIN_P2_states = 5'd30;
-  localparam LOSE_P2_states = 5'd31;
+  localparam IDLE_1_states = 6'd0;
+  localparam START_states = 6'd1;
+  localparam START_COUNTDOWN_states = 6'd2;
+  localparam SET_MAIN_TIMER_60_states = 6'd3;
+  localparam DECREASE_GAMETIMER_states = 6'd4;
+  localparam MINITIMER_SET_5_states = 6'd5;
+  localparam MINITIMER_SET_2_states = 6'd6;
+  localparam DECREASE_MINITIMER_states = 6'd7;
+  localparam INCREMENT_P1_SCORE_states = 6'd8;
+  localparam INCREMENT_P2_SCORE_states = 6'd9;
+  localparam GEN_LED_SEQUENCEP11_states = 6'd10;
+  localparam GEN_LED_SEQUENCEP12_states = 6'd11;
+  localparam GEN_LED_SEQUENCEP13_states = 6'd12;
+  localparam GEN_LED_SEQUENCEP14_states = 6'd13;
+  localparam IDLE_2_states = 6'd14;
+  localparam SHR_P1_B1_states = 6'd15;
+  localparam SHR_P1_B2_states = 6'd16;
+  localparam SHR_P1_B3_states = 6'd17;
+  localparam SHR_P1_B4_states = 6'd18;
+  localparam SHR_P2_B1_states = 6'd19;
+  localparam SHR_P2_B2_states = 6'd20;
+  localparam SHR_P2_B3_states = 6'd21;
+  localparam SHR_P2_B4_states = 6'd22;
+  localparam SET_P1_B1_0_states = 6'd23;
+  localparam SET_P1_B2_0_states = 6'd24;
+  localparam SET_P1_B3_0_states = 6'd25;
+  localparam SET_P1_B4_0_states = 6'd26;
+  localparam SET_P2_B1_0_states = 6'd27;
+  localparam SET_P2_B2_0_states = 6'd28;
+  localparam SET_P2_B3_0_states = 6'd29;
+  localparam SET_P2_B4_0_states = 6'd30;
+  localparam CHECK_WIN_P1_states = 6'd31;
+  localparam LOSE_P1_states = 6'd32;
+  localparam CHECK_WIN_P2_states = 6'd33;
+  localparam LOSE_P2_states = 6'd34;
   
-  reg [4:0] M_states_d, M_states_q = IDLE_1_states;
+  reg [5:0] M_states_d, M_states_q = IDLE_1_states;
   
   wire [7-1:0] M_oneseg_segs;
   reg [4-1:0] M_oneseg_char;
@@ -130,7 +134,6 @@ module fsm_auto_10 (
   always @* begin
     M_states_d = M_states_q;
     M_mini_timer_5_d = M_mini_timer_5_q;
-    M_p1_col1_d = M_p1_col1_q;
     
     alufn = 1'h0;
     asel = 1'h0;
@@ -148,10 +151,10 @@ module fsm_auto_10 (
     M_oneseg_char = 4'h0;
     mini_timer_5_segs = M_oneseg_segs;
     M_mini_dctr_5_dec = 1'h0;
-    p1_led1 = M_p1_col1_q;
-    p1_led2 = M_p1_col2_q;
-    p1_led3 = M_p1_col3_q;
-    p1_led4 = M_p1_col4_q;
+    p1_led1 = data[96+15-:16];
+    p1_led2 = data[64+15-:16];
+    p1_led3 = data[80+15-:16];
+    p1_led4 = data[48+15-:16];
     p2_led1 = M_p2_col1_q;
     p2_led2 = M_p2_col2_q;
     p2_led3 = M_p2_col3_q;
@@ -173,15 +176,35 @@ module fsm_auto_10 (
           main_timer_segs = ~M_main_seg_seg;
           main_timer_sel = M_main_seg_sel;
           M_main_dctr_dec = dec;
-          M_states_d = GEN_LED_SEQUENCE_states;
+          M_states_d = GEN_LED_SEQUENCEP11_states;
         end
       end
-      GEN_LED_SEQUENCE_states: begin
+      GEN_LED_SEQUENCEP11_states: begin
         alufn = 6'h1a;
         asel = 2'h3;
         wa = 4'h3;
         we = 1'h1;
-        M_p1_col1_d = data[64+15-:16];
+        M_states_d = GEN_LED_SEQUENCEP12_states;
+      end
+      GEN_LED_SEQUENCEP12_states: begin
+        alufn = 6'h1a;
+        asel = 2'h3;
+        wa = 4'h4;
+        we = 1'h1;
+        M_states_d = GEN_LED_SEQUENCEP13_states;
+      end
+      GEN_LED_SEQUENCEP13_states: begin
+        alufn = 6'h1a;
+        asel = 2'h3;
+        wa = 4'h5;
+        we = 1'h1;
+        M_states_d = GEN_LED_SEQUENCEP14_states;
+      end
+      GEN_LED_SEQUENCEP13_states: begin
+        alufn = 6'h1a;
+        asel = 2'h3;
+        wa = 4'h6;
+        we = 1'h1;
         M_states_d = IDLE_2_states;
       end
       IDLE_2_states: begin
@@ -247,8 +270,6 @@ module fsm_auto_10 (
   end
   
   always @(posedge clk) begin
-    M_states_q <= M_states_d;
-    
     if (rst == 1'b1) begin
       M_mini_timer_5_q <= 3'h5;
       M_p1_col1_q <= 1'h0;
@@ -270,6 +291,8 @@ module fsm_auto_10 (
       M_p2_col3_q <= M_p2_col3_d;
       M_p2_col4_q <= M_p2_col4_d;
     end
+    
+    M_states_q <= M_states_d;
   end
   
 endmodule

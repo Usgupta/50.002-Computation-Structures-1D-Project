@@ -62,7 +62,7 @@ module beta (
 
       //pass button press signal to CU unit
       game_controlunit.data = players.data_out; //This comes from REGFILE 
-    
+      game_controlunit.first_col = players.first_col;
       //These are passing the inputs from au_top to FSM 
       game_controlunit.start_button = start_button; 
       game_controlunit.p1_button1 = p1_button1;

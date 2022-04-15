@@ -200,7 +200,7 @@ module fsm_auto_10 (
         we = 1'h1;
         M_states_d = GEN_LED_SEQUENCEP14_states;
       end
-      GEN_LED_SEQUENCEP13_states: begin
+      GEN_LED_SEQUENCEP14_states: begin
         alufn = 6'h1a;
         asel = 2'h3;
         wa = 4'h6;
@@ -270,6 +270,8 @@ module fsm_auto_10 (
   end
   
   always @(posedge clk) begin
+    M_states_q <= M_states_d;
+    
     if (rst == 1'b1) begin
       M_mini_timer_5_q <= 3'h5;
       M_p1_col1_q <= 1'h0;
@@ -291,8 +293,6 @@ module fsm_auto_10 (
       M_p2_col3_q <= M_p2_col3_d;
       M_p2_col4_q <= M_p2_col4_d;
     end
-    
-    M_states_q <= M_states_d;
   end
   
 endmodule

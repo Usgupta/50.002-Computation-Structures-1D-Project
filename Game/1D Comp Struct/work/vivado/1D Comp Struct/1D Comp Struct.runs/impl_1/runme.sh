@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.runs/impl_1'
+HD_PWD='C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

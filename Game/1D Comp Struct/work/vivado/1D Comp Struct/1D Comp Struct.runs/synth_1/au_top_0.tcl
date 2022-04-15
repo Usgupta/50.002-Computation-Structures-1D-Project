@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.runs/synth_1/au_top_0.tcl"
+  variable script "C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.runs/synth_1/au_top_0.tcl"
   variable category "vivado_synth"
 }
 
@@ -76,44 +76,44 @@ create_project -in_memory -part xc7a35tftg256-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.cache/wt} [current_project]
-set_property parent.project_path {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.xpr} [current_project]
+set_property webtalk.parent_dir {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.cache/wt} [current_project]
+set_property parent.project_path {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.xpr} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/adder_14.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/alu16_8.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/beta_6.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/boolean_15.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/button_conditioner_2.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/compare_17.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/counter_13.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/counter_24.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/counter_25.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/counter_4.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/decimal_counter_27.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/decimal_counter_28.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/decimal_counter_29.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/decimal_counter_5_21.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/decoder_26.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/edge_detector_23.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/edge_detector_3.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/fsm_auto_10.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/look_up_table_9.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/multi_dec_ctr_20.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/multi_seven_seg_19.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/multiplier_18.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/pipeline_7.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/pn_gen_5.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/reg_files_11.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/reset_conditioner_1.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/seven_seg_22.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/shift_16.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/variable_counter_12.v}
-  {C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/au_top_0.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/adder_14.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/alu16_8.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/beta_6.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/boolean_15.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/button_conditioner_2.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/compare_17.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/counter_13.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/counter_24.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/counter_25.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/counter_4.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/decimal_counter_27.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/decimal_counter_28.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/decimal_counter_29.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/decimal_counter_5_21.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/decoder_26.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/edge_detector_23.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/edge_detector_3.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/fsm_auto_10.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/look_up_table_9.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/multi_dec_ctr_20.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/multi_seven_seg_19.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/multiplier_18.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/pipeline_7.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/pn_gen_5.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/reg_files_11.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/reset_conditioner_1.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/seven_seg_22.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/shift_16.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/variable_counter_12.v}
+  {C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/vivado/1D Comp Struct/1D Comp Struct.srcs/sources_1/imports/verilog/au_top_0.v}
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -124,14 +124,14 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc {{C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/constraint/io.xdc}}
-set_property used_in_implementation false [get_files {{C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/constraint/io.xdc}}]
+read_xdc {{C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/constraint/alchitry.xdc}}
+set_property used_in_implementation false [get_files {{C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/constraint/alchitry.xdc}}]
 
-read_xdc {{C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/constraint/alchitry.xdc}}
-set_property used_in_implementation false [get_files {{C:/Users/Lee Chang Zheng/Documents/Alchitry/1D Comp Struct/work/constraint/alchitry.xdc}}]
+read_xdc {{D:/Program Files/Alchitry Labs/library/components/au.xdc}}
+set_property used_in_implementation false [get_files {{D:/Program Files/Alchitry Labs/library/components/au.xdc}}]
 
-read_xdc {{C:/Program Files/Alchitry/Alchitry Labs/library/components/au.xdc}}
-set_property used_in_implementation false [get_files {{C:/Program Files/Alchitry/Alchitry Labs/library/components/au.xdc}}]
+read_xdc {{C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/constraint/io.xdc}}
+set_property used_in_implementation false [get_files {{C:/Users/Cheng Xin/Documents/Alchitry/50.002-Computation-Structures-1D-Project/Game/1D Comp Struct/work/constraint/io.xdc}}]
 
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]

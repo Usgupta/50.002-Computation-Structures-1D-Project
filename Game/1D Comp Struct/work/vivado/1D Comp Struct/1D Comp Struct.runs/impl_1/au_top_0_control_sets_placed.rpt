@@ -1,8 +1,8 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date         : Fri Apr 15 20:16:23 2022
-| Host         : LAPTOP-K4KSM3I3 running 64-bit major release  (build 9200)
+| Date         : Fri Apr 15 20:39:56 2022
+| Host         : LAPTOP-8BRI5POG running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file au_top_0_control_sets_placed.rpt
 | Design       : au_top_0
 | Device       : xc7a35t
@@ -60,10 +60,10 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | No           | No                    | No                     |               4 |            4 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              48 |           16 |
+| No           | Yes                   | No                     |              48 |           18 |
 | Yes          | No                    | No                     |               4 |            1 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              36 |           10 |
+| Yes          | Yes                   | No                     |              36 |            9 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -75,13 +75,13 @@ Table of Contents
 +----------------+--------------------------------------------------------------+----------------------------+------------------+----------------+--------------+
 |  clk_IBUF_BUFG |                                                              |                            |                4 |              4 |         1.00 |
 |  clk_IBUF_BUFG |                                                              | reset_cond/M_reset_cond_in |                2 |              4 |         2.00 |
-|  clk_IBUF_BUFG | game_beta/game_controlunit/main_dctr/dctr1/E[0]              | reset_cond/Q[0]            |                1 |              4 |         4.00 |
-|  clk_IBUF_BUFG | game_beta/game_controlunit/main_dctr/dctr1/M_dctr1_dec       | reset_cond/Q[0]            |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_onehot_M_states_q_reg[1]_0[0] | reset_cond/Q[0]            |                1 |              4 |         4.00 |
 |  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_onehot_M_states_q[3]_i_1_n_0  |                            |                1 |              4 |         4.00 |
-|  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_onehot_M_states_q_reg[1]_0[0] | reset_cond/Q[0]            |                2 |              4 |         2.00 |
 |  clk_IBUF_BUFG | edge_detector_slow_timer/E[0]                                | reset_cond/Q[0]            |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | game_beta/game_controlunit/main_dctr/dctr1/M_dctr1_dec       | reset_cond/Q[0]            |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | game_beta/game_controlunit/main_dctr/dctr1/E[0]              | reset_cond/Q[0]            |                1 |              4 |         4.00 |
 |  clk_IBUF_BUFG | start_button/sel                                             | start_button/sync/clear    |                5 |             20 |         4.00 |
-|  clk_IBUF_BUFG |                                                              | reset_cond/Q[0]            |               14 |             44 |         3.14 |
+|  clk_IBUF_BUFG |                                                              | reset_cond/Q[0]            |               16 |             44 |         2.75 |
 +----------------+--------------------------------------------------------------+----------------------------+------------------+----------------+--------------+
 
 

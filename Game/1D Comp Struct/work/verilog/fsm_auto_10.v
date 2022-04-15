@@ -136,9 +136,9 @@ module fsm_auto_10 (
     asel = 1'h0;
     bsel = 1'h0;
     wdsel = 1'h0;
-    wa = 11'h457;
-    ra = 1'h0;
-    rb = 1'h0;
+    wa = 4'hf;
+    ra = 4'h0;
+    rb = 4'h0;
     we = 1'h0;
     M_main_dctr_dec = 1'h0;
     M_main_seg_values[4+3-:4] = 4'h0;
@@ -197,14 +197,6 @@ module fsm_auto_10 (
         if (p1_button4) begin
           M_states_d = SHR_P1_B4_states;
         end
-        p1_led1 = M_p1_col1_q;
-        p1_led2 = M_p1_col2_q;
-        p1_led3 = M_p1_col3_q;
-        p1_led4 = M_p1_col4_q;
-        p2_led1 = M_p2_col1_q;
-        p2_led2 = M_p2_col2_q;
-        p2_led3 = M_p2_col3_q;
-        p2_led4 = M_p2_col4_q;
         M_states_d = IDLE_2_states;
       end
       SHR_P1_B1_states: begin
@@ -255,6 +247,8 @@ module fsm_auto_10 (
   end
   
   always @(posedge clk) begin
+    M_states_q <= M_states_d;
+    
     if (rst == 1'b1) begin
       M_mini_timer_5_q <= 3'h5;
       M_p1_col1_q <= 1'h0;
@@ -276,8 +270,6 @@ module fsm_auto_10 (
       M_p2_col3_q <= M_p2_col3_d;
       M_p2_col4_q <= M_p2_col4_d;
     end
-    
-    M_states_q <= M_states_d;
   end
   
 endmodule

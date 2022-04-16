@@ -1,0 +1,27 @@
+module look_up_table(
+    input randgen[4],
+    output led_Out[4]
+  ) {
+
+  always {
+    case (randgen) {
+      b0001: led_Out= b0001;
+      b0010: led_Out= b0001;
+      b0100: led_Out= b0001;
+      b1000: led_Out= b0001;
+      b0011: led_Out= b0011;
+      b0101: led_Out= b0011;
+      b1001: led_Out= b0011;
+      b1100: led_Out= b0011;
+      b0111: led_Out= b0111;
+      b1011: led_Out= b0111;
+      b1101: led_Out= b0111;
+      b1110: led_Out= b0111;
+      b1111: led_Out= b1111;
+      b0110: led_Out= b1111;
+      b1010: led_Out= b1111;
+      b0000: led_Out= b1111;
+      default: led_Out= b0000;
+    }
+  }
+}

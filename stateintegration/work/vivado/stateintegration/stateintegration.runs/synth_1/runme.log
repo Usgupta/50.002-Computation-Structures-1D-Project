@@ -1,0 +1,417 @@
+
+*** Running vivado
+    with args -log au_top_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source au_top_0.tcl
+
+
+
+****** Vivado v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source au_top_0.tcl -notrace
+Command: synth_design -top au_top_0 -part xc7a35tftg256-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tftg256-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 16800
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1000.730 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'au_top_0' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/au_top_0.v:7]
+INFO: [Synth 8-6157] synthesizing module 'reset_conditioner_1' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/reset_conditioner_1.v:11]
+	Parameter STAGES bound to: 3'b100 
+INFO: [Synth 8-6155] done synthesizing module 'reset_conditioner_1' (1#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/reset_conditioner_1.v:11]
+INFO: [Synth 8-6157] synthesizing module 'button_conditioner_2' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/button_conditioner_2.v:13]
+	Parameter CLK_FREQ bound to: 26'b10111110101111000010000000 
+	Parameter MIN_DELAY bound to: 5'b10100 
+	Parameter NUM_SYNC bound to: 2'b10 
+INFO: [Synth 8-6157] synthesizing module 'pipeline_7' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/pipeline_7.v:11]
+	Parameter DEPTH bound to: 2'b10 
+INFO: [Synth 8-6155] done synthesizing module 'pipeline_7' (2#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/pipeline_7.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'button_conditioner_2' (3#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/button_conditioner_2.v:13]
+INFO: [Synth 8-6157] synthesizing module 'edge_detector_3' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/edge_detector_3.v:12]
+	Parameter RISE bound to: 1'b1 
+	Parameter FALL bound to: 1'b0 
+INFO: [Synth 8-6155] done synthesizing module 'edge_detector_3' (4#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/edge_detector_3.v:12]
+INFO: [Synth 8-6157] synthesizing module 'counter_4' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/counter_4.v:14]
+	Parameter SIZE bound to: 1'b1 
+	Parameter DIV bound to: 5'b11010 
+	Parameter TOP bound to: 1'b0 
+	Parameter UP bound to: 1'b1 
+	Parameter MAX_VALUE bound to: 27'b011111111111111111111111111 
+INFO: [Synth 8-6155] done synthesizing module 'counter_4' (5#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/counter_4.v:14]
+INFO: [Synth 8-6157] synthesizing module 'pn_gen_5' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/pn_gen_5.v:11]
+	Parameter SEED bound to: 128'b10000100001100100011001101010010001110100110000100111001011001100100001000111011011000100010010101100010010110010010110001100010 
+INFO: [Synth 8-6155] done synthesizing module 'pn_gen_5' (6#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/pn_gen_5.v:11]
+INFO: [Synth 8-6157] synthesizing module 'beta_6' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/beta_6.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu16_8' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/alu16_8.v:7]
+INFO: [Synth 8-6157] synthesizing module 'adder_13' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/adder_13.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'adder_13' (7#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/adder_13.v:7]
+INFO: [Synth 8-6157] synthesizing module 'boolean_14' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/boolean_14.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'boolean_14' (8#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/boolean_14.v:7]
+INFO: [Synth 8-6157] synthesizing module 'shift_15' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/shift_15.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'shift_15' (9#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/shift_15.v:7]
+INFO: [Synth 8-6157] synthesizing module 'compare_16' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/compare_16.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'compare_16' (10#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/compare_16.v:7]
+INFO: [Synth 8-6157] synthesizing module 'multiplier_17' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/multiplier_17.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'multiplier_17' (11#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/multiplier_17.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'alu16_8' (12#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/alu16_8.v:7]
+INFO: [Synth 8-6157] synthesizing module 'fsm_auto_9' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/fsm_auto_9.v:7]
+	Parameter IDLE_1_states bound to: 5'b00000 
+	Parameter START_states bound to: 5'b00001 
+	Parameter START_COUNTDOWN_states bound to: 5'b00010 
+	Parameter SET_MAIN_TIMER_60_states bound to: 5'b00011 
+	Parameter DECREASE_GAMETIMER_states bound to: 5'b00100 
+	Parameter MINITIMER_SET_5_states bound to: 5'b00101 
+	Parameter MINITIMER_SET_2_states bound to: 5'b00110 
+	Parameter DECREASE_MINITIMER_states bound to: 5'b00111 
+	Parameter INCREMENT_P1_SCORE_states bound to: 5'b01000 
+	Parameter INCREMENT_P2_SCORE_states bound to: 5'b01001 
+	Parameter GEN_LED_SEQUENCE_states bound to: 5'b01010 
+	Parameter IDLE_2_states bound to: 5'b01011 
+	Parameter SHR_P1_B1_states bound to: 5'b01100 
+	Parameter SHR_P1_B2_states bound to: 5'b01101 
+	Parameter SHR_P1_B3_states bound to: 5'b01110 
+	Parameter SHR_P1_B4_states bound to: 5'b01111 
+	Parameter SHR_P2_B1_states bound to: 5'b10000 
+	Parameter SHR_P2_B2_states bound to: 5'b10001 
+	Parameter SHR_P2_B3_states bound to: 5'b10010 
+	Parameter SHR_P2_B4_states bound to: 5'b10011 
+	Parameter SET_P1_B1_0_states bound to: 5'b10100 
+	Parameter SET_P1_B2_0_states bound to: 5'b10101 
+	Parameter SET_P1_B3_0_states bound to: 5'b10110 
+	Parameter SET_P1_B4_0_states bound to: 5'b10111 
+	Parameter SET_P2_B1_0_states bound to: 5'b11000 
+	Parameter SET_P2_B2_0_states bound to: 5'b11001 
+	Parameter SET_P2_B3_0_states bound to: 5'b11010 
+	Parameter SET_P2_B4_0_states bound to: 5'b11011 
+	Parameter CHECK_WIN_P1_states bound to: 5'b11100 
+	Parameter LOSE_P1_states bound to: 5'b11101 
+	Parameter CHECK_WIN_P2_states bound to: 5'b11110 
+	Parameter LOSE_P2_states bound to: 5'b11111 
+INFO: [Synth 8-6157] synthesizing module 'variable_counter_11' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/variable_counter_11.v:11]
+	Parameter SEED bound to: 128'b10000100001100100011001101010010001110100110000100111001011001100100001000111011011000100010010101100010010110010010110001100010 
+INFO: [Synth 8-6157] synthesizing module 'edge_detector_23' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/edge_detector_23.v:12]
+	Parameter RISE bound to: 1'b1 
+	Parameter FALL bound to: 1'b1 
+INFO: [Synth 8-6155] done synthesizing module 'edge_detector_23' (13#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/edge_detector_23.v:12]
+INFO: [Synth 8-6157] synthesizing module 'counter_24' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/counter_24.v:14]
+	Parameter SIZE bound to: 1'b1 
+	Parameter DIV bound to: 5'b10101 
+	Parameter TOP bound to: 1'b0 
+	Parameter UP bound to: 1'b1 
+	Parameter MAX_VALUE bound to: 22'b0111111111111111111111 
+INFO: [Synth 8-6155] done synthesizing module 'counter_24' (14#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/counter_24.v:14]
+WARNING: [Synth 8-151] case item 4'b1000 is unreachable [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/variable_counter_11.v:100]
+WARNING: [Synth 8-151] case item 4'b1001 is unreachable [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/variable_counter_11.v:103]
+WARNING: [Synth 8-151] case item 4'b1010 is unreachable [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/variable_counter_11.v:106]
+WARNING: [Synth 8-151] case item 4'b1011 is unreachable [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/variable_counter_11.v:109]
+WARNING: [Synth 8-151] case item 4'b1100 is unreachable [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/variable_counter_11.v:112]
+WARNING: [Synth 8-151] case item 4'b1101 is unreachable [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/variable_counter_11.v:115]
+WARNING: [Synth 8-151] case item 4'b1110 is unreachable [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/variable_counter_11.v:118]
+WARNING: [Synth 8-151] case item 4'b1111 is unreachable [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/variable_counter_11.v:121]
+INFO: [Synth 8-6155] done synthesizing module 'variable_counter_11' (15#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/variable_counter_11.v:11]
+INFO: [Synth 8-6157] synthesizing module 'multi_seven_seg_18' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/multi_seven_seg_18.v:12]
+	Parameter DIGITS bound to: 2'b10 
+	Parameter DIV bound to: 5'b10000 
+	Parameter DIGIT_BITS bound to: 1'b1 
+INFO: [Synth 8-6157] synthesizing module 'counter_25' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/counter_25.v:14]
+	Parameter SIZE bound to: 1'b1 
+	Parameter DIV bound to: 5'b10000 
+	Parameter TOP bound to: 3'b001 
+	Parameter UP bound to: 1'b1 
+	Parameter MAX_VALUE bound to: 19'b0011111111111111111 
+INFO: [Synth 8-6155] done synthesizing module 'counter_25' (16#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/counter_25.v:14]
+INFO: [Synth 8-6157] synthesizing module 'seven_seg_21' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/seven_seg_21.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'seven_seg_21' (17#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/seven_seg_21.v:7]
+INFO: [Synth 8-6157] synthesizing module 'decoder_26' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/decoder_26.v:11]
+	Parameter WIDTH bound to: 1'b1 
+INFO: [Synth 8-6155] done synthesizing module 'decoder_26' (18#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/decoder_26.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'multi_seven_seg_18' (19#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/multi_seven_seg_18.v:12]
+INFO: [Synth 8-6157] synthesizing module 'multi_dec_ctr_19' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/multi_dec_ctr_19.v:11]
+	Parameter DIGITS bound to: 2'b10 
+INFO: [Synth 8-6157] synthesizing module 'decimal_counter_27' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/decimal_counter_27.v:11]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-6155] done synthesizing module 'decimal_counter_27' (20#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/decimal_counter_27.v:11]
+INFO: [Synth 8-6157] synthesizing module 'decimal_counter_28' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/decimal_counter_28.v:11]
+	Parameter INIT bound to: 3'b110 
+INFO: [Synth 8-6155] done synthesizing module 'decimal_counter_28' (21#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/decimal_counter_28.v:11]
+INFO: [Synth 8-6157] synthesizing module 'decimal_counter_29' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/decimal_counter_29.v:11]
+	Parameter INIT bound to: 3'b101 
+INFO: [Synth 8-6155] done synthesizing module 'decimal_counter_29' (22#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/decimal_counter_29.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'multi_dec_ctr_19' (23#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/multi_dec_ctr_19.v:11]
+INFO: [Synth 8-6157] synthesizing module 'decimal_counter_5_20' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/decimal_counter_5_20.v:11]
+	Parameter INIT bound to: 3'b101 
+INFO: [Synth 8-6155] done synthesizing module 'decimal_counter_5_20' (24#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/decimal_counter_5_20.v:11]
+INFO: [Synth 8-6157] synthesizing module 'look_up_table_22' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/look_up_table_22.v:7]
+INFO: [Synth 8-226] default block is never used [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/look_up_table_22.v:16]
+INFO: [Synth 8-6155] done synthesizing module 'look_up_table_22' (25#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/look_up_table_22.v:7]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/fsm_auto_9.v:203]
+INFO: [Synth 8-6155] done synthesizing module 'fsm_auto_9' (26#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/fsm_auto_9.v:7]
+INFO: [Synth 8-6157] synthesizing module 'reg_files_10' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/reg_files_10.v:7]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/reg_files_10.v:54]
+INFO: [Synth 8-6155] done synthesizing module 'reg_files_10' (27#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/reg_files_10.v:7]
+INFO: [Synth 8-6157] synthesizing module 'counter_12' [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/counter_12.v:14]
+	Parameter SIZE bound to: 1'b1 
+	Parameter DIV bound to: 5'b11001 
+	Parameter TOP bound to: 1'b0 
+	Parameter UP bound to: 1'b1 
+	Parameter MAX_VALUE bound to: 26'b01111111111111111111111111 
+INFO: [Synth 8-6155] done synthesizing module 'counter_12' (28#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/counter_12.v:14]
+INFO: [Synth 8-6155] done synthesizing module 'beta_6' (29#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/beta_6.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'au_top_0' (30#1) [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.srcs/sources_1/imports/verilog/au_top_0.v:7]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1000.730 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1000.730 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1000.730 ; gain = 0.000
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.084 . Memory (MB): peak = 1000.730 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/constraint/io.xdc]
+Finished Parsing XDC File [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/constraint/io.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/constraint/io.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/au_top_0_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/au_top_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/constraint/alchitry.xdc]
+Finished Parsing XDC File [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/constraint/alchitry.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/constraint/alchitry.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/au_top_0_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/au_top_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [C:/Program Files/Alchitry/Alchitry Labs/library/components/au.xdc]
+Finished Parsing XDC File [C:/Program Files/Alchitry/Alchitry Labs/library/components/au.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1000.730 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 1000.730 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1000.730 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tftg256-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1000.730 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1000.730 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'M_states_q_reg' in module 'fsm_auto_9'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+           IDLE_1_states |                              001 |                            00000
+            START_states |                              010 |                            00001
+ GEN_LED_SEQUENCE_states |                              100 |                            01010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'M_states_q_reg' using encoding 'one-hot' in module 'fsm_auto_9'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1000.730 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   17 Bit       Adders := 1     
+	   3 Input   16 Bit       Adders := 1     
+	   2 Input   16 Bit       Adders := 3     
+	   2 Input    4 Bit       Adders := 4     
++---XORs : 
+	   2 Input     32 Bit         XORs := 6     
+	   4 Input     32 Bit         XORs := 3     
+	   2 Input     16 Bit         XORs := 1     
+	   2 Input      1 Bit         XORs := 2     
++---Registers : 
+	               32 Bit    Registers := 12    
+	               17 Bit    Registers := 1     
+	               16 Bit    Registers := 15    
+	                4 Bit    Registers := 9     
+	                2 Bit    Registers := 5     
+	                1 Bit    Registers := 12    
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 3     
+	   2 Input   17 Bit        Muxes := 1     
+	   2 Input   16 Bit        Muxes := 9     
+	   5 Input   16 Bit        Muxes := 2     
+	   4 Input   16 Bit        Muxes := 5     
+	   3 Input   16 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 1     
+	   3 Input    8 Bit        Muxes := 1     
+	   2 Input    6 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 5     
+	  16 Input    4 Bit        Muxes := 4     
+	   3 Input    4 Bit        Muxes := 4     
+	   2 Input    1 Bit        Muxes := 12    
+	   4 Input    1 Bit        Muxes := 3     
+	   3 Input    1 Bit        Muxes := 2     
+	  14 Input    1 Bit        Muxes := 13    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+DSP Report: Generating DSP mul/out0, operation Mode is: A*B.
+DSP Report: operator mul/out0 is absorbed into DSP mul/out0.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 1000.730 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+DSP: Preliminary Mapping	Report (see note below)
++--------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name   | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++--------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|multiplier_17 | A*B         | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++--------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 1000.730 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1000.730 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:40 ; elapsed = 00:00:43 . Memory (MB): peak = 1000.730 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 1000.730 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 1000.730 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:46 ; elapsed = 00:00:49 . Memory (MB): peak = 1000.730 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:46 ; elapsed = 00:00:49 . Memory (MB): peak = 1000.730 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:46 ; elapsed = 00:00:49 . Memory (MB): peak = 1000.730 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:46 ; elapsed = 00:00:49 . Memory (MB): peak = 1000.730 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    16|
+|3     |LUT1   |    11|
+|4     |LUT2   |     3|
+|5     |LUT3   |     8|
+|6     |LUT4   |    34|
+|7     |LUT5   |    33|
+|8     |LUT6   |    20|
+|9     |FDRE   |   155|
+|10    |FDSE   |    66|
+|11    |IBUF   |     4|
+|12    |OBUF   |    53|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:46 ; elapsed = 00:00:49 . Memory (MB): peak = 1000.730 ; gain = 0.000
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:31 ; elapsed = 00:00:43 . Memory (MB): peak = 1000.730 ; gain = 0.000
+Synthesis Optimization Complete : Time (s): cpu = 00:00:46 ; elapsed = 00:00:49 . Memory (MB): peak = 1000.730 ; gain = 0.000
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1001.500 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 16 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1001.500 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+81 Infos, 8 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:56 ; elapsed = 00:01:02 . Memory (MB): peak = 1001.500 ; gain = 0.770
+INFO: [Common 17-1381] The checkpoint 'C:/Users/ernes/Desktop/git_demo/NEWUpdated/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.runs/synth_1/au_top_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file au_top_0_utilization_synth.rpt -pb au_top_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sat Apr 16 22:08:29 2022...

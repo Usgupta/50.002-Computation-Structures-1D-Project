@@ -1,0 +1,105 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Sat Apr 16 21:39:52 2022
+| Host         : DESKTOP-FBV1IIO running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file au_top_0_control_sets_placed.rpt
+| Design       : au_top_0
+| Device       : xc7a35t
+-------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    27 |
+|    Minimum number of control sets                        |    27 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    85 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    27 |
+| >= 0 to < 4        |     0 |
+| >= 4 to < 6        |     6 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |    21 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              29 |           16 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |             192 |           48 |
+| Yes          | No                    | No                     |               5 |            4 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             369 |           99 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------+------------------------------------------------------------------+-----------------------------------+------------------+----------------+--------------+
+|  Clock Signal  |                           Enable Signal                          |          Set/Reset Signal         | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------+------------------------------------------------------------------+-----------------------------------+------------------+----------------+--------------+
+|  clk_IBUF_BUFG |                                                                  | reset_cond/M_reset_cond_in        |                2 |              4 |         2.00 |
+|  clk_IBUF_BUFG | game_beta/game_controlunit/mini_dctr_5/M_mini_timer_5_d          | reset_cond/Q[0]                   |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | game_beta/game_controlunit/mini_dctr_5/E[0]                      | reset_cond/Q[0]                   |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | game_beta/game_controlunit/main_dctr/dctr1/M_dctr1_dec           | reset_cond/Q[0]                   |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | game_beta/game_controlunit/main_dctr/dctr1/E[0]                  | reset_cond/Q[0]                   |                2 |              4 |         2.00 |
+|  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_sequential_M_states_q[4]_i_1_n_0  |                                   |                4 |              5 |         1.25 |
+|  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_sequential_M_states_q_reg[4]_3[0] | reset_cond/Q[0]                   |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_sequential_M_states_q_reg[1]_3[0] | reset_cond/Q[0]                   |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_sequential_M_states_q_reg[1]_1[0] | reset_cond/Q[0]                   |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_sequential_M_states_q_reg[1]_2[0] | reset_cond/Q[0]                   |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_sequential_M_states_q_reg[4]_2[0] | reset_cond/Q[0]                   |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_sequential_M_states_q_reg[1]_0[0] | reset_cond/Q[0]                   |                6 |             16 |         2.67 |
+|  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_sequential_M_states_q_reg[1]_7[0] | reset_cond/Q[0]                   |                4 |             17 |         4.25 |
+|  clk_IBUF_BUFG | p1_button2/M_ctr_q_reg[3]_0                                      | p1_button2/sync/M_pipe_q_reg[1]_0 |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_sequential_M_states_q_reg[4]_5[0] | reset_cond/Q[0]                   |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG | game_beta/game_controlunit/E[0]                                  | reset_cond/Q[0]                   |                6 |             20 |         3.33 |
+|  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_sequential_M_states_q_reg[1]_6[0] | reset_cond/Q[0]                   |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG | p1_button1/M_ctr_q_reg[3]_0                                      | p1_button1/sync/M_pipe_q_reg[1]_0 |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG | p1_button3/M_ctr_q_reg[3]_0                                      | p1_button3/sync/M_pipe_q_reg[1]_0 |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG | p1_button4/M_ctr_q_reg[3]_0                                      | p1_button4/sync/M_pipe_q_reg[1]_0 |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG | start_button/sel                                                 | start_button/sync/clear           |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG | p2_button1/M_ctr_q_reg[3]_0                                      | p2_button1/sync/M_pipe_q_reg[1]_0 |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG | p2_button2/M_ctr_q_reg[3]_0                                      | p2_button2/sync/M_pipe_q_reg[1]_0 |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG | p2_button3/M_ctr_q_reg[3]_0                                      | p2_button3/sync/M_pipe_q_reg[1]_0 |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG | p2_button4/M_ctr_q_reg[3]_0                                      | p2_button4/sync/M_pipe_q_reg[1]_0 |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG |                                                                  |                                   |               16 |             29 |         1.81 |
+|  clk_IBUF_BUFG |                                                                  | reset_cond/Q[0]                   |               46 |            188 |         4.09 |
++----------------+------------------------------------------------------------------+-----------------------------------+------------------+----------------+--------------+
+
+

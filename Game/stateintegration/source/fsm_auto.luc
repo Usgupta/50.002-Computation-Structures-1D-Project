@@ -112,7 +112,11 @@ module fsm_auto (
       SHR_P2_B2,
       SHR_P2_B3,
       SHR_P2_B4,
-      INVALID,
+      INVALID1,
+      INVALID2,
+      INVALID3,
+      INVALID4,
+      PRINT_INV,
       SET_P1_B1_0,
       SET_P1_B2_0,
       SET_P1_B3_0,
@@ -342,7 +346,7 @@ module fsm_auto (
           states.d = states.CHECK_WIN_P1;
         
         }else{
-          states.d = states.INVALID;
+          states.d = states.INVALID1;
         }
         
       states.SHR_P1_B2:
@@ -360,7 +364,7 @@ module fsm_auto (
           states.d = states.CHECK_WIN_P1;
         }
         else{
-          states.d = states.INVALID;
+          states.d = states.INVALID1;
         }
         
         
@@ -379,7 +383,7 @@ module fsm_auto (
           states.d = states.CHECK_WIN_P1; 
         }
         else{
-          states.d = states.INVALID;
+          states.d = states.INVALID1;
         }
         
       
@@ -397,7 +401,7 @@ module fsm_auto (
           states.d = states.CHECK_WIN_P1;
         }
         else{
-          states.d = states.INVALID;
+          states.d = states.INVALID1;
         }
         
         //read port a
@@ -422,6 +426,8 @@ module fsm_auto (
         
    
         if(data[3] == 0 && data[4]==0 && data[5]==0 && data[6]==0){
+     
+          
           states.d = states.INCREMENT_P1_SCORE;
         }
         else{
@@ -437,27 +443,83 @@ module fsm_auto (
         we = 1;
         ra = b0000; // 0x0
         wa = b0000; // 0x0
+        
+        /*
         p1_led1= 16b1111; 
         p1_led2= 16b1111; 
         p1_led3= 16b1111; 
         p1_led4= 16b1111; 
        
-      
+      */
         
         states.d = states.GEN_LED_SEQUENCEP11;
+      
         
- 
+      states.INVALID1:
+        alufn = b011010;
+        asel = b10;
+        wa = b0011;          
+        we = b1;
+        
+        states.d = states.INVALID2;  
         
         
-      states.INVALID:
+      states.INVALID2:
+      
+        alufn = b011010;
+        asel = b10;
+        wa = b0100;          
+        we = b1;
+        
+        states.d = states.INVALID3;
+        
+      states.INVALID3:
+      
+        alufn = b011010;
+        asel = b10;
+        wa = b0101;          
+        we = b1;
+        
+        states.d = states.INVALID4;
+        
+      states.INVALID4:
+      
+        alufn = b011010;
+        asel = b10;
+        wa = b0110;          
+        we = b1;
+    
+        /*
         p1_led1= 16b1111; 
         p1_led2= 16b1111; 
         p1_led3= 16b1111; 
         p1_led4= 16b1111; 
-        states.d= states.GEN_LED_SEQUENCEP11;
+        */
+        states.d = states.PRINT_INV;
         
-
+     
+       
+        /*
         
+        states.d= states.PRINT_INV;
+        */
+        
+        states.PRINT_INV:
+      
+        mini_dctr_5.dec = dec;
+              
+        
+        //Set main timer to 60 seconds when mini timer reaches 0
+        if(mini_timer_5.q == 0){
+           states.d = states.GEN_LED_SEQUENCEP11; 
+        }
+        
+        else if(dec){
+            mini_timer_5.d = mini_timer_5.q -1;
+            states.d = states.PRINT_INV; 
+        }
+      
+       states.d = states.PRINT_INV;
         
     }
   }

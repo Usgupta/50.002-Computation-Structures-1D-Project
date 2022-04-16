@@ -109,19 +109,23 @@ module fsm_auto_10 (
   localparam SHR_P2_B2_states = 6'd20;
   localparam SHR_P2_B3_states = 6'd21;
   localparam SHR_P2_B4_states = 6'd22;
-  localparam INVALID_states = 6'd23;
-  localparam SET_P1_B1_0_states = 6'd24;
-  localparam SET_P1_B2_0_states = 6'd25;
-  localparam SET_P1_B3_0_states = 6'd26;
-  localparam SET_P1_B4_0_states = 6'd27;
-  localparam SET_P2_B1_0_states = 6'd28;
-  localparam SET_P2_B2_0_states = 6'd29;
-  localparam SET_P2_B3_0_states = 6'd30;
-  localparam SET_P2_B4_0_states = 6'd31;
-  localparam CHECK_WIN_P1_states = 6'd32;
-  localparam LOSE_P1_states = 6'd33;
-  localparam CHECK_WIN_P2_states = 6'd34;
-  localparam LOSE_P2_states = 6'd35;
+  localparam INVALID1_states = 6'd23;
+  localparam INVALID2_states = 6'd24;
+  localparam INVALID3_states = 6'd25;
+  localparam INVALID4_states = 6'd26;
+  localparam PRINT_INV_states = 6'd27;
+  localparam SET_P1_B1_0_states = 6'd28;
+  localparam SET_P1_B2_0_states = 6'd29;
+  localparam SET_P1_B3_0_states = 6'd30;
+  localparam SET_P1_B4_0_states = 6'd31;
+  localparam SET_P2_B1_0_states = 6'd32;
+  localparam SET_P2_B2_0_states = 6'd33;
+  localparam SET_P2_B3_0_states = 6'd34;
+  localparam SET_P2_B4_0_states = 6'd35;
+  localparam CHECK_WIN_P1_states = 6'd36;
+  localparam LOSE_P1_states = 6'd37;
+  localparam CHECK_WIN_P2_states = 6'd38;
+  localparam LOSE_P2_states = 6'd39;
   
   reg [5:0] M_states_d, M_states_q = IDLE_1_states;
   
@@ -246,7 +250,7 @@ module fsm_auto_10 (
           we = 1'h1;
           M_states_d = CHECK_WIN_P1_states;
         end else begin
-          M_states_d = INVALID_states;
+          M_states_d = INVALID1_states;
         end
       end
       SHR_P1_B2_states: begin
@@ -261,7 +265,7 @@ module fsm_auto_10 (
           we = 1'h1;
           M_states_d = CHECK_WIN_P1_states;
         end else begin
-          M_states_d = INVALID_states;
+          M_states_d = INVALID1_states;
         end
       end
       SHR_P1_B3_states: begin
@@ -276,7 +280,7 @@ module fsm_auto_10 (
           we = 1'h1;
           M_states_d = CHECK_WIN_P1_states;
         end else begin
-          M_states_d = INVALID_states;
+          M_states_d = INVALID1_states;
         end
       end
       SHR_P1_B4_states: begin
@@ -291,7 +295,7 @@ module fsm_auto_10 (
           we = 1'h1;
           M_states_d = CHECK_WIN_P1_states;
         end else begin
-          M_states_d = INVALID_states;
+          M_states_d = INVALID1_states;
         end
       end
       CHECK_WIN_P1_states: begin
@@ -308,18 +312,47 @@ module fsm_auto_10 (
         we = 1'h1;
         ra = 4'h0;
         wa = 4'h0;
-        p1_led1 = 16'h000f;
-        p1_led2 = 16'h000f;
-        p1_led3 = 16'h000f;
-        p1_led4 = 16'h000f;
         M_states_d = GEN_LED_SEQUENCEP11_states;
       end
-      INVALID_states: begin
-        p1_led1 = 16'h000f;
-        p1_led2 = 16'h000f;
-        p1_led3 = 16'h000f;
-        p1_led4 = 16'h000f;
-        M_states_d = GEN_LED_SEQUENCEP11_states;
+      INVALID1_states: begin
+        alufn = 6'h1a;
+        asel = 2'h2;
+        wa = 4'h3;
+        we = 1'h1;
+        M_states_d = INVALID2_states;
+      end
+      INVALID2_states: begin
+        alufn = 6'h1a;
+        asel = 2'h2;
+        wa = 4'h4;
+        we = 1'h1;
+        M_states_d = INVALID3_states;
+      end
+      INVALID3_states: begin
+        alufn = 6'h1a;
+        asel = 2'h2;
+        wa = 4'h5;
+        we = 1'h1;
+        M_states_d = INVALID4_states;
+      end
+      INVALID4_states: begin
+        alufn = 6'h1a;
+        asel = 2'h2;
+        wa = 4'h6;
+        we = 1'h1;
+        M_states_d = PRINT_INV_states;
+      end
+      PRINT_INV_states: begin
+        M_mini_dctr_5_dec = dec;
+        if (M_mini_timer_5_q == 1'h0) begin
+          M_states_d = GEN_LED_SEQUENCEP11_states;
+        end else begin
+          if (dec) begin
+            M_mini_timer_5_d = M_mini_timer_5_q - 1'h1;
+            M_states_d = PRINT_INV_states;
+          end
+        end
+        M_states_d = PRINT_INV_states;
       end
     endcase
   end

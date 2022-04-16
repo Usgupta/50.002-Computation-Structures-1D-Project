@@ -192,7 +192,7 @@ module beta_6 (
         M_game_alu_a = 16'h0005;
       end
       2'h2: begin
-        M_game_alu_a = 16'h003c;
+        M_game_alu_a = 4'hf;
       end
       2'h3: begin
         M_game_alu_a = M_lookup_led_Out;
@@ -213,7 +213,7 @@ module beta_6 (
         M_game_alu_b = 16'h0001;
       end
       2'h2: begin
-        M_game_alu_b = 16'h0002;
+        M_game_alu_b = 4'hf;
       end
       default: begin
         M_game_alu_b = 1'h0;

@@ -91,7 +91,7 @@ module beta (
     case(game_controlunit.asel){
       b00  : game_alu.a = players.out_a;
       b01  : game_alu.a = 16h5;
-      b10  : game_alu.a = 16h3C;
+      b10  : game_alu.a = 4b1111;
       b11  : game_alu.a = lookup.led_Out;
       default : //b10 unused
           game_alu.a = 0;
@@ -102,7 +102,7 @@ module beta (
       b00 : game_alu.b = players.out_b;
       b01 : game_alu.b = 16h0;
       b11 : game_alu.b = 16h1;
-      b10 : game_alu.b = 16h2;
+      b10 : game_alu.b = 4b1111;
       default: //necessary to init
           game_alu.b = 0;
 

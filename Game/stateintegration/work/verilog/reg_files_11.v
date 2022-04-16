@@ -35,9 +35,11 @@ module reg_files_11 (
   reg [15:0] M_main_timer_d, M_main_timer_q = 1'h0;
   reg [15:0] M_p1_buttonPress_d, M_p1_buttonPress_q = 1'h0;
   reg [15:0] M_p2_buttonPress_d, M_p2_buttonPress_q = 1'h0;
+  reg [15:0] M_temp_d, M_temp_q = 1'h0;
   
   always @* begin
     M_p1_score_d = M_p1_score_q;
+    M_temp_d = M_temp_q;
     M_light_up_d = M_light_up_q;
     M_p2_col4_d = M_p2_col4_q;
     M_p2_col3_d = M_p2_col3_q;
@@ -93,6 +95,9 @@ module reg_files_11 (
         4'hc: begin
           M_main_timer_d = data;
         end
+        4'hf: begin
+          M_temp_d = data;
+        end
       endcase
     end
     
@@ -135,6 +140,9 @@ module reg_files_11 (
       end
       4'hc: begin
         out_a = M_main_timer_q;
+      end
+      4'hf: begin
+        out_a = M_temp_q;
       end
       default: begin
         out_a = 1'h0;
@@ -181,6 +189,9 @@ module reg_files_11 (
       4'hc: begin
         out_b = M_main_timer_q;
       end
+      4'hf: begin
+        out_b = M_temp_q;
+      end
       default: begin
         out_b = 1'h0;
       end
@@ -206,6 +217,7 @@ module reg_files_11 (
       M_main_timer_q <= 1'h0;
       M_p1_buttonPress_q <= 1'h0;
       M_p2_buttonPress_q <= 1'h0;
+      M_temp_q <= 1'h0;
     end else begin
       M_p1_score_q <= M_p1_score_d;
       M_p2_score_q <= M_p2_score_d;
@@ -222,6 +234,7 @@ module reg_files_11 (
       M_main_timer_q <= M_main_timer_d;
       M_p1_buttonPress_q <= M_p1_buttonPress_d;
       M_p2_buttonPress_q <= M_p2_buttonPress_d;
+      M_temp_q <= M_temp_d;
     end
   end
   

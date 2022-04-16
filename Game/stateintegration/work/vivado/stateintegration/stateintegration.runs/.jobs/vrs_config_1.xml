@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Runs Version="1" Minor="0">
-	<Run Id="synth_1" LaunchDir="C:/Users/loan/Desktop/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="synth_1" LaunchDir="C:/Users/Lee Chang Zheng/Documents/GitHub/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
 	<Parameters>
 		<Parameter Name="runs.monitorLSFJobs" Val="true" Type="bool"/>
 		<Parameter Name="runs.enableClusterConf" Val="true" Type="bool"/>

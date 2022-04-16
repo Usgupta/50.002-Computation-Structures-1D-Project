@@ -1,8 +1,8 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date         : Sat Apr 16 15:07:03 2022
-| Host         : DOVLT1412002 running 64-bit major release  (build 9200)
+| Date         : Sat Apr 16 19:29:13 2022
+| Host         : LAPTOP-K4KSM3I3 running 64-bit major release  (build 9200)
 | Command      : report_methodology -file au_top_0_methodology_drc_routed.rpt -pb au_top_0_methodology_drc_routed.pb -rpx au_top_0_methodology_drc_routed.rpx
 | Design       : au_top_0
 | Device       : xc7a35tftg256-1
@@ -23,11 +23,11 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 50
+             Violations found: 38
 +-----------+----------+-------------------------------+------------+
 | Rule      | Severity | Description                   | Violations |
 +-----------+----------+-------------------------------+------------+
-| TIMING-18 | Warning  | Missing input or output delay | 50         |
+| TIMING-18 | Warning  | Missing input or output delay | 38         |
 +-----------+----------+-------------------------------+------------+
 
 2. REPORT DETAILS
@@ -220,66 +220,6 @@ Related violations: <none>
 TIMING-18#38 Warning
 Missing input or output delay  
 An output delay is missing on io_seg2[7] relative to clock(s) clk_0
-Related violations: <none>
-
-TIMING-18#39 Warning
-Missing input or output delay  
-An output delay is missing on io_seg[0] relative to clock(s) clk_0
-Related violations: <none>
-
-TIMING-18#40 Warning
-Missing input or output delay  
-An output delay is missing on io_seg[1] relative to clock(s) clk_0
-Related violations: <none>
-
-TIMING-18#41 Warning
-Missing input or output delay  
-An output delay is missing on io_seg[2] relative to clock(s) clk_0
-Related violations: <none>
-
-TIMING-18#42 Warning
-Missing input or output delay  
-An output delay is missing on io_seg[3] relative to clock(s) clk_0
-Related violations: <none>
-
-TIMING-18#43 Warning
-Missing input or output delay  
-An output delay is missing on io_seg[4] relative to clock(s) clk_0
-Related violations: <none>
-
-TIMING-18#44 Warning
-Missing input or output delay  
-An output delay is missing on io_seg[5] relative to clock(s) clk_0
-Related violations: <none>
-
-TIMING-18#45 Warning
-Missing input or output delay  
-An output delay is missing on io_seg[6] relative to clock(s) clk_0
-Related violations: <none>
-
-TIMING-18#46 Warning
-Missing input or output delay  
-An output delay is missing on io_seg[7] relative to clock(s) clk_0
-Related violations: <none>
-
-TIMING-18#47 Warning
-Missing input or output delay  
-An output delay is missing on io_sel[0] relative to clock(s) clk_0
-Related violations: <none>
-
-TIMING-18#48 Warning
-Missing input or output delay  
-An output delay is missing on io_sel[1] relative to clock(s) clk_0
-Related violations: <none>
-
-TIMING-18#49 Warning
-Missing input or output delay  
-An output delay is missing on io_sel[2] relative to clock(s) clk_0
-Related violations: <none>
-
-TIMING-18#50 Warning
-Missing input or output delay  
-An output delay is missing on io_sel[3] relative to clock(s) clk_0
 Related violations: <none>
 
 

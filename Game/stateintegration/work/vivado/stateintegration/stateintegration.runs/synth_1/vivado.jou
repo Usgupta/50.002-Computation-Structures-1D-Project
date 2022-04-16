@@ -2,11 +2,11 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Sat Apr 16 15:04:33 2022
-# Process ID: 12040
-# Current directory: C:/Users/loan/Desktop/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.runs/synth_1
+# Start of session at: Sat Apr 16 19:27:11 2022
+# Process ID: 18548
+# Current directory: C:/Users/Lee Chang Zheng/Documents/GitHub/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.runs/synth_1
 # Command line: vivado.exe -log au_top_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source au_top_0.tcl
-# Log file: C:/Users/loan/Desktop/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.runs/synth_1/au_top_0.vds
-# Journal file: C:/Users/loan/Desktop/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.runs/synth_1\vivado.jou
+# Log file: C:/Users/Lee Chang Zheng/Documents/GitHub/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.runs/synth_1/au_top_0.vds
+# Journal file: C:/Users/Lee Chang Zheng/Documents/GitHub/50.002-Computation-Structures-1D-Project/Game/stateintegration/work/vivado/stateintegration/stateintegration.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source au_top_0.tcl -notrace

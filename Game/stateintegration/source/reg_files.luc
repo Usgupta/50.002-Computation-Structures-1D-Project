@@ -32,6 +32,7 @@ module reg_files (
       dff main_timer[16];
       dff p1_buttonPress[16];
       dff p2_buttonPress[16];
+      dff temp[16];
       
     }
   }
@@ -54,6 +55,8 @@ module reg_files (
         b1010 :  p2_col4.d = data;
         b1011 :  mini_timer.d = data;
         b1100 :  main_timer.d = data;
+        b1111 :  temp.d = data;
+
     
  
       }
@@ -75,8 +78,8 @@ module reg_files (
           b1010 : out_a = p2_col4.q;
           b1011 : out_a = mini_timer.q;
           b1100 : out_a = main_timer.q;
-  
-        default : out_a = 0;
+          b1111 : out_a = temp.q;
+          default : out_a = 0;
     }
     
     //read port b
@@ -94,6 +97,7 @@ module reg_files (
         b1010 : out_b = p2_col4.q;
         b1011 : out_b = mini_timer.q;
         b1100 : out_b = main_timer.q;
+        b1111 : out_b = temp.q;
 
         default : out_b = 0;
     }

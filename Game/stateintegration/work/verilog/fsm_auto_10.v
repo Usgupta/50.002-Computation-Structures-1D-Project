@@ -78,6 +78,7 @@ module fsm_auto_10 (
     .value(M_mini_dctr_5_value)
   );
   reg [3:0] M_mini_timer_5_d, M_mini_timer_5_q = 3'h5;
+  reg [15:0] M_main_timer_d, M_main_timer_q = 1'h1;
   reg [15:0] M_p1_col1_d, M_p1_col1_q = 1'h0;
   reg [15:0] M_p1_col2_d, M_p1_col2_q = 1'h0;
   reg [15:0] M_p1_col3_d, M_p1_col3_q = 1'h0;
@@ -101,31 +102,37 @@ module fsm_auto_10 (
   localparam GEN_LED_SEQUENCEP13_states = 6'd12;
   localparam GEN_LED_SEQUENCEP14_states = 6'd13;
   localparam IDLE_2_states = 6'd14;
-  localparam SHR_P1_B1_states = 6'd15;
-  localparam SHR_P1_B2_states = 6'd16;
-  localparam SHR_P1_B3_states = 6'd17;
-  localparam SHR_P1_B4_states = 6'd18;
-  localparam SHR_P2_B1_states = 6'd19;
-  localparam SHR_P2_B2_states = 6'd20;
-  localparam SHR_P2_B3_states = 6'd21;
-  localparam SHR_P2_B4_states = 6'd22;
-  localparam INVALID1_states = 6'd23;
-  localparam INVALID2_states = 6'd24;
-  localparam INVALID3_states = 6'd25;
-  localparam INVALID4_states = 6'd26;
-  localparam PRINT_INV_states = 6'd27;
-  localparam SET_P1_B1_0_states = 6'd28;
-  localparam SET_P1_B2_0_states = 6'd29;
-  localparam SET_P1_B3_0_states = 6'd30;
-  localparam SET_P1_B4_0_states = 6'd31;
-  localparam SET_P2_B1_0_states = 6'd32;
-  localparam SET_P2_B2_0_states = 6'd33;
-  localparam SET_P2_B3_0_states = 6'd34;
-  localparam SET_P2_B4_0_states = 6'd35;
-  localparam CHECK_WIN_P1_states = 6'd36;
-  localparam LOSE_P1_states = 6'd37;
-  localparam CHECK_WIN_P2_states = 6'd38;
-  localparam LOSE_P2_states = 6'd39;
+  localparam SET_TIMER_states = 6'd15;
+  localparam DEC_TIMER_states = 6'd16;
+  localparam CHECK_TIMER_states = 6'd17;
+  localparam SHR_P1_B1_states = 6'd18;
+  localparam SHR_P1_B2_states = 6'd19;
+  localparam SHR_P1_B3_states = 6'd20;
+  localparam SHR_P1_B4_states = 6'd21;
+  localparam SHR_P2_B1_states = 6'd22;
+  localparam SHR_P2_B2_states = 6'd23;
+  localparam SHR_P2_B3_states = 6'd24;
+  localparam SHR_P2_B4_states = 6'd25;
+  localparam INVALID1_states = 6'd26;
+  localparam INVALID2_states = 6'd27;
+  localparam INVALID3_states = 6'd28;
+  localparam INVALID4_states = 6'd29;
+  localparam PRINT_INV_states = 6'd30;
+  localparam SET_P1_B1_0_states = 6'd31;
+  localparam SET_P1_B2_0_states = 6'd32;
+  localparam SET_P1_B3_0_states = 6'd33;
+  localparam SET_P1_B4_0_states = 6'd34;
+  localparam SET_P2_B1_0_states = 6'd35;
+  localparam SET_P2_B2_0_states = 6'd36;
+  localparam SET_P2_B3_0_states = 6'd37;
+  localparam SET_P2_B4_0_states = 6'd38;
+  localparam CHECK_WIN_P1_states = 6'd39;
+  localparam LOSE_P1_states = 6'd40;
+  localparam START_TIMER_states = 6'd41;
+  localparam CHECK_WIN_P2_states = 6'd42;
+  localparam BRANCH_TIMER_states = 6'd43;
+  localparam LOSE_P2_states = 6'd44;
+  localparam CHECK_WIN_states = 6'd45;
   
   reg [5:0] M_states_d, M_states_q = IDLE_1_states;
   
@@ -168,7 +175,7 @@ module fsm_auto_10 (
     p1_led3 = data[80+15-:16];
     p1_led4 = data[96+15-:16];
     M_debug_char = data[0+15-:16];
-    main_timer_segs = M_debug_segs;
+    main_timer_segs = 1'h0;
     main_timer_sel = 1'h1;
     p2_led1 = M_p2_col1_q;
     p2_led2 = M_p2_col2_q;
@@ -178,21 +185,15 @@ module fsm_auto_10 (
     case (M_states_q)
       IDLE_1_states: begin
         if (start_button) begin
-          M_states_d = START_states;
+          M_states_d = START_TIMER_states;
         end
       end
-      START_states: begin
-        M_mini_timer_5_d = M_mini_dctr_5_value;
-        M_oneseg_char = M_mini_timer_5_q;
-        mini_timer_5_segs = M_oneseg_segs;
-        M_mini_dctr_5_dec = dec;
-        if (M_mini_timer_5_q == 1'h0) begin
-          M_main_seg_values = M_main_dctr_digits;
-          main_timer_segs = ~M_main_seg_seg;
-          main_timer_sel = M_main_seg_sel;
-          M_main_dctr_dec = dec;
-          M_states_d = GEN_LED_SEQUENCEP11_states;
-        end
+      START_TIMER_states: begin
+        alufn = 6'h1a;
+        asel = 2'h1;
+        we = 1'h1;
+        wa = 4'hc;
+        M_states_d = GEN_LED_SEQUENCEP11_states;
       end
       GEN_LED_SEQUENCEP11_states: begin
         alufn = 6'h1a;
@@ -222,6 +223,14 @@ module fsm_auto_10 (
         we = 1'h1;
         M_states_d = IDLE_2_states;
       end
+      DEC_TIMER_states: begin
+        alufn = 6'h07;
+        wa = 4'hc;
+        asel = 1'h0;
+        we = 1'h1;
+        ra = 11'h44c;
+        M_states_d = IDLE_2_states;
+      end
       IDLE_2_states: begin
         if (p1_button1) begin
           M_states_d = SHR_P1_B1_states;
@@ -235,8 +244,14 @@ module fsm_auto_10 (
         if (p1_button4) begin
           M_states_d = SHR_P1_B4_states;
         end
+        if (dec) begin
+          M_states_d = DEC_TIMER_states;
+        end
         if (!(p1_button1 || p1_button2 || p1_button3 || p1_button4)) begin
           M_states_d = IDLE_2_states;
+        end
+        if (data[192+15-:16] == 1'h0) begin
+          M_states_d = CHECK_WIN_states;
         end
       end
       SHR_P1_B1_states: begin
@@ -344,6 +359,10 @@ module fsm_auto_10 (
       end
       PRINT_INV_states: begin
         M_mini_dctr_5_dec = dec;
+        M_mini_timer_5_d = M_mini_dctr_5_value;
+        M_oneseg_char = M_mini_timer_5_q;
+        mini_timer_5_segs = M_oneseg_segs;
+        M_mini_dctr_5_dec = dec;
         if (M_mini_timer_5_q == 1'h0) begin
           M_states_d = GEN_LED_SEQUENCEP11_states;
         end else begin
@@ -354,6 +373,13 @@ module fsm_auto_10 (
         end
         M_states_d = PRINT_INV_states;
       end
+      CHECK_WIN_states: begin
+        alufn = 6'h1a;
+        asel = 2'h2;
+        wa = 4'h3;
+        we = 1'h1;
+        M_states_d = CHECK_WIN_states;
+      end
     endcase
   end
   
@@ -362,6 +388,7 @@ module fsm_auto_10 (
     
     if (rst == 1'b1) begin
       M_mini_timer_5_q <= 3'h5;
+      M_main_timer_q <= 1'h1;
       M_p1_col1_q <= 1'h0;
       M_p1_col2_q <= 1'h0;
       M_p1_col3_q <= 1'h0;
@@ -372,6 +399,7 @@ module fsm_auto_10 (
       M_p2_col4_q <= 1'h0;
     end else begin
       M_mini_timer_5_q <= M_mini_timer_5_d;
+      M_main_timer_q <= M_main_timer_d;
       M_p1_col1_q <= M_p1_col1_d;
       M_p1_col2_q <= M_p1_col2_d;
       M_p1_col3_q <= M_p1_col3_d;

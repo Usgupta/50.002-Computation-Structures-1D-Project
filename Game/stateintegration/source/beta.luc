@@ -90,7 +90,7 @@ module beta (
     //asel mux
     case(game_controlunit.asel){
       b00  : game_alu.a = players.out_a;
-      b01  : game_alu.a = 16h5;
+      b01  : game_alu.a = 60;
       b10  : game_alu.a = 4b1111;
       b11  : game_alu.a = lookup.led_Out;
       default : //b10 unused
@@ -100,7 +100,7 @@ module beta (
     //bsel mux
     case(game_controlunit.bsel){
       b00 : game_alu.b = players.out_b;
-      b01 : game_alu.b = 16h0;
+      b01 : game_alu.b = 0;
       b11 : game_alu.b = 16h1;
       b10 : game_alu.b = 4b1111;
       default: //necessary to init

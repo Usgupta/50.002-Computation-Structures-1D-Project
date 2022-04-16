@@ -189,7 +189,7 @@ module beta_6 (
         M_game_alu_a = M_players_out_a;
       end
       2'h1: begin
-        M_game_alu_a = 16'h0005;
+        M_game_alu_a = 6'h3c;
       end
       2'h2: begin
         M_game_alu_a = 4'hf;
@@ -207,7 +207,7 @@ module beta_6 (
         M_game_alu_b = M_players_out_b;
       end
       2'h1: begin
-        M_game_alu_b = 16'h0000;
+        M_game_alu_b = 1'h0;
       end
       2'h3: begin
         M_game_alu_b = 16'h0001;

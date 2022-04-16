@@ -1,8 +1,8 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date             : Sat Apr 16 15:07:04 2022
-| Host             : DOVLT1412002 running 64-bit major release  (build 9200)
+| Date             : Sat Apr 16 19:29:13 2022
+| Host             : LAPTOP-K4KSM3I3 running 64-bit major release  (build 9200)
 | Command          : report_power -file au_top_0_power_routed.rpt -pb au_top_0_power_summary_routed.pb -rpx au_top_0_power_routed.rpx
 | Design           : au_top_0
 | Device           : xc7a35tftg256-1
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.087        |
+| Total On-Chip Power (W)  | 0.081        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.016        |
+| Dynamic (W)              | 0.010        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 4.9          |
 | Max Ambient (C)          | 84.6         |
@@ -52,16 +52,16 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.003 |        3 |       --- |             --- |
-| Slice Logic    |     0.001 |      859 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      326 |     20800 |            1.57 |
-|   Register     |    <0.001 |      406 |     41600 |            0.98 |
-|   CARRY4       |    <0.001 |       35 |      8150 |            0.43 |
+| Clocks         |     0.002 |        3 |       --- |             --- |
+| Slice Logic    |     0.001 |      765 |       --- |             --- |
+|   LUT as Logic |     0.001 |      275 |     20800 |            1.32 |
+|   Register     |    <0.001 |      371 |     41600 |            0.89 |
+|   CARRY4       |    <0.001 |       31 |      8150 |            0.38 |
 |   Others       |     0.000 |       39 |       --- |             --- |
-| Signals        |     0.002 |      752 |       --- |             --- |
-| I/O            |     0.009 |       60 |       170 |           35.29 |
+| Signals        |     0.002 |      678 |       --- |             --- |
+| I/O            |     0.004 |       60 |       170 |           35.29 |
 | Static Power   |     0.072 |          |           |                 |
-| Total          |     0.087 |          |           |                 |
+| Total          |     0.081 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,9 +71,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.016 |       0.006 |      0.010 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.015 |       0.006 |      0.010 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |     0.004 |       0.003 |      0.001 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     0.002 |       0.001 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -140,9 +140,9 @@ Table of Contents
 +-------------+-----------+
 | Name        | Power (W) |
 +-------------+-----------+
-| au_top_0    |     0.016 |
-|   game_beta |     0.003 |
-|     players |     0.002 |
+| au_top_0    |     0.010 |
+|   game_beta |     0.002 |
+|     players |     0.001 |
 |   random    |     0.002 |
 +-------------+-----------+
 

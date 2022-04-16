@@ -10,6 +10,10 @@ module beta_6 (
     input p1_button2,
     input p1_button3,
     input p1_button4,
+    input p2_button1,
+    input p2_button2,
+    input p2_button3,
+    input p2_button4,
     input clk,
     input rst,
     input [15:0] rng16,
@@ -79,12 +83,12 @@ module beta_6 (
   wire [4-1:0] M_game_controlunit_ra;
   wire [4-1:0] M_game_controlunit_rb;
   wire [1-1:0] M_game_controlunit_we;
-  wire [4-1:0] M_game_controlunit_main_timer_sel;
+  wire [2-1:0] M_game_controlunit_main_timer_sel;
   wire [8-1:0] M_game_controlunit_main_timer_segs;
   wire [8-1:0] M_game_controlunit_mini_timer_5_segs;
-  wire [4-1:0] M_game_controlunit_scorep1_sel;
+  wire [2-1:0] M_game_controlunit_scorep1_sel;
   wire [8-1:0] M_game_controlunit_scorep1_segs;
-  wire [4-1:0] M_game_controlunit_scorep2_sel;
+  wire [2-1:0] M_game_controlunit_scorep2_sel;
   wire [8-1:0] M_game_controlunit_scorep2_segs;
   wire [16-1:0] M_game_controlunit_p1_led1;
   wire [16-1:0] M_game_controlunit_p1_led2;
@@ -99,6 +103,10 @@ module beta_6 (
   reg [1-1:0] M_game_controlunit_p1_button2;
   reg [1-1:0] M_game_controlunit_p1_button3;
   reg [1-1:0] M_game_controlunit_p1_button4;
+  reg [1-1:0] M_game_controlunit_p2_button1;
+  reg [1-1:0] M_game_controlunit_p2_button2;
+  reg [1-1:0] M_game_controlunit_p2_button3;
+  reg [1-1:0] M_game_controlunit_p2_button4;
   reg [1-1:0] M_game_controlunit_dec;
   reg [16-1:0] M_game_controlunit_rng16;
   reg [208-1:0] M_game_controlunit_data;
@@ -111,6 +119,10 @@ module beta_6 (
     .p1_button2(M_game_controlunit_p1_button2),
     .p1_button3(M_game_controlunit_p1_button3),
     .p1_button4(M_game_controlunit_p1_button4),
+    .p2_button1(M_game_controlunit_p2_button1),
+    .p2_button2(M_game_controlunit_p2_button2),
+    .p2_button3(M_game_controlunit_p2_button3),
+    .p2_button4(M_game_controlunit_p2_button4),
     .dec(M_game_controlunit_dec),
     .rng16(M_game_controlunit_rng16),
     .data(M_game_controlunit_data),
@@ -188,6 +200,10 @@ module beta_6 (
     M_game_controlunit_p1_button2 = p1_button2;
     M_game_controlunit_p1_button3 = p1_button3;
     M_game_controlunit_p1_button4 = p1_button4;
+    M_game_controlunit_p2_button1 = p2_button1;
+    M_game_controlunit_p2_button2 = p2_button2;
+    M_game_controlunit_p2_button3 = p2_button3;
+    M_game_controlunit_p2_button4 = p2_button4;
     M_game_controlunit_rng16 = rng16;
     M_game_controlunit_dec = dec;
     M_lookup_randgen = rng16;

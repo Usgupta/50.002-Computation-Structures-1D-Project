@@ -4,12 +4,12 @@ module beta (
     input p1_button2,
     input p1_button3,
     input p1_button4,
-    /*
+    
     input p2_button1,
     input p2_button2,
     input p2_button3,
     input p2_button4,
-    */
+    
     input clk,  // clock
     input rst,  // reset
     input rng16[16],
@@ -80,12 +80,12 @@ module beta (
       game_controlunit.p1_button2 = p1_button2;
       game_controlunit.p1_button3 = p1_button3;
       game_controlunit.p1_button4 = p1_button4;
-    /*
+    
       game_controlunit.p2_button1 = p2_button1;
       game_controlunit.p2_button2 = p2_button2;
       game_controlunit.p2_button3 = p2_button3;
       game_controlunit.p2_button4 = p2_button4;    
-    */
+    
       game_controlunit.rng16 = rng16;
       game_controlunit.dec = dec;
     

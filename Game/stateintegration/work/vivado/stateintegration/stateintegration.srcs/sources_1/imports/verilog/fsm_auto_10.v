@@ -12,6 +12,10 @@ module fsm_auto_10 (
     input p1_button2,
     input p1_button3,
     input p1_button4,
+    input p2_button1,
+    input p2_button2,
+    input p2_button3,
+    input p2_button4,
     input dec,
     input [15:0] rng16,
     input [207:0] data,
@@ -24,12 +28,12 @@ module fsm_auto_10 (
     output reg [3:0] ra,
     output reg [3:0] rb,
     output reg we,
-    output reg [3:0] main_timer_sel,
+    output reg [1:0] main_timer_sel,
     output reg [7:0] main_timer_segs,
     output reg [7:0] mini_timer_5_segs,
-    output reg [3:0] scorep1_sel,
+    output reg [1:0] scorep1_sel,
     output reg [7:0] scorep1_segs,
-    output reg [3:0] scorep2_sel,
+    output reg [1:0] scorep2_sel,
     output reg [7:0] scorep2_segs,
     output reg [15:0] p1_led1,
     output reg [15:0] p1_led2,
@@ -376,19 +380,6 @@ module fsm_auto_10 (
         p1_led2 = 16'h000f;
         p1_led3 = 16'h000f;
         p1_led4 = 16'h000f;
-        M_states_d = GEN_LED_SEQUENCEP11_states;
-      end
-      INCREMENT_P2_SCORE_states: begin
-        alufn = 6'h03;
-        wdsel = 1'h0;
-        asel = 2'h0;
-        we = 1'h1;
-        ra = 4'h1;
-        wa = 4'h1;
-        p2_led1 = 16'h000f;
-        p2_led2 = 16'h000f;
-        p2_led3 = 16'h000f;
-        p2_led4 = 16'h000f;
         M_states_d = GEN_LED_SEQUENCEP11_states;
       end
       INVALID_states: begin

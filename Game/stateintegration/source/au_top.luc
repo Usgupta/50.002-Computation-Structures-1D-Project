@@ -5,14 +5,14 @@ module au_top (
     input usb_rx,           // USB->Serial input
     output usb_tx,          // USB->Serial output
     output io_led [3][8],   // LEDs on IO Shield
-    //output io_led1 [3][8],
+    output io_ledone [1][8],
     output io_sel[4],
-    //output io_sel2[4],
-    //output io_sel3[4],
+    output io_sel2[4],
+    output io_sel3[4],
     output io_seg[8],
-    //output io_seg2[8],
-    //output io_seg3[8],
-    //output io_seg4[8],
+    output io_seg2[8],
+    output io_seg3[8],
+    output io_seg4[8],
     input io_button [5],    // 5 buttons on IO Shield
     input io_dip [3][8]     // DIP switches on IO Shield
   ) {
@@ -49,7 +49,7 @@ module au_top (
     edge_detector edge_p1_button4(#RISE(1), #FALL(0));
 
     //PLAYER2
-    /*
+    
     button_conditioner p2_button1;
     edge_detector edge_p2_button1(#RISE(1), #FALL(0));
     button_conditioner p2_button2;
@@ -58,7 +58,7 @@ module au_top (
     edge_detector edge_p2_button3(#RISE(1), #FALL(0));
     button_conditioner p2_button4;
     edge_detector edge_p2_button4(#RISE(1), #FALL(0));
-    */
+    
 
 
     //FOR SLOW TIMER
@@ -97,6 +97,7 @@ module au_top (
     io_sel = 0;
     io_seg = 0;
     io_led = 3x{{8h00}};
+    io_ledone = 1x{{8h00}};
 
     /*
     alu.a = 0;
@@ -197,7 +198,7 @@ module au_top (
     pin io_led[2][2] B21;
     pin io_led[2][3] B20;
     */  
-     /*
+     
     io_led[2][0] = game_beta.p2_led1[0]; //A24 
     io_led[2][1] = game_beta.p2_led1[1]; //A23 
     io_led[2][2] = game_beta.p2_led1[2]; //A21  
@@ -212,7 +213,7 @@ module au_top (
     pin io_led[2][6] B15;
     pin io_led[2][7] B14; 
     */  
-     /*
+     
     io_led[2][4] = game_beta.p2_led2[0]; //B21   
     io_led[2][5] = game_beta.p2_led2[1]; //B20    
     io_led[2][6] = game_beta.p2_led2[2]; //B18  
@@ -227,27 +228,27 @@ module au_top (
     pin io_led1[0][2] B9;
     pin io_led1[0][3] B8;
     */ 
-     /*
-    io_led1[0][0] = game_beta.p2_led3[0]; //B9     
-    io_led1[0][1] = game_beta.p2_led3[1]; //B8    
-    io_led1[0][2] = game_beta.p2_led3[2]; //B6     
-    io_led1[0][3] = game_beta.p2_led3[3]; //B5  
+     
+    io_ledone[0][0] = game_beta.p2_led3[0]; //B9     
+    io_ledone[0][1] = game_beta.p2_led3[1]; //B8    
+    io_ledone[0][2] = game_beta.p2_led3[2]; //B6     
+    io_ledone[0][3] = game_beta.p2_led3[3]; //B5  
      
      
     /*
     For player 2 column 4 LEDs 
         
-    pin io_led1[0][4] B6;
+    pin io_ledone[0][4] B6;
     pin io_led1[0][5] B5;
     pin io_led1[0][6] B3;
     pin io_led1[0][7] B2;
     */ 
-     /*
-    io_led1[0][4] = game_beta.p2_led4[0]; //A15  
-    io_led1[0][5] = game_beta.p2_led4[1]; //A14 
-    io_led1[0][6] = game_beta.p2_led4[2]; //A12 
-    io_led1[0][7] = game_beta.p2_led4[3]; //A11    
-    */
+     
+    io_ledone[0][4] = game_beta.p2_led4[0]; //A15  
+    io_ledone[0][5] = game_beta.p2_led4[1]; //A14 
+    io_ledone[0][6] = game_beta.p2_led4[2]; //A12 
+    io_ledone[0][7] = game_beta.p2_led4[3]; //A11    
+    
     //Start Button
     start_button.in = ~io_dip[1][0]; //MUST use ~ for button (Not sure why, but it is how it is)
     edge_start_button.in = start_button.out;
@@ -287,7 +288,7 @@ module au_top (
     pin io_dip[0][6] B30 pulldown;
     pin io_dip[0][7] B31 pulldown;
     */
-/*
+
     p2_button1.in = ~io_dip[0][4]; //B39
     p2_button2.in = ~io_dip[0][5]; //B36
     p2_button3.in = ~io_dip[0][6]; //B40
@@ -343,7 +344,7 @@ module au_top (
     */
 
     //Light up the main timer 7 segment
-    /*
+   
     io_seg = ~game_beta.scorep1_segs; // connect segments to the driver
     io_sel = ~game_beta.scorep1_sel; // connect digit select to the driver
     

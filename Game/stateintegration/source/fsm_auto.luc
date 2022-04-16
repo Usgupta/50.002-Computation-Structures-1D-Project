@@ -10,11 +10,12 @@ module fsm_auto (
     input p1_button3,
     input p1_button4, 
     /*
-    input reset_button,
     input p2_button1,
     input p2_button2, 
     input p2_button3,
     input p2_button4, 
+    /*
+    input reset_button,
     */
     
     
@@ -45,11 +46,14 @@ module fsm_auto (
     output we,
     
     
-    //Outputs for 7 segment timers 
+    //Outputs for 7 segment 
     output main_timer_sel[4],
     output main_timer_segs[8],
     output mini_timer_5_segs[8],
-    
+    output scorep1_sel[4],
+    output scorep1_segs[8],
+    output scorep2_sel[4],
+    output scorep2_segs[8],
     
     //Outputs for LEDs
     output p1_led1[16],
@@ -77,6 +81,9 @@ module fsm_auto (
       multi_dec_ctr main_dctr; //To decrease the main timer's value
       decimal_counter_5 mini_dctr_5 (#INIT(d5)); //To decrease the mini timer's value
       
+      multi_seven_seg scorep1_seg;
+      multi_seven_seg scorep2_seg; 
+      
       dff mini_timer_5[4] (#INIT(5)); //To store the current value of the mini timer
       dff p1_col1[16] (#INIT(0)); //Registers for LED columns
       dff p1_col2[16] (#INIT(0));
@@ -103,6 +110,10 @@ module fsm_auto (
       GEN_LED_SEQUENCEP12,
       GEN_LED_SEQUENCEP13,
       GEN_LED_SEQUENCEP14,
+      GEN_LED_SEQUENCEP21,
+      GEN_LED_SEQUENCEP22,
+      GEN_LED_SEQUENCEP23,
+      GEN_LED_SEQUENCEP24,
       IDLE_2,
       SHR_P1_B1,
       SHR_P1_B2,
@@ -160,6 +171,16 @@ module fsm_auto (
     mini_dctr_5.dec = 0; //Before start button is pressed, we do not decrease the mini timer
     
     
+    //These are the default values for the scores! 
+    scorep1_seg.values[1] = 4b0;
+    scorep1_seg.values[0] = 4b0; 
+    scorep2_seg.values[1] = 4b0;
+    scorep2_seg.values[0] = 4b0;     
+    scorep1_sel = scorep1_seg.sel;
+    scorep1_segs = ~scorep1_seg.seg; 
+    scorep2_sel = scorep2_seg.sel;
+    scorep2_segs = ~scorep2_seg.seg;     
+   
     
     //These are the default values for the LEDs! The default is that all LEDs light up. 
    
@@ -171,10 +192,10 @@ module fsm_auto (
     main_timer_segs = debug.segs;
     main_timer_sel = 1;
       
-    p2_led1 = p2_col1.q; 
-    p2_led2 = p2_col2.q;
-    p2_led3 = p2_col3.q;
-    p2_led4 = p2_col4.q;
+    p2_led1 = data[7]; 
+    p2_led2 = data[8];
+    p2_led3 = data[9];
+    p2_led4 = data[10];
     
       
    
@@ -212,64 +233,78 @@ module fsm_auto (
       //Generate the random LED sequence for both players
       states.GEN_LED_SEQUENCEP11:
       
-        //led_register.d = rng16; //Store the LED sequence. Probably not needed? 
         alufn = b011010;
         asel = b11;
         wa = b0011;          
         we = b1;
         
-         
         //Store the generated sequence into the column registers for each player
 
-        
-      
         states.d = states.GEN_LED_SEQUENCEP12;
         
-        states.GEN_LED_SEQUENCEP12:
+      states.GEN_LED_SEQUENCEP12:
       
-        //led_register.d = rng16; //Store the LED sequence. Probably not needed? 
         alufn = b011010;
         asel = b11;
         wa = b0100;          
         we = b1;
-        
-        
-        
-         
-        //Store the generated sequence into the column registers for each player
-
-        
       
         states.d = states.GEN_LED_SEQUENCEP13;
-        states.GEN_LED_SEQUENCEP13:
+        
+      states.GEN_LED_SEQUENCEP13:
       
-        //led_register.d = rng16; //Store the LED sequence. Probably not needed? 
         alufn = b011010;
         asel = b11;
         wa = b0101;          
         we = b1;
-        
-        
-        
-         
-        //Store the generated sequence into the column registers for each player
-
-        
-      
+    
         states.d = states.GEN_LED_SEQUENCEP14;
-         states.GEN_LED_SEQUENCEP14:
+        
+      states.GEN_LED_SEQUENCEP14:
       
-        //led_register.d = rng16; //Store the LED sequence. Probably not needed? 
         alufn = b011010;
         asel = b11;
         wa = b0110;          
         we = b1;
-        
 
+        states.d = states.GEN_LED_SEQUENCEP21;
         
-         
+       states.GEN_LED_SEQUENCEP21:
+      
+        alufn = b011010;
+        asel = b11;
+        wa = b0111;          
+        we = b1;
+        
         //Store the generated sequence into the column registers for each player
 
+        states.d = states.GEN_LED_SEQUENCEP22;
+        
+      states.GEN_LED_SEQUENCEP22:
+      
+        alufn = b011010;
+        asel = b11;
+        wa = b1000;          
+        we = b1;
+      
+        states.d = states.GEN_LED_SEQUENCEP23;
+        
+      states.GEN_LED_SEQUENCEP23:
+      
+        alufn = b011010;
+        asel = b11;
+        wa = b1001;          
+        we = b1;
+    
+        states.d = states.GEN_LED_SEQUENCEP24;
+        
+      states.GEN_LED_SEQUENCEP24:
+      
+        alufn = b011010;
+        asel = b11;
+        wa = b1010;          
+        we = b1;
+        
         states.d = states.IDLE_2;
         
       //This state does nothing, wait for button input and branch to next states
@@ -300,7 +335,6 @@ module fsm_auto (
         if(p2_button4){
           states.d = states.SHR_P2_B4;  
         }
-        */
         /*
         p1_led1 = p1_col1.q; 
         p1_led2 = p1_col2.q;
@@ -316,7 +350,7 @@ module fsm_auto (
          states.d = states.IDLE_2; 
         }
        
-        
+        //|| p2_button1 || p2_button2 || p2_button3 || p2_button4)
       /*
         output alufn[6],
         output asel[3],
@@ -329,7 +363,7 @@ module fsm_auto (
       */  
         
         
-        states.SHR_P1_B1: 
+      states.SHR_P1_B1: 
       
         if(data[3] != 0){
           alufn = b100001;
@@ -441,8 +475,22 @@ module fsm_auto (
         p1_led2= 16b1111; 
         p1_led3= 16b1111; 
         p1_led4= 16b1111; 
-       
+        
+        states.d = states.GEN_LED_SEQUENCEP11;
+        
+        
+      states.INCREMENT_P2_SCORE:
       
+        alufn = b000011;  // INC BY 1 
+        wdsel = 0;  
+        asel = b00;                             
+        we = 1;
+        ra = b0001; // 0x0
+        wa = b0001; // 0x0
+        p2_led1= 16b1111; 
+        p2_led2= 16b1111; 
+        p2_led3= 16b1111; 
+        p2_led4= 16b1111; 
         
         states.d = states.GEN_LED_SEQUENCEP11;
         

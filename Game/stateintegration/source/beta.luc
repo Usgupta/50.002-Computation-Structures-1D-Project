@@ -4,6 +4,12 @@ module beta (
     input p1_button2,
     input p1_button3,
     input p1_button4,
+    /*
+    input p2_button1,
+    input p2_button2,
+    input p2_button3,
+    input p2_button4,
+    */
     input clk,  // clock
     input rst,  // reset
     input rng16[16],
@@ -12,6 +18,11 @@ module beta (
     output main_timer_segs[8],
     output main_timer_sel[4],
     output mini_timer_5_segs[8],
+    
+    output scorep1_segs[8],
+    output scorep1_sel[4],
+    output scorep2_segs[8],
+    output scorep2_sel[4],
 
     output p1_led1[16],
     output p1_led2[16],
@@ -69,6 +80,12 @@ module beta (
       game_controlunit.p1_button2 = p1_button2;
       game_controlunit.p1_button3 = p1_button3;
       game_controlunit.p1_button4 = p1_button4;
+    /*
+      game_controlunit.p2_button1 = p2_button1;
+      game_controlunit.p2_button2 = p2_button2;
+      game_controlunit.p2_button3 = p2_button3;
+      game_controlunit.p2_button4 = p2_button4;    
+    */
       game_controlunit.rng16 = rng16;
       game_controlunit.dec = dec;
     
@@ -128,6 +145,11 @@ module beta (
     main_timer_segs = game_controlunit.main_timer_segs;
     main_timer_sel = game_controlunit.main_timer_sel;
     mini_timer_5_segs = game_controlunit.mini_timer_5_segs;
+    
+    scorep1_segs = game_controlunit.scorep1_segs;
+    scorep1_sel = game_controlunit.scorep1_sel;
+    scorep2_segs = game_controlunit.scorep2_segs;
+    scorep2_sel = game_controlunit.scorep2_sel;
     p1_led1 = game_controlunit.p1_led1;
     p1_led2 = game_controlunit.p1_led2;
     p1_led3 = game_controlunit.p1_led3;

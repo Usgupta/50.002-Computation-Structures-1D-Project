@@ -13,7 +13,6 @@ module au_top_0 (
     output reg [23:0] io_led,
     output reg [3:0] io_sel,
     output reg [7:0] io_seg,
-    output reg [7:0] io_seg2,
     input [4:0] io_button,
     input [23:0] io_dip
   );
@@ -125,6 +124,10 @@ module au_top_0 (
   wire [8-1:0] M_game_beta_main_timer_segs;
   wire [4-1:0] M_game_beta_main_timer_sel;
   wire [8-1:0] M_game_beta_mini_timer_5_segs;
+  wire [8-1:0] M_game_beta_scorep1_segs;
+  wire [4-1:0] M_game_beta_scorep1_sel;
+  wire [8-1:0] M_game_beta_scorep2_segs;
+  wire [4-1:0] M_game_beta_scorep2_sel;
   wire [16-1:0] M_game_beta_p1_led1;
   wire [16-1:0] M_game_beta_p1_led2;
   wire [16-1:0] M_game_beta_p1_led3;
@@ -153,6 +156,10 @@ module au_top_0 (
     .main_timer_segs(M_game_beta_main_timer_segs),
     .main_timer_sel(M_game_beta_main_timer_sel),
     .mini_timer_5_segs(M_game_beta_mini_timer_5_segs),
+    .scorep1_segs(M_game_beta_scorep1_segs),
+    .scorep1_sel(M_game_beta_scorep1_sel),
+    .scorep2_segs(M_game_beta_scorep2_segs),
+    .scorep2_sel(M_game_beta_scorep2_sel),
     .p1_led1(M_game_beta_p1_led1),
     .p1_led2(M_game_beta_p1_led2),
     .p1_led3(M_game_beta_p1_led3),
@@ -176,29 +183,29 @@ module au_top_0 (
     M_edge_detector_slow_timer_in = M_slow_timer_value;
     M_game_beta_dec = M_edge_detector_slow_timer_out;
     M_game_beta_rng16 = M_random_num[0+15-:16];
-    io_led[8+6+0-:1] = M_game_beta_p1_led1[0+0-:1];
-    io_led[8+7+0-:1] = M_game_beta_p1_led1[1+0-:1];
-    io_led[16+0+0-:1] = M_game_beta_p1_led1[2+0-:1];
-    io_led[16+1+0-:1] = M_game_beta_p1_led1[3+0-:1];
-    io_led[0+0+0-:1] = M_game_beta_p1_led2[0+0-:1];
-    io_led[0+1+0-:1] = M_game_beta_p1_led2[1+0-:1];
-    io_led[0+2+0-:1] = M_game_beta_p1_led2[2+0-:1];
-    io_led[0+3+0-:1] = M_game_beta_p1_led2[3+0-:1];
+    io_led[0+0+0-:1] = M_game_beta_p1_led1[0+0-:1];
+    io_led[0+1+0-:1] = M_game_beta_p1_led1[1+0-:1];
+    io_led[0+2+0-:1] = M_game_beta_p1_led1[2+0-:1];
+    io_led[0+3+0-:1] = M_game_beta_p1_led1[3+0-:1];
+    io_led[0+4+0-:1] = M_game_beta_p1_led2[0+0-:1];
+    io_led[0+5+0-:1] = M_game_beta_p1_led2[1+0-:1];
+    io_led[0+6+0-:1] = M_game_beta_p1_led2[2+0-:1];
+    io_led[0+7+0-:1] = M_game_beta_p1_led2[3+0-:1];
     io_led[8+0+0-:1] = M_game_beta_p1_led3[0+0-:1];
     io_led[8+1+0-:1] = M_game_beta_p1_led3[1+0-:1];
     io_led[8+2+0-:1] = M_game_beta_p1_led3[2+0-:1];
     io_led[8+3+0-:1] = M_game_beta_p1_led3[3+0-:1];
-    io_led[16+4+0-:1] = M_game_beta_p1_led4[0+0-:1];
-    io_led[16+5+0-:1] = M_game_beta_p1_led4[1+0-:1];
-    io_led[16+6+0-:1] = M_game_beta_p1_led4[2+0-:1];
-    io_led[16+7+0-:1] = M_game_beta_p1_led4[3+0-:1];
-    M_start_button_in = io_button[3+0-:1];
+    io_led[8+4+0-:1] = M_game_beta_p1_led4[0+0-:1];
+    io_led[8+5+0-:1] = M_game_beta_p1_led4[1+0-:1];
+    io_led[8+6+0-:1] = M_game_beta_p1_led4[2+0-:1];
+    io_led[8+7+0-:1] = M_game_beta_p1_led4[3+0-:1];
+    M_start_button_in = ~io_dip[8+0+0-:1];
     M_edge_start_button_in = M_start_button_out;
     M_game_beta_start_button = M_edge_start_button_out;
-    M_p1_button1_in = io_button[0+0-:1];
-    M_p1_button2_in = io_button[1+0-:1];
-    M_p1_button3_in = io_button[2+0-:1];
-    M_p1_button4_in = io_button[3+0-:1];
+    M_p1_button1_in = ~io_dip[0+0+0-:1];
+    M_p1_button2_in = ~io_dip[0+1+0-:1];
+    M_p1_button3_in = ~io_dip[0+2+0-:1];
+    M_p1_button4_in = ~io_dip[0+3+0-:1];
     M_edge_p1_button1_in = M_p1_button1_out;
     M_edge_p1_button2_in = M_p1_button2_out;
     M_edge_p1_button3_in = M_p1_button3_out;
@@ -207,8 +214,5 @@ module au_top_0 (
     M_game_beta_p1_button2 = M_edge_p1_button2_out;
     M_game_beta_p1_button3 = M_edge_p1_button3_out;
     M_game_beta_p1_button4 = M_edge_p1_button4_out;
-    io_seg = ~M_game_beta_main_timer_segs;
-    io_sel = ~M_game_beta_main_timer_sel;
-    io_seg2 = M_game_beta_mini_timer_5_segs;
   end
 endmodule

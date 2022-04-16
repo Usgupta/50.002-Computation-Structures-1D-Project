@@ -27,6 +27,10 @@ module fsm_auto_10 (
     output reg [3:0] main_timer_sel,
     output reg [7:0] main_timer_segs,
     output reg [7:0] mini_timer_5_segs,
+    output reg [3:0] scorep1_sel,
+    output reg [7:0] scorep1_segs,
+    output reg [3:0] scorep2_sel,
+    output reg [7:0] scorep2_segs,
     output reg [15:0] p1_led1,
     output reg [15:0] p1_led2,
     output reg [15:0] p1_led3,
@@ -77,6 +81,26 @@ module fsm_auto_10 (
     .ovf(M_mini_dctr_5_ovf),
     .value(M_mini_dctr_5_value)
   );
+  wire [7-1:0] M_scorep1_seg_seg;
+  wire [2-1:0] M_scorep1_seg_sel;
+  reg [8-1:0] M_scorep1_seg_values;
+  multi_seven_seg_19 scorep1_seg (
+    .clk(clk),
+    .rst(rst),
+    .values(M_scorep1_seg_values),
+    .seg(M_scorep1_seg_seg),
+    .sel(M_scorep1_seg_sel)
+  );
+  wire [7-1:0] M_scorep2_seg_seg;
+  wire [2-1:0] M_scorep2_seg_sel;
+  reg [8-1:0] M_scorep2_seg_values;
+  multi_seven_seg_19 scorep2_seg (
+    .clk(clk),
+    .rst(rst),
+    .values(M_scorep2_seg_values),
+    .seg(M_scorep2_seg_seg),
+    .sel(M_scorep2_seg_sel)
+  );
   reg [3:0] M_mini_timer_5_d, M_mini_timer_5_q = 3'h5;
   reg [15:0] M_p1_col1_d, M_p1_col1_q = 1'h0;
   reg [15:0] M_p1_col2_d, M_p1_col2_q = 1'h0;
@@ -100,28 +124,32 @@ module fsm_auto_10 (
   localparam GEN_LED_SEQUENCEP12_states = 6'd11;
   localparam GEN_LED_SEQUENCEP13_states = 6'd12;
   localparam GEN_LED_SEQUENCEP14_states = 6'd13;
-  localparam IDLE_2_states = 6'd14;
-  localparam SHR_P1_B1_states = 6'd15;
-  localparam SHR_P1_B2_states = 6'd16;
-  localparam SHR_P1_B3_states = 6'd17;
-  localparam SHR_P1_B4_states = 6'd18;
-  localparam SHR_P2_B1_states = 6'd19;
-  localparam SHR_P2_B2_states = 6'd20;
-  localparam SHR_P2_B3_states = 6'd21;
-  localparam SHR_P2_B4_states = 6'd22;
-  localparam INVALID_states = 6'd23;
-  localparam SET_P1_B1_0_states = 6'd24;
-  localparam SET_P1_B2_0_states = 6'd25;
-  localparam SET_P1_B3_0_states = 6'd26;
-  localparam SET_P1_B4_0_states = 6'd27;
-  localparam SET_P2_B1_0_states = 6'd28;
-  localparam SET_P2_B2_0_states = 6'd29;
-  localparam SET_P2_B3_0_states = 6'd30;
-  localparam SET_P2_B4_0_states = 6'd31;
-  localparam CHECK_WIN_P1_states = 6'd32;
-  localparam LOSE_P1_states = 6'd33;
-  localparam CHECK_WIN_P2_states = 6'd34;
-  localparam LOSE_P2_states = 6'd35;
+  localparam GEN_LED_SEQUENCEP21_states = 6'd14;
+  localparam GEN_LED_SEQUENCEP22_states = 6'd15;
+  localparam GEN_LED_SEQUENCEP23_states = 6'd16;
+  localparam GEN_LED_SEQUENCEP24_states = 6'd17;
+  localparam IDLE_2_states = 6'd18;
+  localparam SHR_P1_B1_states = 6'd19;
+  localparam SHR_P1_B2_states = 6'd20;
+  localparam SHR_P1_B3_states = 6'd21;
+  localparam SHR_P1_B4_states = 6'd22;
+  localparam SHR_P2_B1_states = 6'd23;
+  localparam SHR_P2_B2_states = 6'd24;
+  localparam SHR_P2_B3_states = 6'd25;
+  localparam SHR_P2_B4_states = 6'd26;
+  localparam INVALID_states = 6'd27;
+  localparam SET_P1_B1_0_states = 6'd28;
+  localparam SET_P1_B2_0_states = 6'd29;
+  localparam SET_P1_B3_0_states = 6'd30;
+  localparam SET_P1_B4_0_states = 6'd31;
+  localparam SET_P2_B1_0_states = 6'd32;
+  localparam SET_P2_B2_0_states = 6'd33;
+  localparam SET_P2_B3_0_states = 6'd34;
+  localparam SET_P2_B4_0_states = 6'd35;
+  localparam CHECK_WIN_P1_states = 6'd36;
+  localparam LOSE_P1_states = 6'd37;
+  localparam CHECK_WIN_P2_states = 6'd38;
+  localparam LOSE_P2_states = 6'd39;
   
   reg [5:0] M_states_d, M_states_q = IDLE_1_states;
   
@@ -159,6 +187,14 @@ module fsm_auto_10 (
     M_oneseg_char = 4'h0;
     mini_timer_5_segs = M_oneseg_segs;
     M_mini_dctr_5_dec = 1'h0;
+    M_scorep1_seg_values[4+3-:4] = 4'h0;
+    M_scorep1_seg_values[0+3-:4] = 4'h0;
+    M_scorep2_seg_values[4+3-:4] = 4'h0;
+    M_scorep2_seg_values[0+3-:4] = 4'h0;
+    scorep1_sel = M_scorep1_seg_sel;
+    scorep1_segs = ~M_scorep1_seg_seg;
+    scorep2_sel = M_scorep2_seg_sel;
+    scorep2_segs = ~M_scorep2_seg_seg;
     p1_led1 = data[48+15-:16];
     p1_led2 = data[64+15-:16];
     p1_led3 = data[80+15-:16];
@@ -166,10 +202,10 @@ module fsm_auto_10 (
     M_debug_char = data[0+15-:16];
     main_timer_segs = M_debug_segs;
     main_timer_sel = 1'h1;
-    p2_led1 = M_p2_col1_q;
-    p2_led2 = M_p2_col2_q;
-    p2_led3 = M_p2_col3_q;
-    p2_led4 = M_p2_col4_q;
+    p2_led1 = data[112+15-:16];
+    p2_led2 = data[128+15-:16];
+    p2_led3 = data[144+15-:16];
+    p2_led4 = data[160+15-:16];
     
     case (M_states_q)
       IDLE_1_states: begin
@@ -215,6 +251,34 @@ module fsm_auto_10 (
         alufn = 6'h1a;
         asel = 2'h3;
         wa = 4'h6;
+        we = 1'h1;
+        M_states_d = GEN_LED_SEQUENCEP21_states;
+      end
+      GEN_LED_SEQUENCEP21_states: begin
+        alufn = 6'h1a;
+        asel = 2'h3;
+        wa = 4'h7;
+        we = 1'h1;
+        M_states_d = GEN_LED_SEQUENCEP22_states;
+      end
+      GEN_LED_SEQUENCEP22_states: begin
+        alufn = 6'h1a;
+        asel = 2'h3;
+        wa = 4'h8;
+        we = 1'h1;
+        M_states_d = GEN_LED_SEQUENCEP23_states;
+      end
+      GEN_LED_SEQUENCEP23_states: begin
+        alufn = 6'h1a;
+        asel = 2'h3;
+        wa = 4'h9;
+        we = 1'h1;
+        M_states_d = GEN_LED_SEQUENCEP24_states;
+      end
+      GEN_LED_SEQUENCEP24_states: begin
+        alufn = 6'h1a;
+        asel = 2'h3;
+        wa = 4'ha;
         we = 1'h1;
         M_states_d = IDLE_2_states;
       end
@@ -312,6 +376,19 @@ module fsm_auto_10 (
         p1_led2 = 16'h000f;
         p1_led3 = 16'h000f;
         p1_led4 = 16'h000f;
+        M_states_d = GEN_LED_SEQUENCEP11_states;
+      end
+      INCREMENT_P2_SCORE_states: begin
+        alufn = 6'h03;
+        wdsel = 1'h0;
+        asel = 2'h0;
+        we = 1'h1;
+        ra = 4'h1;
+        wa = 4'h1;
+        p2_led1 = 16'h000f;
+        p2_led2 = 16'h000f;
+        p2_led3 = 16'h000f;
+        p2_led4 = 16'h000f;
         M_states_d = GEN_LED_SEQUENCEP11_states;
       end
       INVALID_states: begin

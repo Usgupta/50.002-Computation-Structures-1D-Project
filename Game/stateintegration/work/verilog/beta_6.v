@@ -17,6 +17,10 @@ module beta_6 (
     output reg [7:0] main_timer_segs,
     output reg [3:0] main_timer_sel,
     output reg [7:0] mini_timer_5_segs,
+    output reg [7:0] scorep1_segs,
+    output reg [3:0] scorep1_sel,
+    output reg [7:0] scorep2_segs,
+    output reg [3:0] scorep2_sel,
     output reg [15:0] p1_led1,
     output reg [15:0] p1_led2,
     output reg [15:0] p1_led3,
@@ -78,6 +82,10 @@ module beta_6 (
   wire [4-1:0] M_game_controlunit_main_timer_sel;
   wire [8-1:0] M_game_controlunit_main_timer_segs;
   wire [8-1:0] M_game_controlunit_mini_timer_5_segs;
+  wire [4-1:0] M_game_controlunit_scorep1_sel;
+  wire [8-1:0] M_game_controlunit_scorep1_segs;
+  wire [4-1:0] M_game_controlunit_scorep2_sel;
+  wire [8-1:0] M_game_controlunit_scorep2_segs;
   wire [16-1:0] M_game_controlunit_p1_led1;
   wire [16-1:0] M_game_controlunit_p1_led2;
   wire [16-1:0] M_game_controlunit_p1_led3;
@@ -118,6 +126,10 @@ module beta_6 (
     .main_timer_sel(M_game_controlunit_main_timer_sel),
     .main_timer_segs(M_game_controlunit_main_timer_segs),
     .mini_timer_5_segs(M_game_controlunit_mini_timer_5_segs),
+    .scorep1_sel(M_game_controlunit_scorep1_sel),
+    .scorep1_segs(M_game_controlunit_scorep1_segs),
+    .scorep2_sel(M_game_controlunit_scorep2_sel),
+    .scorep2_segs(M_game_controlunit_scorep2_segs),
     .p1_led1(M_game_controlunit_p1_led1),
     .p1_led2(M_game_controlunit_p1_led2),
     .p1_led3(M_game_controlunit_p1_led3),
@@ -229,6 +241,10 @@ module beta_6 (
     main_timer_segs = M_game_controlunit_main_timer_segs;
     main_timer_sel = M_game_controlunit_main_timer_sel;
     mini_timer_5_segs = M_game_controlunit_mini_timer_5_segs;
+    scorep1_segs = M_game_controlunit_scorep1_segs;
+    scorep1_sel = M_game_controlunit_scorep1_sel;
+    scorep2_segs = M_game_controlunit_scorep2_segs;
+    scorep2_sel = M_game_controlunit_scorep2_sel;
     p1_led1 = M_game_controlunit_p1_led1;
     p1_led2 = M_game_controlunit_p1_led2;
     p1_led3 = M_game_controlunit_p1_led3;

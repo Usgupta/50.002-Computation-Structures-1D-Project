@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date         : Sat Apr 16 18:06:22 2022
+| Date         : Sat Apr 16 18:51:20 2022
 | Host         : DOVLT1412002 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file au_top_0_control_sets_placed.rpt
 | Design       : au_top_0
@@ -74,25 +74,25 @@ Table of Contents
 |  Clock Signal  |                           Enable Signal                          |          Set/Reset Signal         | Slice Load Count | Bel Load Count | Bels / Slice |
 +----------------+------------------------------------------------------------------+-----------------------------------+------------------+----------------+--------------+
 |  clk_IBUF_BUFG |                                                                  | reset_cond/M_reset_cond_in        |                2 |              4 |         2.00 |
-|  clk_IBUF_BUFG | game_beta/game_controlunit/E[0]                                  | reset_cond/Q[0]                   |                1 |              4 |         4.00 |
-|  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_sequential_M_states_q_reg[0]_5[0] | reset_cond/Q[0]                   |                1 |              4 |         4.00 |
-|  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_sequential_M_states_q_reg[3]_0[0] | reset_cond/Q[0]                   |                1 |              4 |         4.00 |
 |  clk_IBUF_BUFG | game_beta/game_controlunit/mini_dctr_5/M_val_q[3]_i_1__1_n_0     | reset_cond/Q[0]                   |                1 |              4 |         4.00 |
 |  clk_IBUF_BUFG | game_beta/game_controlunit/main_dctr/dctr1/M_dctr1_dec           | reset_cond/Q[0]                   |                1 |              4 |         4.00 |
 |  clk_IBUF_BUFG | game_beta/game_controlunit/main_dctr/dctr1/E[0]                  | reset_cond/Q[0]                   |                1 |              4 |         4.00 |
 |  clk_IBUF_BUFG | game_beta/game_controlunit/main_dctr/dctr2/M_mini_timer_5_d      | reset_cond/Q[0]                   |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | game_beta/game_controlunit/E[0]                                  | reset_cond/Q[0]                   |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_sequential_M_states_q_reg[3]_0[0] | reset_cond/Q[0]                   |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_sequential_M_states_q_reg[0]_5[0] | reset_cond/Q[0]                   |                1 |              4 |         4.00 |
 |  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_sequential_M_states_q[4]_i_1_n_0  |                                   |                3 |              5 |         1.67 |
-|  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_sequential_M_states_q_reg[0]_1[0] | reset_cond/Q[0]                   |                3 |             16 |         5.33 |
-|  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_sequential_M_states_q_reg[0]_4[0] | reset_cond/Q[0]                   |                4 |             16 |         4.00 |
-|  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_sequential_M_states_q_reg[0]_0[0] | reset_cond/Q[0]                   |                3 |             16 |         5.33 |
-|  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_sequential_M_states_q_reg[4]_1[0] | reset_cond/Q[0]                   |                7 |             16 |         2.29 |
 |  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_sequential_M_states_q_reg[4]_0[0] | reset_cond/Q[0]                   |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_sequential_M_states_q_reg[0]_0[0] | reset_cond/Q[0]                   |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_sequential_M_states_q_reg[0]_4[0] | reset_cond/Q[0]                   |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_sequential_M_states_q_reg[0]_1[0] | reset_cond/Q[0]                   |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_sequential_M_states_q_reg[4]_1[0] | reset_cond/Q[0]                   |                7 |             16 |         2.29 |
 |  clk_IBUF_BUFG | game_beta/game_controlunit/FSM_sequential_M_states_q_reg[0]_2[0] | reset_cond/Q[0]                   |                8 |             20 |         2.50 |
+|  clk_IBUF_BUFG | start_button/sel                                                 | start_button/sync/clear           |                5 |             20 |         4.00 |
 |  clk_IBUF_BUFG | p1_button1/M_ctr_q_reg[13]_0                                     | p1_button1/sync/M_pipe_q_reg[1]_0 |                5 |             20 |         4.00 |
 |  clk_IBUF_BUFG | p1_button2/M_ctr_q_reg[3]_0                                      | p1_button2/sync/M_pipe_q_reg[1]_0 |                5 |             20 |         4.00 |
 |  clk_IBUF_BUFG | p1_button3/M_ctr_q_reg[3]_0                                      | p1_button3/sync/M_pipe_q_reg[1]_0 |                5 |             20 |         4.00 |
 |  clk_IBUF_BUFG | p1_button4/M_ctr_q[0]_i_2__3_n_0                                 | p1_button4/sync/M_pipe_q_reg[1]_0 |                5 |             20 |         4.00 |
-|  clk_IBUF_BUFG | start_button/sel                                                 | start_button/sync/clear           |                5 |             20 |         4.00 |
 |  clk_IBUF_BUFG |                                                                  |                                   |               14 |             31 |         2.21 |
 |  clk_IBUF_BUFG |                                                                  | reset_cond/Q[0]                   |               37 |            174 |         4.70 |
 +----------------+------------------------------------------------------------------+-----------------------------------+------------------+----------------+--------------+

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="1D PLS WORK" board="Alchitry Au" language="Lucid" version="3">
+  <files>
+    <src>multiplier.luc</src>
+    <src>shift.luc</src>
+    <src>variable_counter.luc</src>
+    <src>multi_dec_ctr.luc</src>
+    <component>pipeline.luc</component>
+    <component>counter.luc</component>
+    <src>look_up_table.luc</src>
+    <src>fsm_manual.luc</src>
+    <src>adder.luc</src>
+    <src>fsm_auto.luc</src>
+    <src>seven_seg.luc</src>
+    <src>compare.luc</src>
+    <src>reg_files.luc</src>
+    <src>decimal_counter.luc</src>
+    <component>reset_conditioner.luc</component>
+    <src>alu16.luc</src>
+    <src>multi_seven_seg.luc</src>
+    <component>button_conditioner.luc</component>
+    <src>decimal_counter_5.luc</src>
+    <component>decoder.luc</component>
+    <src>boolean.luc</src>
+    <src top="true">au_top.luc</src>
+    <component>pn_gen.luc</component>
+    <src>beta.luc</src>
+    <component>edge_detector.luc</component>
+    <constraint lib="true">alchitry.acf</constraint>
+    <constraint lib="true">au.xdc</constraint>
+    <constraint>io.acf</constraint>
+  </files>
+</project>

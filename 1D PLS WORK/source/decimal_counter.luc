@@ -1,0 +1,41 @@
+module decimal_counter #(
+INIT = 0)
+ (
+    input clk,      // clock
+    input rst,      // reset
+    input dec,      // decrement the counter
+    input reset0,
+    input reset6, 
+
+    output ovf,     // counter overflowed
+    output value[4] // current value
+  ) {
+  
+ 
+  .clk(clk), .rst(rst) {
+    dff val[4](#INIT(INIT));     // value storage. Init represents the inital value with a maximum of 9.
+     
+  }
+
+  always {
+ 
+    value = val.q;           // output the value
+    
+    ovf = val.q == 0 && dec; // if max value and decrementing, overflow!
+    
+    if(reset0){
+      val.d = 0;
+    }
+    
+    if(reset6){
+      val.d = 6;
+    }
+    
+    if (dec) {               // should add 1
+      if (val.q == 0)        // if max value
+        val.d = 9;           // reset to 0
+      else                   // otherwise
+        val.d = val.q - 1;   // add one
+    }
+  }
+}

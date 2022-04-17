@@ -1,0 +1,1235 @@
+module fsm_auto (
+    input clk,  // clock
+    input rst,  // reset
+
+    
+    //Button inputs
+    input start_button,
+    input p1_button1,
+    input p1_button2, 
+    input p1_button3,
+    input p1_button4, 
+    
+    input p2_button1,
+    input p2_button2, 
+    input p2_button3,
+    input p2_button4, 
+    
+    //input reset_button,
+    
+    
+    
+    //Other inputs from au_top
+    input dec, 
+    input rng16[16], 
+    /*
+    
+    */
+    
+    
+    //Inputs from REGFILE 
+    input data[15][16],
+    input first_col[16],
+    /*
+    
+    */
+    
+    
+    //Outputs for REGFILE
+    output alufn[6],
+    output asel[2],
+    output bsel[2],
+    output wdsel[2],
+    output wa[4],
+    output ra[4],
+    output rb[4],
+    output we,
+    
+    
+    //Outputs for 7 segment 
+    output main_timer_sel[2],
+    output main_timer_segs[8],
+    output mini_timer_5_segs[8],
+    output scorep1_sel[2],
+    output scorep1_segs[8],
+    output scorep2_sel[2],
+    output scorep2_segs[8],
+    
+    //Outputs for LEDs
+    output p1_led1[16],
+    output p1_led2[16],
+    output p1_led3[16],
+    output p1_led4[16],
+    output p2_led1[16],
+    output p2_led2[16],
+    output p2_led3[16],
+    output p2_led4[16]
+
+    
+  ) {
+  
+    .clk(clk){
+    
+    //Variable counter is currently unused, not too sure if we need this
+    //edge_detector edge_detector_variableCounter (#RISE(1), #FALL(0));
+    
+    .rst(rst) {
+      variable_counter vc; //Variable counter is currently unused, not too sure if we need this   
+      
+      multi_seven_seg main_seg; 
+      multi_dec_ctr main_dctr; //To decrease the main timer's value
+      decimal_counter_5 mini_dctr_5 (#INIT(d5)); //To decrease the mini timer's value
+      decimal_counter_5 mini_dctr_2 (#INIT(d2));
+      
+      multi_seven_seg scorep1_seg;
+      multi_seven_seg scorep2_seg; 
+      
+      dff mini_timer_5[4] (#INIT(5)); //To store the current value of the mini timer
+      dff mini_timer_2[4] (#INIT(2));
+      dff main_timer[4];
+      dff p1_col1[16] (#INIT(0)); //Registers for LED columns
+      dff p1_col2[16] (#INIT(0));
+      dff p1_col3[16] (#INIT(0));
+      dff p1_col4[16] (#INIT(0));
+      dff p2_col1[16] (#INIT(0));
+      dff p2_col2[16] (#INIT(0));
+      dff p2_col3[16] (#INIT(0));
+      dff p2_col4[16] (#INIT(0));    
+    }
+    
+    fsm states = {     
+      IDLE_1,  
+      START,
+      START_COUNTDOWN,
+      SET_MAIN_TIMER_60,
+      DECREASE_GAMETIMER,
+      MINITIMER_SET_5,
+      CHECK_MINI_TIMER,
+      MINITIMER_SET_2,
+      DECREASE_MINITIMER,
+      INCREMENT_P1_SCORE,
+      INCREMENT_P2_SCORE,
+      GEN_LED_SEQUENCEP11,
+      GEN_LED_SEQUENCEP12,
+      GEN_LED_SEQUENCEP13,
+      GEN_LED_SEQUENCEP14,
+      GEN_LED_SEQUENCEP21,
+      GEN_LED_SEQUENCEP22,
+      GEN_LED_SEQUENCEP23,
+      GEN_LED_SEQUENCEP24,
+      IDLE_2,
+      SHR_P1_B1,
+      SHR_P1_B2,
+      SHR_P1_B3,
+      SHR_P1_B4,
+      SHR_P2_B1,
+      SHR_P2_B2,
+      SHR_P2_B3,
+      SHR_P2_B4,
+      SHR_P1_B1_IDLE,
+      SHR_P1_B2_IDLE,
+      SHR_P1_B3_IDLE,
+      SHR_P1_B4_IDLE,
+      SHR_P2_B1_IDLE,
+      SHR_P2_B2_IDLE,
+      SHR_P2_B3_IDLE,
+      SHR_P2_B4_IDLE,      
+      IDLE_P1,
+      IDLE_P2,
+      SET_P1_B1_0,
+      SET_P1_B2_0,
+      SET_P1_B3_0,
+      SET_P1_B4_0,
+      SET_P2_B1_0,
+      SET_P2_B2_0,
+      SET_P2_B3_0,
+      SET_P2_B4_0,
+      CHECK_WIN_P1,
+      CHECK_WIN_P1_IDLE,
+      CHECK_WIN_P2,
+      CHECK_WIN_P2_IDLE,
+      VALID_P11,
+      VALID_P12,
+      VALID_P13,
+      VALID_P14,
+      VALID_P21,
+      VALID_P22,
+      VALID_P23,
+      VALID_P24,
+      WAIT,
+      RESET_TIMER,
+      INVALID1,
+      INVALID2,
+      INVALID3,
+      INVALID4,
+      INVALID5,
+      INVALID6,
+      INVALID7,
+      INVALID8,
+      CHECK_WIN,
+      DRAW,
+      WIN1P1,
+      WIN2P1,
+      WIN3P1,
+      WIN4P1,
+      WIN1P2,
+      WIN2P2,
+      WIN3P2,
+      WIN4P2,
+      LOSE1P1,
+      LOSE2P1,
+      LOSE3P1,
+      LOSE4P1,
+      LOSE1P2,
+      LOSE2P2,
+      LOSE3P2,
+      LOSE4P2,  
+      DRAW1,
+      DRAW2,
+      DRAW3,
+      DRAW4, 
+      DRAW5,
+      DRAW6,
+      DRAW7,
+      DRAW8,         
+      RESTART}; 
+  }
+  
+  seven_seg oneseg; //For the mini timer 
+  //seven_seg debug;
+
+  always {
+  
+    //**NOTE** You always need to define your default OUTPUTS. You cannot only define the outputs inside the states as those are not the default! 
+    //**NOTE2** You also need to define you INPUTS for other modules you call. For example, we call seven_seg, so we need to provide the char[4] input!  
+    
+    //These are the default values for the Regfile! 
+    alufn = 0;
+    asel = 0;
+    bsel = 0;
+    wdsel = 0;
+    wa = b1111; 
+    ra = b0000; 
+    rb = b0000; 
+    we = b0;
+    
+    
+    //These are the default values for the main timer!
+    main_dctr.dec = dec; //Start the countdown for main timer! 
+    main_timer.d = main_dctr.digits[1]; 
+    main_seg.values[1] = 4b0; //Connect default main timer 7 seg values to 0
+    main_seg.values[0] = 4b0;
+    main_timer_sel = main_seg.sel;  //4 bit
+    main_timer_segs = ~main_seg.seg; //8 bit
+    main_dctr.reset6 = 0;
+    main_dctr.reset0 = 0; 
+    
+    
+    //These are the default values for the mini timer! (5 seconds) 
+    oneseg.char = 4b0; //Connect default mini timer 7 seg values to 0 
+    mini_timer_5_segs = oneseg.segs; //7 bit 
+    mini_dctr_5.dec = dec; //Before start button is pressed, we do not decrease the mini timer
+    mini_timer_5.d = mini_dctr_5.value; //mini_dctr_5 is the 5 second mini timer's decimal counter. (decimal_counter_5.luc)  
+    mini_dctr_5.reset5 = 0; 
+    mini_dctr_5.reset2 = 0;
+    
+    
+    //These are for the 2 second break between rounds
+    mini_timer_2.d = mini_dctr_2.value;  
+    mini_dctr_2.dec = 0; 
+    mini_dctr_2.reset2 = 0;
+    mini_dctr_2.reset5 = 0; 
+
+    
+    //These are the default values for the scores! 
+    scorep1_seg.values[1] = 4b0;
+    scorep1_seg.values[0] = data[0]; 
+    scorep2_seg.values[1] = 4b0;
+    scorep2_seg.values[0] = data[1];     
+    scorep1_sel = scorep1_seg.sel;
+    scorep1_segs = scorep1_seg.seg; 
+    scorep2_sel = scorep2_seg.sel;
+    scorep2_segs = scorep2_seg.seg;     
+   
+    
+    //These are the default values for the LEDs! The default is that all LEDs light up. 
+   
+    p1_led1 = data[3];
+    p1_led2 = data[4];
+    p1_led3 = data[5];
+    p1_led4 = data[6];
+    //debug.char = data[0];
+    //main_timer_segs = debug.segs;
+    main_timer_sel = 1;
+      
+    p2_led1 = data[7]; 
+    p2_led2 = data[8];
+    p2_led3 = data[9];
+    p2_led4 = data[10];
+    
+
+   
+    
+    case(states.q){
+      
+      states.IDLE_1:
+      
+        //if start button is pressed (Start_button == 1) 
+        if(start_button){
+          states.d = states.START; 
+        }
+        
+        else{
+          states.d = states.IDLE_1;
+        }
+      
+      //Start countdown of 5 seconds in mini timer for players to ready up, and then start the game. 
+      states.START:
+        
+        oneseg.char = mini_timer_5.q; //oneseg is the mini timer's 7 segment. (seven_seg.luc) 
+        mini_timer_5_segs = oneseg.segs; //mini_timer_5_segs is the 7 segment output. We pass this to au_top which then displays it with io_seg.
+        //mini_dctr_5.dec = dec; //dec is based off the slow clock in au_top. It will decrease mini_dctr_5 by 1 every clock cycle. 
+              
+        
+        //Set main timer to 60 seconds when mini timer reaches 0
+        if(mini_timer_5.q == 0){
+        
+          //FOR MAIN TIMER 
+          main_seg.values = main_dctr.digits; //main_seg is the main timer's 7 segment. (multi_seven_seg) 
+          main_timer_segs = ~main_seg.seg; //Connect segments to the driver
+          main_timer_sel = main_seg.sel; //Connect digit select to the driver
+          mini_dctr_5.reset5 = 1; 
+
+          states.d = states.GEN_LED_SEQUENCEP11; 
+        }
+        
+        
+      //Generate the random LED sequence for both players
+      states.GEN_LED_SEQUENCEP11:
+      
+        alufn = b011010;
+        asel = b11;
+        wa = b0011;          
+        we = b1;
+               
+        //Store the generated sequence into the column registers for each player
+
+        states.d = states.GEN_LED_SEQUENCEP12;
+        
+      states.GEN_LED_SEQUENCEP12:
+      
+        alufn = b011010;
+        asel = b11;
+        wa = b0100;          
+        we = b1; 
+                      
+        states.d = states.GEN_LED_SEQUENCEP13;
+        
+      states.GEN_LED_SEQUENCEP13:
+      
+        alufn = b011010;
+        asel = b11;
+        wa = b0101;          
+        we = b1;    
+        
+        states.d = states.GEN_LED_SEQUENCEP14;
+        
+      states.GEN_LED_SEQUENCEP14:
+      
+        alufn = b011010;
+        asel = b11;
+        wa = b0110;          
+        we = b1;        
+        
+        states.d = states.GEN_LED_SEQUENCEP21;
+        
+       states.GEN_LED_SEQUENCEP21:
+      
+        alufn = b011010;
+        asel = b11;
+        wa = b0111;          
+        we = b1;
+        
+        //Store the generated sequence into the column registers for each player
+
+        states.d = states.GEN_LED_SEQUENCEP22;
+        
+      states.GEN_LED_SEQUENCEP22:
+      
+        alufn = b011010;
+        asel = b11;
+        wa = b1000;          
+        we = b1;
+
+        states.d = states.GEN_LED_SEQUENCEP23;
+        
+      states.GEN_LED_SEQUENCEP23:
+      
+        alufn = b011010;
+        asel = b11;
+        wa = b1001;          
+        we = b1;       
+        
+        states.d = states.GEN_LED_SEQUENCEP24;
+        
+      states.GEN_LED_SEQUENCEP24:
+      
+        alufn = b011010;
+        asel = b11;
+        wa = b1010;          
+        we = b1;        
+        
+        states.d = states.IDLE_2;
+        
+      //This state does nothing, wait for button input and branch to next states
+      states.IDLE_2:
+    
+        mini_dctr_2.reset2 = 1; 
+        
+        if(main_timer.q == 0){
+          states.d = states.CHECK_WIN;
+        }
+        
+        if(mini_timer_5.q == 0){
+          states.d = states.INVALID1;
+        }  
+      
+        if(p1_button1){
+          states.d = states.SHR_P1_B1;
+        }  
+        if(p1_button2){
+          states.d = states.SHR_P1_B2; 
+        }
+        if(p1_button3){
+          states.d = states.SHR_P1_B3;
+        }
+        if(p1_button4){
+          states.d = states.SHR_P1_B4;  
+        }
+        
+        if(p2_button1){
+          states.d = states.SHR_P2_B1;
+        }
+        if(p2_button2){
+          states.d = states.SHR_P2_B2; 
+        }
+        if(p2_button3){
+          states.d = states.SHR_P2_B3;
+        }
+        if(p2_button4){
+          states.d = states.SHR_P2_B4;  
+        }  
+        
+      states.SHR_P1_B1: 
+      
+        if(data[3] != 0){
+          alufn = b100001;
+          bsel = b11;
+          asel = b00;
+          wdsel = 0;
+          wa = b0011;   
+          ra = b0011;
+          we = 1;
+          states.d = states.CHECK_WIN_P1;
+        
+        }
+        else{
+          states.d = states.IDLE_P1;
+        }
+      
+        
+      states.SHR_P1_B2:
+      
+        if(data[4] != 0){
+          alufn = b100001;
+          asel = b00;
+          bsel = b11; 
+          wdsel = b0;
+          wa = b0100;   
+          ra = b0100;
+          rb = 0; 
+          we = 1;
+
+          states.d = states.CHECK_WIN_P1;
+        }
+        else{
+          states.d = states.IDLE_P1;
+        }        
+        
+        
+      
+      states.SHR_P1_B3:
+      
+        if(data[5] != 0){
+          alufn = b100001;
+          asel = b00;
+          bsel = b11; 
+          wdsel = 0;
+          wa = b0101;   
+          ra = b0101;
+          rb = 0;
+          we= 1; 
+          states.d = states.CHECK_WIN_P1; 
+        }
+
+        else{
+          states.d = states.IDLE_P1;
+        }        
+      
+      states.SHR_P1_B4:
+      
+        if(data[6] != 0){
+          alufn = b100001;
+          asel = b00;
+          bsel = b11; 
+          wdsel = 0;
+          wa = b0110;   
+          ra = b0110;
+          rb = 0; 
+          we=1;
+          states.d = states.CHECK_WIN_P1;
+        }
+
+        else{
+          states.d = states.IDLE_P1;
+        }
+              
+      states.SHR_P2_B1: 
+      
+        if(data[7] != 0){
+          alufn = b100001;
+          bsel = b11;
+          asel = b00;
+          wdsel = 0;
+          wa = b0111;   
+          ra = b0111;
+          we = 1;
+          states.d = states.CHECK_WIN_P2;
+        
+        }
+
+        else{
+          states.d = states.IDLE_P2;
+        }
+      
+        
+      states.SHR_P2_B2:
+      
+        if(data[8] != 0){
+          alufn = b100001;
+          asel = b00;
+          bsel = b11; 
+          wdsel = b0;
+          wa = b1000;   
+          ra = b1000;
+          we = 1;
+
+          states.d = states.CHECK_WIN_P2;
+        }
+
+        else{
+          states.d = states.IDLE_P2;
+        }        
+        
+      
+      states.SHR_P2_B3:
+      
+        if(data[9] != 0){
+          alufn = b100001;
+          asel = b00;
+          bsel = b11; 
+          wdsel = 0;
+          wa = b1001;   
+          ra = b1001;
+          we= 1; 
+          states.d = states.CHECK_WIN_P2; 
+        }
+
+        else{
+          states.d = states.IDLE_P2;
+        }
+          
+      states.SHR_P2_B4:
+      
+        if(data[10] != 0){
+          alufn = b100001;
+          asel = b00;
+          bsel = b11; 
+          wdsel = 0;
+          wa = b1010;   
+          ra = b1010;
+          we=1;
+          states.d = states.CHECK_WIN_P2;
+        }
+
+        else{
+          states.d = states.IDLE_P2;
+        }         
+      
+      
+      states.IDLE_P1:
+      
+        mini_dctr_2.reset2 = 1; 
+        
+        if(mini_timer_5.q == 0){
+          states.d = states.INVALID1;
+        }
+      
+        if(p2_button1){
+          states.d = states.SHR_P2_B1_IDLE;
+        }
+        if(p2_button2){
+          states.d = states.SHR_P2_B2_IDLE; 
+        }
+        if(p2_button3){
+          states.d = states.SHR_P2_B3_IDLE;
+        }
+        if(p2_button4){
+          states.d = states.SHR_P2_B4_IDLE;  
+        }
+        
+        
+      states.IDLE_P2:     
+      
+        mini_dctr_2.reset2 = 1; 
+        
+        if(mini_timer_5.q == 0){
+          states.d = states.INVALID1;
+        }
+        
+        if(p1_button1){
+          states.d = states.SHR_P1_B1_IDLE;
+        }
+        if(p1_button2){
+          states.d = states.SHR_P1_B2_IDLE; 
+        }
+        if(p1_button3){
+          states.d = states.SHR_P1_B3_IDLE;
+        }
+        if(p1_button4){
+          states.d = states.SHR_P1_B4_IDLE;  
+        }
+
+        if(!(p1_button1 || p1_button2 || p1_button3 || p1_button4)){
+         states.d = states.IDLE_P2; 
+        }  
+        
+      states.SHR_P1_B1_IDLE: 
+      
+        if(data[3] != 0){
+          alufn = b100001;
+          bsel = b11;
+          asel = b00;
+          wdsel = 0;
+          wa = b0011;   
+          ra = b0011;
+          we = 1;
+          states.d = states.CHECK_WIN_P1_IDLE;
+        
+        }
+        else{
+          states.d = states.INVALID1;
+        }
+      
+        
+      states.SHR_P1_B2_IDLE:
+      
+        if(data[4] != 0){
+          alufn = b100001;
+          asel = b00;
+          bsel = b11; 
+          wdsel = b0;
+          wa = b0100;   
+          ra = b0100;
+          rb = 0; 
+          we = 1;
+
+          states.d = states.CHECK_WIN_P1_IDLE;
+        }
+        else{
+          states.d = states.INVALID1;
+        }        
+        
+        
+      
+      states.SHR_P1_B3_IDLE:
+      
+        if(data[5] != 0){
+          alufn = b100001;
+          asel = b00;
+          bsel = b11; 
+          wdsel = 0;
+          wa = b0101;   
+          ra = b0101;
+          rb = 0;
+          we= 1; 
+          states.d = states.CHECK_WIN_P1_IDLE; 
+        }
+
+        else{
+          states.d = states.INVALID1;
+        }        
+      
+      states.SHR_P1_B4_IDLE:
+      
+        if(data[6] != 0){
+          alufn = b100001;
+          asel = b00;
+          bsel = b11; 
+          wdsel = 0;
+          wa = b0110;   
+          ra = b0110;
+          rb = 0; 
+          we=1;
+          states.d = states.CHECK_WIN_P1_IDLE;
+        }
+
+        else{
+          states.d = states.INVALID1;
+        }
+              
+      states.SHR_P2_B1_IDLE: 
+      
+        if(data[7] != 0){
+          alufn = b100001;
+          bsel = b11;
+          asel = b00;
+          wdsel = 0;
+          wa = b0111;   
+          ra = b0111;
+          we = 1;
+          states.d = states.CHECK_WIN_P2_IDLE;
+        
+        }
+
+        else{
+          states.d = states.INVALID1;
+        }
+      
+        
+      states.SHR_P2_B2_IDLE:
+      
+        if(data[8] != 0){
+          alufn = b100001;
+          asel = b00;
+          bsel = b11; 
+          wdsel = b0;
+          wa = b1000;   
+          ra = b1000;
+          we = 1;
+
+          states.d = states.CHECK_WIN_P2_IDLE;
+        }
+
+        else{
+          states.d = states.INVALID1;
+        }        
+        
+      
+      states.SHR_P2_B3_IDLE:
+      
+        if(data[9] != 0){
+          alufn = b100001;
+          asel = b00;
+          bsel = b11; 
+          wdsel = 0;
+          wa = b1001;   
+          ra = b1001;
+          we= 1; 
+          states.d = states.CHECK_WIN_P2_IDLE; 
+        }
+
+        else{
+          states.d = states.INVALID1;
+        }
+          
+      states.SHR_P2_B4_IDLE:
+      
+        if(data[10] != 0){
+          alufn = b100001;
+          asel = b00;
+          bsel = b11; 
+          wdsel = 0;
+          wa = b1010;   
+          ra = b1010;
+          we=1;
+          states.d = states.CHECK_WIN_P2_IDLE;
+        }
+
+        else{
+          states.d = states.INVALID1;
+        }
+      
+      states.CHECK_WIN_P1:
+        
+        if((data[3] == 0 && data[4] == 0 && data[5] == 0 && data[6] == 0)){
+          states.d = states.INCREMENT_P1_SCORE;
+        }
+
+        else{
+          states.d = states.IDLE_2;
+        }
+        
+      states.CHECK_WIN_P2:
+        
+    
+        if((data[7] == 0 && data[8] == 0 && data[9] == 0 && data[10] == 0)){
+          states.d = states.INCREMENT_P2_SCORE;
+        }
+          
+        else{
+          states.d = states.IDLE_2;
+        }
+      
+      states.CHECK_WIN_P1_IDLE:
+        
+        if((data[3] == 0 && data[4] == 0 && data[5] == 0 && data[6] == 0)){
+          states.d = states.INCREMENT_P1_SCORE;
+        }
+
+        else{
+          states.d = states.IDLE_P2;
+        }
+        
+      states.CHECK_WIN_P2_IDLE:
+        
+    
+        if((data[7] == 0 && data[8] == 0 && data[9] == 0 && data[10] == 0)){
+          states.d = states.INCREMENT_P2_SCORE;
+        }
+          
+        else{
+          states.d = states.IDLE_P1;
+        }    
+       
+        
+      states.INCREMENT_P1_SCORE:
+      
+        alufn = b000011;  // INC BY 1 
+        wdsel = 0;  
+        asel = b00;                             
+        we = 1;
+        ra = b0000; // 0x0
+        wa = b0000; // 0x0
+        
+        states.d = states.VALID_P11;
+        
+      states.INCREMENT_P2_SCORE:
+      
+        alufn = b000011;  // INC BY 1 
+        wdsel = 0;  
+        asel = b00;                             
+        we = 1;
+        ra = b0001; // 0x0
+        wa = b0001; // 0x0
+        
+        states.d = states.VALID_P21;
+        
+        
+      states.VALID_P11: 
+      
+        alufn = b011010; //aldr 
+        asel = b01; //1111
+        wa = b0011;    //p1 col1        
+        we = b1; 
+         
+        states.d = states.VALID_P12;     
+        
+      states.VALID_P12: 
+      
+        alufn = b011010; //aldr 
+        asel = b10; //1001
+        wa = b0100;    //p1 col2       
+        we = b1; 
+         
+        states.d = states.VALID_P13;   
+        
+      states.VALID_P13: 
+      
+        alufn = b011010; //aldr 
+        asel = b10; //1001
+        wa = b0101;    //p1 col3        
+        we = b1; 
+         
+        states.d = states.VALID_P14;   
+        
+      states.VALID_P14: 
+      
+        alufn = b011010; //aldr 
+        asel = b01; //1111
+        wa = b0110;    //p1 col4      
+        we = b1; 
+        
+        states.d = states.WAIT;    
+        
+      states.VALID_P21: 
+      
+        alufn = b011010; //aldr 
+        asel = b01; //1111
+        wa = b0111;    //p2 col1        
+        we = b1; 
+         
+        states.d = states.VALID_P22;     
+        
+      states.VALID_P22: 
+      
+        alufn = b011010; //aldr 
+        asel = b10; //1001
+        wa = b1000;    //p2 col2       
+        we = b1; 
+         
+        states.d = states.VALID_P23;   
+        
+      states.VALID_P23: 
+      
+        alufn = b011010; //aldr 
+        asel = b10; //1001
+        wa = b1001;    //p2 col3        
+        we = b1; 
+         
+        states.d = states.VALID_P24;   
+        
+      states.VALID_P24: 
+      
+        alufn = b011010; //aldr 
+        asel = b01; //1111
+        wa = b1010;    //p2 col4      
+        we = b1;     
+        
+        states.d = states.WAIT;  
+                       
+        
+      states.WAIT:
+      
+      
+        mini_dctr_2.dec = dec; //dec is based off the slow clock in au_top. It will decrease mini_dctr_5 by 1 every clock cycle. 
+        if(mini_timer_2.q == 0){
+
+          states.d = states.GEN_LED_SEQUENCEP11; 
+        }
+        
+        else{
+          mini_dctr_5.reset5 = 1; 
+          states.d = states.WAIT; 
+        }         
+        
+      states.INVALID1: 
+      
+        alufn = b011111; //bldr 
+        bsel = b10; //0110
+        wa = b0011;    //p1 col1        
+        we = b1; 
+         
+        states.d = states.INVALID2;   
+         
+         
+      states.INVALID2: 
+       
+        alufn = b011111; //bldr
+        bsel = b10; //0110
+        wa = b0100;    //p1col2       
+        we = b1; 
+         
+        states.d = states.INVALID3; 
+         
+      states.INVALID3: 
+       
+        alufn = b011111; //bldr
+        bsel = b10; //0110
+        wa = b0101;    //p1col3       
+        we = b1; 
+         
+        states.d = states.INVALID4; 
+         
+      states.INVALID4: 
+       
+        alufn = b011111; //bldr
+        bsel = b10; //0110
+        wa = b0110;    //p1col4       
+        we = b1; 
+        
+        states.d = states.INVALID5; 
+        
+      states.INVALID5: 
+      
+        alufn = b011111; //aldr 
+        bsel = b10; //0110
+        wa = b0111;    //p2 col1        
+        we = b1; 
+         
+        states.d = states.INVALID6;     
+        
+      states.INVALID6: 
+      
+        alufn = b011111; //aldr 
+        bsel = b10; //0110
+        wa = b1000;    //p2 col2       
+        we = b1; 
+         
+        states.d = states.INVALID7;   
+        
+        
+      states.INVALID7: 
+      
+        alufn = b011111; //aldr 
+        bsel = b10; //1001
+        wa = b1001;    //p2 col3        
+        we = b1; 
+         
+        states.d = states.INVALID8;   
+        
+      states.INVALID8: 
+      
+        alufn = b011111; //aldr 
+        bsel = b10; //1111
+        wa = b1010;    //p2 col4      
+        we = b1; 
+         
+        states.d = states.WAIT;          
+     
+      states.CHECK_WIN:
+      
+        mini_dctr_5.reset5 = 1;
+        
+        if(data[0] == data[1]){
+          states.d = states.DRAW; 
+        }
+        
+        if(data[0] > data[1]){
+          states.d = states.WIN1P1;
+        }
+        
+        else{
+          states.d = states.WIN1P2;
+        }
+        
+      states.WIN1P1: 
+      
+        alufn = b011010; //aldr 
+        asel = b01; //1111
+        wa = b0011;    //p1 col1        
+        we = b1; 
+         
+        states.d = states.WIN2P1;     
+        
+      states.WIN2P1: 
+      
+        alufn = b011010; //aldr 
+        asel = b10; //1001
+        wa = b0100;    //p1 col2       
+        we = b1; 
+         
+        states.d = states.WIN3P1;   
+        
+      states.WIN3P1: 
+      
+        alufn = b011010; //aldr 
+        asel = b10; //1001
+        wa = b0101;    //p1 col3        
+        we = b1; 
+         
+        states.d = states.WIN4P1;   
+        
+      states.WIN4P1: 
+      
+        alufn = b011010; //aldr 
+        asel = b01; //1111
+        wa = b0110;    //p1 col4      
+        we = b1; 
+        
+        states.d = states.LOSE1P2;       
+        
+      states.WIN1P2: 
+      
+        alufn = b011010; //aldr 
+        asel = b01; //1111
+        wa = b0111;    //p2 col1        
+        we = b1; 
+         
+        states.d = states.WIN2P2;     
+        
+      states.WIN2P2: 
+      
+        alufn = b011010; //aldr 
+        asel = b10; //1001
+        wa = b1000;    //p2 col2       
+        we = b1; 
+         
+        states.d = states.WIN3P2;   
+        
+      states.WIN3P2: 
+      
+        alufn = b011010; //aldr 
+        asel = b10; //1001
+        wa = b1001;    //p2 col3        
+        we = b1; 
+         
+        states.d = states.WIN4P2;   
+        
+      states.WIN4P2: 
+      
+        alufn = b011010; //aldr 
+        asel = b01; //1111
+        wa = b1010;    //p2 col4      
+        we = b1;     
+        
+        states.d = states.LOSE1P1;   
+        
+        
+      states.LOSE1P1: 
+      
+        alufn = b011111; //bldr 
+        bsel = b10; //0110
+        wa = b0011;    //p1 col1        
+        we = b1; 
+         
+        states.d = states.LOSE2P1;   
+         
+         
+      states.LOSE2P1: 
+       
+        alufn = b011111; //bldr
+        bsel = b10; //0110
+        wa = b0100;    //p1col2       
+        we = b1; 
+         
+        states.d = states.LOSE3P1; 
+         
+      states.LOSE3P1: 
+       
+        alufn = b011111; //bldr
+        bsel = b10; //0110
+        wa = b0101;    //p1col3       
+        we = b1; 
+         
+        states.d = states.LOSE4P1; 
+         
+      states.LOSE4P1: 
+       
+        alufn = b011111; //bldr
+        bsel = b10; //0110
+        wa = b0110;    //p1col4       
+        we = b1; 
+        
+        states.d = states.RESTART; 
+        
+      states.LOSE1P2: 
+      
+        alufn = b011111; //aldr 
+        bsel = b10; //0110
+        wa = b0111;    //p2 col1        
+        we = b1; 
+         
+        states.d = states.LOSE2P2;     
+        
+      states.LOSE2P2: 
+      
+        alufn = b011111; //aldr 
+        bsel = b10; //0110
+        wa = b1000;    //p2 col2       
+        we = b1; 
+         
+        states.d = states.LOSE3P2;   
+        
+        
+      states.LOSE3P2: 
+      
+        alufn = b011111; //aldr 
+        bsel = b10; //1001
+        wa = b1001;    //p2 col3        
+        we = b1; 
+         
+        states.d = states.LOSE4P2;   
+        
+      states.LOSE4P2: 
+      
+        alufn = b011111; //aldr 
+        bsel = b10; //1111
+        wa = b1010;    //p2 col4      
+        we = b1; 
+         
+        states.d = states.RESTART;    
+        
+      states.DRAW1: 
+      
+        alufn = b011010; //aldr 
+        asel = b01; //1111
+        wa = b0011;    //p1 col1        
+        we = b1; 
+         
+        states.d = states.DRAW2;     
+        
+      states.DRAW2: 
+      
+        alufn = b011010; //aldr 
+        asel = b10; //1001
+        wa = b0100;    //p1 col2       
+        we = b1; 
+         
+        states.d = states.DRAW3;   
+        
+      states.DRAW3: 
+      
+        alufn = b011010; //aldr 
+        asel = b10; //1001
+        wa = b0101;    //p1 col3        
+        we = b1; 
+         
+        states.d = states.DRAW4;   
+        
+      states.DRAW4: 
+      
+        alufn = b011010; //aldr 
+        asel = b01; //1111
+        wa = b0110;    //p1 col4      
+        we = b1; 
+        
+        states.d = states.DRAW5;       
+        
+      states.DRAW5: 
+      
+        alufn = b011010; //aldr 
+        asel = b01; //1111
+        wa = b0111;    //p2 col1        
+        we = b1; 
+         
+        states.d = states.DRAW6;     
+        
+      states.DRAW6: 
+      
+        alufn = b011010; //aldr 
+        asel = b10; //1001
+        wa = b1000;    //p2 col2       
+        we = b1; 
+         
+        states.d = states.DRAW7;   
+        
+      states.DRAW7: 
+      
+        alufn = b011010; //aldr 
+        asel = b10; //1001
+        wa = b1001;    //p2 col3        
+        we = b1; 
+         
+        states.d = states.DRAW8;   
+        
+      states.DRAW8: 
+      
+        alufn = b011010; //aldr 
+        asel = b01; //1111
+        wa = b1010;    //p2 col4      
+        we = b1;     
+        
+        states.d = states.RESTART;          
+                     
+          
+      states.RESTART: 
+      
+        if(mini_timer_5.q == 0){
+          states.d = states.IDLE_1;
+        }
+        
+   
+    }
+  }
+}

@@ -1,0 +1,41 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Sun Apr 17 18:59:23 2022
+| Host         : LAPTOP-K4KSM3I3 running 64-bit major release  (build 9200)
+| Command      : report_drc -file au_top_0_drc_opted.rpt -pb au_top_0_drc_opted.pb -rpx au_top_0_drc_opted.rpx
+| Design       : au_top_0
+| Device       : xc7a35tftg256-1
+| Speed File   : -1
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max violations: <unlimited>
+             Violations found: 1
++--------+----------+------------------------------------------------+------------+
+| Rule   | Severity | Description                                    | Violations |
++--------+----------+------------------------------------------------+------------+
+| PLIO-3 | Warning  | Placement Constraints Check for IO constraints | 1          |
++--------+----------+------------------------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+PLIO-3#1 Warning
+Placement Constraints Check for IO constraints  
+Partially locked IO Bus is found. Following components of the IO Bus io_dip[23:0] are not locked:  io_dip[23] io_dip[22] io_dip[21] io_dip[20] io_dip[19] io_dip[18] io_dip[17] io_dip[16] io_dip[15] io_dip[14] io_dip[13] io_dip[12] io_dip[11] io_dip[10]
+Related violations: <none>
+
+

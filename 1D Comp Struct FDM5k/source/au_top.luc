@@ -1,0 +1,349 @@
+module au_top (
+    input clk,              // 100MHz clock
+    input rst_n,            // reset button (active low)
+    output led [8],         // 8 user controllable LEDs
+    input usb_rx,           // USB->Serial input
+    output usb_tx,          // USB->Serial output
+    output io_led [3][8],   // LEDs on IO Shield
+    output io_ledone [1][8],
+    output io_sel[4],
+    output io_sel2[4],
+    output io_sel3[4],
+    output io_seg[8],
+    output io_seg2[8],
+    output io_seg3[8],
+    output io_seg4[8],
+    input io_button [5],    // 5 buttons on IO Shield
+    input io_dip [3][8]     // DIP switches on IO Shield
+  ) {
+
+  sig rst;                  // reset signal
+
+  .clk(clk) {
+
+    // The reset conditioner is used to synchronize the reset signal to the FPGA
+    // clock. This ensures the entire FPGA comes out of reset at the same time.
+    reset_conditioner reset_cond;
+
+    /******************************************************************
+      This is how you define button conditioners and edge detectors!
+
+    button_conditioner btn_cond1; //button conditioner
+    edge_detector edge_btn1(#RISE(1), #FALL(0)); //edge detector
+
+    *******************************************************************/
+
+    //FOR START BUTTON & RESET BUTTON
+    button_conditioner start_button;
+    edge_detector edge_start_button(#RISE(1), #FALL(0));
+
+    button_conditioner reset_button;
+    edge_detector edge_reset_button(#RISE(1), #FALL(0));    
+
+    //FOR PLAYER BUTTONS. PLAYER 1
+    button_conditioner p1_button1;
+    edge_detector edge_p1_button1(#RISE(1), #FALL(0));
+    button_conditioner p1_button2;
+    edge_detector edge_p1_button2(#RISE(1), #FALL(0));
+    button_conditioner p1_button3;
+    edge_detector edge_p1_button3(#RISE(1), #FALL(0));
+    button_conditioner p1_button4;
+    edge_detector edge_p1_button4(#RISE(1), #FALL(0));
+
+    //PLAYER2
+    
+    button_conditioner_p2 p2_button1;
+    edge_detector edge_p2_button1(#RISE(1), #FALL(0));
+    button_conditioner_p2 p2_button2;
+    edge_detector edge_p2_button2(#RISE(1), #FALL(0));
+    button_conditioner_p2 p2_button3;
+    edge_detector edge_p2_button3(#RISE(1), #FALL(0));
+    button_conditioner_p2 p2_button4;
+    edge_detector edge_p2_button4(#RISE(1), #FALL(0));
+    
+
+
+    //FOR SLOW TIMER
+    edge_detector edge_detector_slow_timer(#RISE(1), #FALL(0));
+    //edge_detector edge_detector_variableCounter (#RISE(1), #FALL(0)); //Unused, delete if not needed.
+
+
+    .rst(rst) {
+
+      counter slow_timer(#SIZE(1),#DIV(26)); //The higher the DIV, the slower the clock
+
+      /******************************************************************
+        This is how you define registers!
+
+      dff led_register[16](#INIT(0));
+      *******************************************************************/
+
+      pn_gen random; //Pseudorandom number generator
+      //Assign our FSM to game_fsm
+      beta game_beta; //define beta datapath
+      
+    }
+  }
+
+  always {
+
+    //These are initial values that are generated in the au_top of every IO Element Base projects. Do not touch them!
+    reset_cond.in = ~rst_n; // input raw inverted reset signal
+    rst = reset_cond.out;   // conditioned reset
+    led = 8h00;             // turn LEDs off
+    usb_tx = usb_rx;        // echo the serial data
+    io_sel = 0;
+    io_seg = 0;
+    io_led = 3x{{8h00}};
+    io_ledone = 1x{{8h00}};
+
+
+    //Used to generate our random sequence. The same seed is used on reset.
+    random.seed = 128h843233523a613966423b622562592c62;
+    random.next = 1;
+
+
+    //Edge detector for slow timer
+    edge_detector_slow_timer.in = slow_timer.value;
+
+
+    //Inputs that we pass to the FSM
+    game_beta.dec =  edge_detector_slow_timer.out; //Pass timer decrement value to the FSM
+    game_beta.rng16 = random.num[15:0]; //Pass randomly generated 16 bit number to FSM
+
+    /* 
+    For player 1 column 1 LED's
+         
+    pin io_led[0][0] A24;
+    pin io_led[0][1] A23;  
+    pin io_led[0][2] A21;
+    pin io_led[0][3] A20;
+    */  
+     
+    io_led[0][0] = game_beta.p1_led1[0]; //A24 
+    io_led[0][1] = game_beta.p1_led1[1]; //A23 
+    io_led[0][2] = game_beta.p1_led1[2]; //A21  
+    io_led[0][3] = game_beta.p1_led1[3]; //A20  
+     
+  
+    /* 
+    For player 1 column 2 LEDs  
+        
+    pin io_led[0][4] A18;
+    pin io_led[0][5] A17;
+    pin io_led[0][6] A15;
+    pin io_led[0][7] A14; 
+    */  
+     
+    io_led[0][4] = game_beta.p1_led2[0]; //B21   
+    io_led[0][5] = game_beta.p1_led2[1]; //B20    
+    io_led[0][6] = game_beta.p1_led2[2]; //B18  
+    io_led[0][7] = game_beta.p1_led2[3]; //B17  
+     
+     
+    /* 
+    For player 1 column 3 LEDs  
+        
+    pin io_led[1][0] A12;
+    pin io_led[1][1] A11;
+    pin io_led[1][2] A9;
+    pin io_led[1][3] A8;
+    */ 
+     
+    io_led[1][0] = game_beta.p1_led3[0]; //B9     
+    io_led[1][1] = game_beta.p1_led3[1]; //B8    
+    io_led[1][2] = game_beta.p1_led3[2]; //B6     
+    io_led[1][3] = game_beta.p1_led3[3]; //B5  
+     
+     
+    /*
+    For player 1 column 4 LEDs 
+        
+    pin io_led[1][4] A6;
+    pin io_led[1][5] A5;
+    pin io_led[1][6] A3;
+    pin io_led[1][7] A2; 
+    */ 
+     
+    io_led[1][4] = game_beta.p1_led4[0]; //A15  
+    io_led[1][5] = game_beta.p1_led4[1]; //A14 
+    io_led[1][6] = game_beta.p1_led4[2]; //A12 
+    io_led[1][7] = game_beta.p1_led4[3]; //A11
+    
+/* 
+    For player 2 column 1 LEDs  
+        
+    pin io_led[2][0] B24;
+    pin io_led[2][1] B23;
+    pin io_led[2][2] B21;
+    pin io_led[2][3] B20;
+    */  
+     
+    io_led[2][0] = game_beta.p2_led1[0]; //A24 
+    io_led[2][1] = game_beta.p2_led1[1]; //A23 
+    io_led[2][2] = game_beta.p2_led1[2]; //A21  
+    io_led[2][3] = game_beta.p2_led1[3]; //A20  
+     
+  
+    /* 
+    For player 2 column 2 LEDs  
+        
+    pin io_led[2][4] B18;
+    pin io_led[2][5] B17;
+    pin io_led[2][6] B15;
+    pin io_led[2][7] B14; 
+    */  
+     
+    io_led[2][4] = game_beta.p2_led2[0]; //B21   
+    io_led[2][5] = game_beta.p2_led2[1]; //B20    
+    io_led[2][6] = game_beta.p2_led2[2]; //B18  
+    io_led[2][7] = game_beta.p2_led2[3]; //B17  
+     
+     
+    /* 
+    For player 2 column 3 LEDs  
+        
+    pin io_led1[0][0] B12;
+    pin io_led1[0][1] B11;
+    pin io_led1[0][2] B9;
+    pin io_led1[0][3] B8;
+    */ 
+     
+    io_ledone[0][0] = game_beta.p2_led3[0]; //B9     
+    io_ledone[0][1] = game_beta.p2_led3[1]; //B8    
+    io_ledone[0][2] = game_beta.p2_led3[2]; //B6     
+    io_ledone[0][3] = game_beta.p2_led3[3]; //B5  
+     
+     
+    /*
+    For player 2 column 4 LEDs 
+        
+    pin io_ledone[0][4] B6;
+    pin io_led1[0][5] B5;
+    pin io_led1[0][6] B3;
+    pin io_led1[0][7] B2;
+    */ 
+     
+    io_ledone[0][4] = game_beta.p2_led4[0]; //A15  
+    io_ledone[0][5] = game_beta.p2_led4[1]; //A14 
+    io_ledone[0][6] = game_beta.p2_led4[2]; //A12 
+    io_ledone[0][7] = game_beta.p2_led4[3]; //A11    
+    
+    //Start Button
+    start_button.in = ~io_dip[1][0]; //MUST use ~ for button (Not sure why, but it is how it is)
+    edge_start_button.in = start_button.out;
+    game_beta.start_button = edge_start_button.out;
+    
+    //Reset Button 
+    reset_button.in = ~io_dip[1][1]; //MUST use ~ for button (Not sure why, but it is how it is)
+    edge_reset_button.in = reset_button.out;
+    game_beta.reset_button = edge_reset_button.out;    
+
+
+    /*
+    For player 1 buttons
+
+    pin io_dip[0][0] A27 pulldown;
+    pin io_dip[0][1] A28 pulldown;
+    pin io_dip[0][2] A30 pulldown;
+    pin io_dip[0][3] A31 pulldown;
+    */
+
+    p1_button1.in = ~io_dip[0][0]; //A27
+    p1_button2.in = ~io_dip[0][1]; //A28
+    p1_button3.in = ~io_dip[0][2]; //A30
+    p1_button4.in = ~io_dip[0][3]; //A31
+
+    edge_p1_button1.in = p1_button1.out;
+    edge_p1_button2.in = p1_button2.out;
+    edge_p1_button3.in = p1_button3.out;
+    edge_p1_button4.in = p1_button4.out;
+       
+    game_beta.p1_button1 = edge_p1_button1.out;
+    game_beta.p1_button2 = edge_p1_button2.out;
+    game_beta.p1_button3 = edge_p1_button3.out;
+    game_beta.p1_button4 = edge_p1_button4.out;
+    
+    
+    /*
+    For player 2 buttons
+
+    pin io_dip[0][4] B27 pulldown;
+    pin io_dip[0][5] B28 pulldown;
+    pin io_dip[0][6] B30 pulldown;
+    pin io_dip[0][7] B31 pulldown;
+    */
+
+    p2_button1.in = ~io_dip[0][4]; //B39
+    p2_button2.in = ~io_dip[0][5]; //B36
+    p2_button3.in = ~io_dip[0][6]; //B40
+    p2_button4.in = ~io_dip[0][7]; //B42
+
+    edge_p2_button1.in = p2_button1.out;
+    edge_p2_button2.in = p2_button2.out;
+    edge_p2_button3.in = p2_button3.out;
+    edge_p2_button4.in = p2_button4.out;
+       
+    game_beta.p2_button1 = edge_p2_button1.out;
+    game_beta.p2_button2 = edge_p2_button2.out;
+    game_beta.p2_button3 = edge_p2_button3.out;
+    game_beta.p2_button4 = edge_p2_button4.out;    
+    
+
+    //For Debugging
+    /*
+    io_led[0][4] = edge_p1_button1.out;
+    io_led[0][5] = edge_p1_button2.out;
+    io_led[0][6] = edge_p1_button3.out;
+    io_led[0][7] = edge_p1_button4.out;
+    */
+
+
+    /*
+    For main timer 7 segment
+
+    pin io_seg[0] A5;  segment 0
+    pin io_seg[1] A6;  segment 1
+    pin io_seg[2] A48; segment 2
+    pin io_seg[3] A46; segment 3
+    pin io_seg[4] A45; segment 4
+    pin io_seg[5] A3; segment 5
+    pin io_seg[6] A2; segment 6
+
+    pin io_sel[2] A42;  gnd digit 3
+    pin io_sel[3] A43;  gnd digit 4
+
+    pin io_seg[0] A9; gnd digit 0
+    pin io_seg[1] A8; gnd digit 1
+    */
+
+    //Light up the main timer 7 segment
+   
+    io_seg = ~game_beta.scorep1_segs; // connect segments to the driver
+    io_sel = ~game_beta.scorep1_sel; // connect digit select to the driver
+    
+    io_seg2 = ~game_beta.main_timer_segs; // connect segments to the driver
+    io_sel2 = ~game_beta.main_timer_sel; // connect digit select to the driver
+    
+    io_seg3 = ~game_beta.scorep2_segs; // connect segments to the driver
+    io_sel3 = ~game_beta.scorep2_sel; // connect digit select to the driver
+
+     //Light up the mini timer 7 segment
+    io_seg4 = game_beta.mini_timer_5_segs;
+
+    /*
+    For mini timer 7 segment
+
+    pin io_seg2[0] C24;
+    pin io_seg2[1] C21;
+    pin io_seg2[2] C18;
+    pin io_seg2[3] C23;
+    pin io_seg2[4] C20;
+    pin io_seg2[5] C17;
+    pin io_seg2[6] C27;
+    pin io_seg2[7] C30;
+    */
+
+
+  }
+}

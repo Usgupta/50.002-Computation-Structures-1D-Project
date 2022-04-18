@@ -1,0 +1,17 @@
+module shift(
+    input a[16],
+    input b[16],
+    input alufn[6],
+    output out[16]
+  ) {
+
+  always {
+    // shift left, shift right, shift right with sign extension
+    case (alufn[1:0]){
+      b00: out = a << b; // shift at most 4 bits (16)
+      b01: out = a >> b;
+      b11: out = $signed(a) >>> b[3:0]; // arithmetic bitwise shift right
+      default: out = a;
+    }
+  }
+}

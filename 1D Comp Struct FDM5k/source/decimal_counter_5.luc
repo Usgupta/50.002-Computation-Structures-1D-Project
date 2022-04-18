@@ -1,0 +1,46 @@
+module decimal_counter_5 #(
+INIT = 0)
+ (
+    input clk,      // clock
+    input rst,      // reset
+    input dec,      // decrement the counter
+    input reset2, 
+    input reset5, 
+    input reset10,
+    
+    output ovf,     // counter overflowed
+    output value[4] // current value
+  ) {
+  
+ 
+  .clk(clk), .rst(rst) {
+    dff val[4](#INIT(INIT));     // value storage. Init represents the inital value with a maximum of 9.
+     
+  }
+  
+  always {
+ 
+    value = val.q;           // output the value
+    
+    ovf = val.q == 0 && dec; // if max value and decrementing, overflow!
+    
+    if (reset2) {
+      val.d = 2;
+    }
+    
+    if (reset5) {
+      val.d = 5; 
+    }
+    
+    if (reset10) {
+      val.d = 10;
+    }
+    
+    if (dec) {               // should add 1
+      if (val.q == 0)        // if max value
+        val.d = 5;           // reset to 0
+      else                   // otherwise
+        val.d = val.q - 1;   // add one
+    }
+  }
+}

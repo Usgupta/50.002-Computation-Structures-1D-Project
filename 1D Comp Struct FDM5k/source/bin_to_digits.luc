@@ -1,0 +1,20 @@
+module bin_to_digits (
+    input clk,  // clock
+    input rst,  // reset
+    input in[8],
+    output digits[2][4]
+  
+  ) {
+  .clk(clk){
+  .rst(rst){
+    
+  modulus operator;
+  }}
+  always {
+    operator.a = in;
+    operator.b = 10;
+    digits[0] = operator.out;
+    digits[1] = (in - operator.out)/10;
+   
+  }
+}

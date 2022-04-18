@@ -1,0 +1,40 @@
+module multi_dec_ctr #(
+    DIGITS = 2: DIGITS >= 2  // number of digits
+  ) (
+    input clk,                // clock
+    input rst,                // reset
+    input dec,                // decrement counter
+    input reset0,
+    input reset6,
+    
+    output digits[2][4]  // digit values
+  ) {
+ 
+  .clk(clk), .rst(rst) {
+    decimal_counter dctr1 (#INIT(d0));// digit counters, initalize to 60
+    decimal_counter dctr2 (#INIT(d6));
+  }
+ 
+  always {
+  
+    dctr1.reset0 = reset0;
+    dctr1.reset6 = 0; 
+    dctr2.reset6 = reset6;
+    dctr2.reset0 = 0; 
+    
+    digits[0] = dctr1.value; // output the values
+    digits[1] = dctr2.value;
+    
+    
+    dctr1.dec = dec;
+    
+    // if the previous digit overflows, decrement the next
+    dctr2.dec = dctr1.ovf; 
+
+    
+    if(dctr2.value == 0 && dctr1.value == 0){
+      dctr1.dec = 0;
+      dctr2.dec = 0;
+    }
+    
+}

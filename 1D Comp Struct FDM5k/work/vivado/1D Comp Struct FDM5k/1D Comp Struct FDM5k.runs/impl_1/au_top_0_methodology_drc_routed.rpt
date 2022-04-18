@@ -1,0 +1,1942 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Mon Apr 18 20:22:08 2022
+| Host         : LAPTOP-K4KSM3I3 running 64-bit major release  (build 9200)
+| Command      : report_methodology -file au_top_0_methodology_drc_routed.rpt -pb au_top_0_methodology_drc_routed.pb -rpx au_top_0_methodology_drc_routed.rpx
+| Design       : au_top_0
+| Device       : xc7a35tftg256-1
+| Speed File   : -1
+| Design State : Fully Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 381
++-----------+----------+-------------------------------+------------+
+| Rule      | Severity | Description                   | Violations |
++-----------+----------+-------------------------------+------------+
+| SYNTH-13  | Warning  | combinational multiplier      | 1          |
+| TIMING-16 | Warning  | Large setup violation         | 279        |
+| TIMING-18 | Warning  | Missing input or output delay | 101        |
++-----------+----------+-------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+SYNTH-13#1 Warning
+combinational multiplier  
+Detected combinational multiplier in DSP instance game_beta/game_alu/mul/out0.
+Related violations: <none>
+
+TIMING-16#1 Warning
+Large setup violation  
+There is a large setup violation of -1.023 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[11]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#2 Warning
+Large setup violation  
+There is a large setup violation of -1.023 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[13]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#3 Warning
+Large setup violation  
+There is a large setup violation of -1.023 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[1]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#4 Warning
+Large setup violation  
+There is a large setup violation of -1.023 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[6]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#5 Warning
+Large setup violation  
+There is a large setup violation of -1.025 ns between game_beta/players/M_p2_col4_q_reg[7]/C (clocked by clk_0) and game_beta/players/M_p1_col3_q_reg[2]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#6 Warning
+Large setup violation  
+There is a large setup violation of -1.025 ns between game_beta/players/M_p2_col4_q_reg[7]/C (clocked by clk_0) and game_beta/players/M_p1_col3_q_reg[4]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#7 Warning
+Large setup violation  
+There is a large setup violation of -1.025 ns between game_beta/players/M_p2_col4_q_reg[7]/C (clocked by clk_0) and game_beta/players/M_p1_col3_q_reg[5]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#8 Warning
+Large setup violation  
+There is a large setup violation of -1.052 ns between game_beta/players/M_p2_col4_q_reg[7]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[10]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#9 Warning
+Large setup violation  
+There is a large setup violation of -1.052 ns between game_beta/players/M_p2_col4_q_reg[7]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[12]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#10 Warning
+Large setup violation  
+There is a large setup violation of -1.052 ns between game_beta/players/M_p2_col4_q_reg[7]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[7]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#11 Warning
+Large setup violation  
+There is a large setup violation of -1.052 ns between game_beta/players/M_p2_col4_q_reg[7]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[8]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#12 Warning
+Large setup violation  
+There is a large setup violation of -1.058 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[6]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#13 Warning
+Large setup violation  
+There is a large setup violation of -1.080 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_score_q_reg[15]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#14 Warning
+Large setup violation  
+There is a large setup violation of -1.088 ns between p1_button3/M_ctr_q_reg[19]/C (clocked by clk_0) and game_beta/game_controlunit/FSM_sequential_M_states_q_reg[3]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#15 Warning
+Large setup violation  
+There is a large setup violation of -1.121 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[11]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#16 Warning
+Large setup violation  
+There is a large setup violation of -1.121 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[13]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#17 Warning
+Large setup violation  
+There is a large setup violation of -1.121 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[14]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#18 Warning
+Large setup violation  
+There is a large setup violation of -1.128 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[7]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#19 Warning
+Large setup violation  
+There is a large setup violation of -1.135 ns between game_beta/players/M_p2_col4_q_reg[7]/C (clocked by clk_0) and game_beta/players/M_p2_score_q_reg[1]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#20 Warning
+Large setup violation  
+There is a large setup violation of -1.141 ns between game_beta/players/M_p2_col4_q_reg[7]/C (clocked by clk_0) and game_beta/players/M_p1_col2_q_reg[0]_lopt_replica/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#21 Warning
+Large setup violation  
+There is a large setup violation of -1.141 ns between game_beta/players/M_p2_col4_q_reg[7]/C (clocked by clk_0) and game_beta/players/M_p1_col2_q_reg[1]_lopt_replica/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#22 Warning
+Large setup violation  
+There is a large setup violation of -1.141 ns between game_beta/players/M_p2_col4_q_reg[7]/C (clocked by clk_0) and game_beta/players/M_p1_col2_q_reg[2]_lopt_replica/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#23 Warning
+Large setup violation  
+There is a large setup violation of -1.141 ns between game_beta/players/M_p2_col4_q_reg[7]/C (clocked by clk_0) and game_beta/players/M_p1_col2_q_reg[3]_lopt_replica/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#24 Warning
+Large setup violation  
+There is a large setup violation of -1.153 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[0]_lopt_replica/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#25 Warning
+Large setup violation  
+There is a large setup violation of -1.153 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[1]_lopt_replica/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#26 Warning
+Large setup violation  
+There is a large setup violation of -1.153 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[2]_lopt_replica/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#27 Warning
+Large setup violation  
+There is a large setup violation of -1.153 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[3]_lopt_replica/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#28 Warning
+Large setup violation  
+There is a large setup violation of -1.174 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_score_q_reg[11]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#29 Warning
+Large setup violation  
+There is a large setup violation of -1.174 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_score_q_reg[3]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#30 Warning
+Large setup violation  
+There is a large setup violation of -1.176 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[2]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#31 Warning
+Large setup violation  
+There is a large setup violation of -1.187 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[2]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#32 Warning
+Large setup violation  
+There is a large setup violation of -1.187 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[3]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#33 Warning
+Large setup violation  
+There is a large setup violation of -1.187 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[5]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#34 Warning
+Large setup violation  
+There is a large setup violation of -1.203 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[15]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#35 Warning
+Large setup violation  
+There is a large setup violation of -1.239 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[10]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#36 Warning
+Large setup violation  
+There is a large setup violation of -1.277 ns between game_beta/players/M_p2_col4_q_reg[7]/C (clocked by clk_0) and game_beta/players/M_p1_col3_q_reg[2]_lopt_replica/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#37 Warning
+Large setup violation  
+There is a large setup violation of -1.277 ns between game_beta/players/M_p2_col4_q_reg[7]/C (clocked by clk_0) and game_beta/players/M_p1_col3_q_reg[3]_lopt_replica/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#38 Warning
+Large setup violation  
+There is a large setup violation of -1.286 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[1]_lopt_replica/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#39 Warning
+Large setup violation  
+There is a large setup violation of -1.306 ns between p1_button3/M_ctr_q_reg[19]/C (clocked by clk_0) and game_beta/game_controlunit/FSM_sequential_M_states_q_reg[1]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#40 Warning
+Large setup violation  
+There is a large setup violation of -1.306 ns between p1_button3/M_ctr_q_reg[19]/C (clocked by clk_0) and game_beta/game_controlunit/FSM_sequential_M_states_q_reg[4]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#41 Warning
+Large setup violation  
+There is a large setup violation of -1.318 ns between game_beta/players/M_p2_col4_q_reg[7]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[15]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#42 Warning
+Large setup violation  
+There is a large setup violation of -1.400 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[4]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#43 Warning
+Large setup violation  
+There is a large setup violation of -1.400 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[5]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#44 Warning
+Large setup violation  
+There is a large setup violation of -1.412 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[1]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#45 Warning
+Large setup violation  
+There is a large setup violation of -1.466 ns between game_beta/players/M_p2_col4_q_reg[7]/C (clocked by clk_0) and game_beta/players/M_p2_score_q_reg[2]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#46 Warning
+Large setup violation  
+There is a large setup violation of -1.467 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[0]_lopt_replica/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#47 Warning
+Large setup violation  
+There is a large setup violation of -1.467 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[2]_lopt_replica/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#48 Warning
+Large setup violation  
+There is a large setup violation of -1.467 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[3]_lopt_replica/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#49 Warning
+Large setup violation  
+There is a large setup violation of -1.517 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[0]_lopt_replica/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#50 Warning
+Large setup violation  
+There is a large setup violation of -1.517 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[1]_lopt_replica/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#51 Warning
+Large setup violation  
+There is a large setup violation of -1.517 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[2]_lopt_replica/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#52 Warning
+Large setup violation  
+There is a large setup violation of -1.517 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[3]_lopt_replica/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#53 Warning
+Large setup violation  
+There is a large setup violation of -1.523 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[3]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#54 Warning
+Large setup violation  
+There is a large setup violation of -1.620 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[11]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#55 Warning
+Large setup violation  
+There is a large setup violation of -1.620 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[1]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#56 Warning
+Large setup violation  
+There is a large setup violation of -1.620 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[3]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#57 Warning
+Large setup violation  
+There is a large setup violation of -1.660 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[12]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#58 Warning
+Large setup violation  
+There is a large setup violation of -1.660 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[13]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#59 Warning
+Large setup violation  
+There is a large setup violation of -1.858 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[15]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#60 Warning
+Large setup violation  
+There is a large setup violation of -2.033 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[2]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#61 Warning
+Large setup violation  
+There is a large setup violation of -2.057 ns between game_beta/players/M_p2_col4_q_reg[7]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[0]_lopt_replica/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#62 Warning
+Large setup violation  
+There is a large setup violation of -2.057 ns between game_beta/players/M_p2_col4_q_reg[7]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[1]_lopt_replica/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#63 Warning
+Large setup violation  
+There is a large setup violation of -2.057 ns between game_beta/players/M_p2_col4_q_reg[7]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[2]_lopt_replica/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#64 Warning
+Large setup violation  
+There is a large setup violation of -2.057 ns between game_beta/players/M_p2_col4_q_reg[7]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[3]_lopt_replica/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#65 Warning
+Large setup violation  
+There is a large setup violation of -2.462 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[6]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#66 Warning
+Large setup violation  
+There is a large setup violation of -2.526 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[8]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#67 Warning
+Large setup violation  
+There is a large setup violation of -2.894 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[11]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#68 Warning
+Large setup violation  
+There is a large setup violation of -3.162 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[7]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#69 Warning
+Large setup violation  
+There is a large setup violation of -3.162 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[9]/CE (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#70 Warning
+Large setup violation  
+There is a large setup violation of -35.545 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_score_q_reg[15]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#71 Warning
+Large setup violation  
+There is a large setup violation of -36.145 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_score_q_reg[15]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#72 Warning
+Large setup violation  
+There is a large setup violation of -36.182 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col3_q_reg[15]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#73 Warning
+Large setup violation  
+There is a large setup violation of -36.255 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[15]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#74 Warning
+Large setup violation  
+There is a large setup violation of -36.311 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col2_q_reg[15]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#75 Warning
+Large setup violation  
+There is a large setup violation of -36.377 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[15]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#76 Warning
+Large setup violation  
+There is a large setup violation of -36.388 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[15]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#77 Warning
+Large setup violation  
+There is a large setup violation of -36.462 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col4_q_reg[15]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#78 Warning
+Large setup violation  
+There is a large setup violation of -36.484 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[15]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#79 Warning
+Large setup violation  
+There is a large setup violation of -36.493 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[15]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#80 Warning
+Large setup violation  
+There is a large setup violation of -36.518 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col1_q_reg[15]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#81 Warning
+Large setup violation  
+There is a large setup violation of -5.016 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[7]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#82 Warning
+Large setup violation  
+There is a large setup violation of -5.122 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col2_q_reg[4]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#83 Warning
+Large setup violation  
+There is a large setup violation of -5.295 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col2_q_reg[7]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#84 Warning
+Large setup violation  
+There is a large setup violation of -5.297 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_score_q_reg[7]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#85 Warning
+Large setup violation  
+There is a large setup violation of -5.350 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[7]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#86 Warning
+Large setup violation  
+There is a large setup violation of -5.359 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[3]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#87 Warning
+Large setup violation  
+There is a large setup violation of -5.377 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[7]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#88 Warning
+Large setup violation  
+There is a large setup violation of -5.435 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col3_q_reg[7]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#89 Warning
+Large setup violation  
+There is a large setup violation of -5.435 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_score_q_reg[7]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#90 Warning
+Large setup violation  
+There is a large setup violation of -5.451 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col1_q_reg[7]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#91 Warning
+Large setup violation  
+There is a large setup violation of -5.474 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col2_q_reg[14]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#92 Warning
+Large setup violation  
+There is a large setup violation of -5.482 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[14]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#93 Warning
+Large setup violation  
+There is a large setup violation of -5.492 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col2_q_reg[3]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#94 Warning
+Large setup violation  
+There is a large setup violation of -5.512 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[11]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#95 Warning
+Large setup violation  
+There is a large setup violation of -5.516 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[7]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#96 Warning
+Large setup violation  
+There is a large setup violation of -5.524 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[3]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#97 Warning
+Large setup violation  
+There is a large setup violation of -5.546 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_score_q_reg[3]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#98 Warning
+Large setup violation  
+There is a large setup violation of -5.569 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col4_q_reg[14]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#99 Warning
+Large setup violation  
+There is a large setup violation of -5.588 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col2_q_reg[2]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#100 Warning
+Large setup violation  
+There is a large setup violation of -5.600 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[8]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#101 Warning
+Large setup violation  
+There is a large setup violation of -5.609 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col1_q_reg[3]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#102 Warning
+Large setup violation  
+There is a large setup violation of -5.621 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[3]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#103 Warning
+Large setup violation  
+There is a large setup violation of -5.624 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[4]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#104 Warning
+Large setup violation  
+There is a large setup violation of -5.635 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col4_q_reg[7]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#105 Warning
+Large setup violation  
+There is a large setup violation of -5.643 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_score_q_reg[4]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#106 Warning
+Large setup violation  
+There is a large setup violation of -5.652 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[2]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#107 Warning
+Large setup violation  
+There is a large setup violation of -5.656 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[11]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#108 Warning
+Large setup violation  
+There is a large setup violation of -5.668 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[4]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#109 Warning
+Large setup violation  
+There is a large setup violation of -5.669 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[2]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#110 Warning
+Large setup violation  
+There is a large setup violation of -5.669 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[4]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#111 Warning
+Large setup violation  
+There is a large setup violation of -5.676 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col1_q_reg[14]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#112 Warning
+Large setup violation  
+There is a large setup violation of -5.687 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_score_q_reg[14]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#113 Warning
+Large setup violation  
+There is a large setup violation of -5.692 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[11]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#114 Warning
+Large setup violation  
+There is a large setup violation of -5.694 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[4]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#115 Warning
+Large setup violation  
+There is a large setup violation of -5.694 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col1_q_reg[2]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#116 Warning
+Large setup violation  
+There is a large setup violation of -5.703 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[2]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#117 Warning
+Large setup violation  
+There is a large setup violation of -5.710 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col2_q_reg[11]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#118 Warning
+Large setup violation  
+There is a large setup violation of -5.711 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[2]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#119 Warning
+Large setup violation  
+There is a large setup violation of -5.716 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[3]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#120 Warning
+Large setup violation  
+There is a large setup violation of -5.717 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col3_q_reg[11]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#121 Warning
+Large setup violation  
+There is a large setup violation of -5.723 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col2_q_reg[3]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#122 Warning
+Large setup violation  
+There is a large setup violation of -5.724 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[2]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#123 Warning
+Large setup violation  
+There is a large setup violation of -5.729 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[4]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#124 Warning
+Large setup violation  
+There is a large setup violation of -5.742 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col2_q_reg[8]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#125 Warning
+Large setup violation  
+There is a large setup violation of -5.752 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col1_q_reg[8]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#126 Warning
+Large setup violation  
+There is a large setup violation of -5.754 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[11]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#127 Warning
+Large setup violation  
+There is a large setup violation of -5.758 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col3_q_reg[4]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#128 Warning
+Large setup violation  
+There is a large setup violation of -5.761 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[10]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#129 Warning
+Large setup violation  
+There is a large setup violation of -5.763 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[14]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#130 Warning
+Large setup violation  
+There is a large setup violation of -5.777 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[3]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#131 Warning
+Large setup violation  
+There is a large setup violation of -5.787 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[8]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#132 Warning
+Large setup violation  
+There is a large setup violation of -5.787 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_score_q_reg[3]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#133 Warning
+Large setup violation  
+There is a large setup violation of -5.791 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col1_q_reg[2]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#134 Warning
+Large setup violation  
+There is a large setup violation of -5.793 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col1_q_reg[4]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#135 Warning
+Large setup violation  
+There is a large setup violation of -5.802 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[7]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#136 Warning
+Large setup violation  
+There is a large setup violation of -5.809 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col2_q_reg[2]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#137 Warning
+Large setup violation  
+There is a large setup violation of -5.809 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[14]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#138 Warning
+Large setup violation  
+There is a large setup violation of -5.811 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_score_q_reg[11]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#139 Warning
+Large setup violation  
+There is a large setup violation of -5.818 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[2]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#140 Warning
+Large setup violation  
+There is a large setup violation of -5.822 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col4_q_reg[4]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#141 Warning
+Large setup violation  
+There is a large setup violation of -5.833 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_score_q_reg[8]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#142 Warning
+Large setup violation  
+There is a large setup violation of -5.840 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[5]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#143 Warning
+Large setup violation  
+There is a large setup violation of -5.840 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_score_q_reg[14]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#144 Warning
+Large setup violation  
+There is a large setup violation of -5.849 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col1_q_reg[3]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#145 Warning
+Large setup violation  
+There is a large setup violation of -5.849 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col3_q_reg[3]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#146 Warning
+Large setup violation  
+There is a large setup violation of -5.849 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col4_q_reg[3]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#147 Warning
+Large setup violation  
+There is a large setup violation of -5.852 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col4_q_reg[3]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#148 Warning
+Large setup violation  
+There is a large setup violation of -5.860 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[3]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#149 Warning
+Large setup violation  
+There is a large setup violation of -5.862 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col1_q_reg[11]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#150 Warning
+Large setup violation  
+There is a large setup violation of -5.868 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[8]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#151 Warning
+Large setup violation  
+There is a large setup violation of -5.874 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[3]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#152 Warning
+Large setup violation  
+There is a large setup violation of -5.887 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_score_q_reg[8]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#153 Warning
+Large setup violation  
+There is a large setup violation of -5.888 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_score_q_reg[10]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#154 Warning
+Large setup violation  
+There is a large setup violation of -5.897 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[8]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#155 Warning
+Large setup violation  
+There is a large setup violation of -5.901 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[2]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#156 Warning
+Large setup violation  
+There is a large setup violation of -5.910 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col4_q_reg[2]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#157 Warning
+Large setup violation  
+There is a large setup violation of -5.921 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[0]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#158 Warning
+Large setup violation  
+There is a large setup violation of -5.935 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[14]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#159 Warning
+Large setup violation  
+There is a large setup violation of -5.937 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_score_q_reg[10]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#160 Warning
+Large setup violation  
+There is a large setup violation of -5.948 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col2_q_reg[10]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#161 Warning
+Large setup violation  
+There is a large setup violation of -5.950 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[2]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#162 Warning
+Large setup violation  
+There is a large setup violation of -5.957 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col1_q_reg[0]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#163 Warning
+Large setup violation  
+There is a large setup violation of -5.970 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col4_q_reg[7]_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#164 Warning
+Large setup violation  
+There is a large setup violation of -5.981 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col3_q_reg[2]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#165 Warning
+Large setup violation  
+There is a large setup violation of -5.987 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_score_q_reg[6]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#166 Warning
+Large setup violation  
+There is a large setup violation of -6.015 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[3]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#167 Warning
+Large setup violation  
+There is a large setup violation of -6.017 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_score_q_reg[5]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#168 Warning
+Large setup violation  
+There is a large setup violation of -6.018 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col3_q_reg[8]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#169 Warning
+Large setup violation  
+There is a large setup violation of -6.031 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_score_q_reg[2]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#170 Warning
+Large setup violation  
+There is a large setup violation of -6.036 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[11]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#171 Warning
+Large setup violation  
+There is a large setup violation of -6.041 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[0]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#172 Warning
+Large setup violation  
+There is a large setup violation of -6.046 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_score_q_reg[11]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#173 Warning
+Large setup violation  
+There is a large setup violation of -6.049 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col3_q_reg[14]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#174 Warning
+Large setup violation  
+There is a large setup violation of -6.051 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_score_q_reg[4]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#175 Warning
+Large setup violation  
+There is a large setup violation of -6.060 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col2_q_reg[0]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#176 Warning
+Large setup violation  
+There is a large setup violation of -6.061 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_score_q_reg[2]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#177 Warning
+Large setup violation  
+There is a large setup violation of -6.061 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[10]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#178 Warning
+Large setup violation  
+There is a large setup violation of -6.064 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[6]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#179 Warning
+Large setup violation  
+There is a large setup violation of -6.066 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[6]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#180 Warning
+Large setup violation  
+There is a large setup violation of -6.083 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_score_q_reg[0]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#181 Warning
+Large setup violation  
+There is a large setup violation of -6.101 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[0]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#182 Warning
+Large setup violation  
+There is a large setup violation of -6.110 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[0]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#183 Warning
+Large setup violation  
+There is a large setup violation of -6.114 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col4_q_reg[6]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#184 Warning
+Large setup violation  
+There is a large setup violation of -6.123 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col2_q_reg[6]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#185 Warning
+Large setup violation  
+There is a large setup violation of -6.139 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col3_q_reg[6]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#186 Warning
+Large setup violation  
+There is a large setup violation of -6.146 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col3_q_reg[2]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#187 Warning
+Large setup violation  
+There is a large setup violation of -6.161 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col4_q_reg[2]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#188 Warning
+Large setup violation  
+There is a large setup violation of -6.165 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col2_q_reg[5]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#189 Warning
+Large setup violation  
+There is a large setup violation of -6.167 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col3_q_reg[3]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#190 Warning
+Large setup violation  
+There is a large setup violation of -6.196 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col1_q_reg[0]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#191 Warning
+Large setup violation  
+There is a large setup violation of -6.197 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col4_q_reg[8]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#192 Warning
+Large setup violation  
+There is a large setup violation of -6.199 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col1_q_reg[6]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#193 Warning
+Large setup violation  
+There is a large setup violation of -6.208 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col1_q_reg[10]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#194 Warning
+Large setup violation  
+There is a large setup violation of -6.208 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[14]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#195 Warning
+Large setup violation  
+There is a large setup violation of -6.209 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[8]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#196 Warning
+Large setup violation  
+There is a large setup violation of -6.236 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_score_q_reg[6]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#197 Warning
+Large setup violation  
+There is a large setup violation of -6.248 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[0]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#198 Warning
+Large setup violation  
+There is a large setup violation of -6.249 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col1_q_reg[5]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#199 Warning
+Large setup violation  
+There is a large setup violation of -6.260 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col3_q_reg[1]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#200 Warning
+Large setup violation  
+There is a large setup violation of -6.262 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col2_q_reg[0]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#201 Warning
+Large setup violation  
+There is a large setup violation of -6.266 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[0]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#202 Warning
+Large setup violation  
+There is a large setup violation of -6.271 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col3_q_reg[0]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#203 Warning
+Large setup violation  
+There is a large setup violation of -6.274 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[5]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#204 Warning
+Large setup violation  
+There is a large setup violation of -6.280 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_score_q_reg[0]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#205 Warning
+Large setup violation  
+There is a large setup violation of -6.282 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[6]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#206 Warning
+Large setup violation  
+There is a large setup violation of -6.291 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[3]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#207 Warning
+Large setup violation  
+There is a large setup violation of -6.293 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[0]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#208 Warning
+Large setup violation  
+There is a large setup violation of -6.299 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[0]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#209 Warning
+Large setup violation  
+There is a large setup violation of -6.312 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[10]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#210 Warning
+Large setup violation  
+There is a large setup violation of -6.323 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col4_q_reg[11]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#211 Warning
+Large setup violation  
+There is a large setup violation of -6.335 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[6]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#212 Warning
+Large setup violation  
+There is a large setup violation of -6.365 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_score_q_reg[5]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#213 Warning
+Large setup violation  
+There is a large setup violation of -6.384 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col2_q_reg[12]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#214 Warning
+Large setup violation  
+There is a large setup violation of -6.399 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[0]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#215 Warning
+Large setup violation  
+There is a large setup violation of -6.428 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col4_q_reg[12]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#216 Warning
+Large setup violation  
+There is a large setup violation of -6.428 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_score_q_reg[12]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#217 Warning
+Large setup violation  
+There is a large setup violation of -6.430 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_score_q_reg[9]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#218 Warning
+Large setup violation  
+There is a large setup violation of -6.434 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[10]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#219 Warning
+Large setup violation  
+There is a large setup violation of -6.437 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col1_q_reg[9]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#220 Warning
+Large setup violation  
+There is a large setup violation of -6.438 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[9]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#221 Warning
+Large setup violation  
+There is a large setup violation of -6.442 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col1_q_reg[6]_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#222 Warning
+Large setup violation  
+There is a large setup violation of -6.459 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[9]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#223 Warning
+Large setup violation  
+There is a large setup violation of -6.464 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[9]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#224 Warning
+Large setup violation  
+There is a large setup violation of -6.507 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col4_q_reg[0]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#225 Warning
+Large setup violation  
+There is a large setup violation of -6.507 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_score_q_reg[9]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#226 Warning
+Large setup violation  
+There is a large setup violation of -6.515 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[12]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#227 Warning
+Large setup violation  
+There is a large setup violation of -6.521 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[2]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#228 Warning
+Large setup violation  
+There is a large setup violation of -6.526 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col4_q_reg[0]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#229 Warning
+Large setup violation  
+There is a large setup violation of -6.531 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col2_q_reg[9]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#230 Warning
+Large setup violation  
+There is a large setup violation of -6.532 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col4_q_reg[9]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#231 Warning
+Large setup violation  
+There is a large setup violation of -6.535 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[12]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#232 Warning
+Large setup violation  
+There is a large setup violation of -6.556 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[5]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#233 Warning
+Large setup violation  
+There is a large setup violation of -6.558 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[12]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#234 Warning
+Large setup violation  
+There is a large setup violation of -6.563 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col4_q_reg[5]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#235 Warning
+Large setup violation  
+There is a large setup violation of -6.570 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col3_q_reg[10]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#236 Warning
+Large setup violation  
+There is a large setup violation of -6.580 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col3_q_reg[9]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#237 Warning
+Large setup violation  
+There is a large setup violation of -6.583 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[1]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#238 Warning
+Large setup violation  
+There is a large setup violation of -6.587 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_score_q_reg[12]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#239 Warning
+Large setup violation  
+There is a large setup violation of -6.600 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[9]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#240 Warning
+Large setup violation  
+There is a large setup violation of -6.612 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col2_q_reg[13]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#241 Warning
+Large setup violation  
+There is a large setup violation of -6.617 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[13]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#242 Warning
+Large setup violation  
+There is a large setup violation of -6.620 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col1_q_reg[13]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#243 Warning
+Large setup violation  
+There is a large setup violation of -6.630 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col1_q_reg[12]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#244 Warning
+Large setup violation  
+There is a large setup violation of -6.632 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[12]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#245 Warning
+Large setup violation  
+There is a large setup violation of -6.633 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[13]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#246 Warning
+Large setup violation  
+There is a large setup violation of -6.662 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[6]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#247 Warning
+Large setup violation  
+There is a large setup violation of -6.663 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[12]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#248 Warning
+Large setup violation  
+There is a large setup violation of -6.669 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col3_q_reg[13]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#249 Warning
+Large setup violation  
+There is a large setup violation of -6.684 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col4_q_reg[10]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#250 Warning
+Large setup violation  
+There is a large setup violation of -6.693 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[9]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#251 Warning
+Large setup violation  
+There is a large setup violation of -6.742 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[13]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#252 Warning
+Large setup violation  
+There is a large setup violation of -6.763 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[5]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#253 Warning
+Large setup violation  
+There is a large setup violation of -6.773 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_score_q_reg[13]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#254 Warning
+Large setup violation  
+There is a large setup violation of -6.793 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col3_q_reg[12]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#255 Warning
+Large setup violation  
+There is a large setup violation of -6.808 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col4_q_reg[13]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#256 Warning
+Large setup violation  
+There is a large setup violation of -6.810 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col3_q_reg[5]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#257 Warning
+Large setup violation  
+There is a large setup violation of -6.817 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_score_q_reg[13]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#258 Warning
+Large setup violation  
+There is a large setup violation of -6.887 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col3_q_reg[0]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#259 Warning
+Large setup violation  
+There is a large setup violation of -6.894 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[5]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#260 Warning
+Large setup violation  
+There is a large setup violation of -6.925 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col2_q_reg[1]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#261 Warning
+Large setup violation  
+There is a large setup violation of -7.012 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[13]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#262 Warning
+Large setup violation  
+There is a large setup violation of -7.077 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[1]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#263 Warning
+Large setup violation  
+There is a large setup violation of -7.116 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col1_q_reg[1]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#264 Warning
+Large setup violation  
+There is a large setup violation of -7.132 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[1]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#265 Warning
+Large setup violation  
+There is a large setup violation of -7.136 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col3_q_reg[1]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#266 Warning
+Large setup violation  
+There is a large setup violation of -7.140 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col1_q_reg[1]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#267 Warning
+Large setup violation  
+There is a large setup violation of -7.214 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col1_q_reg[1]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#268 Warning
+Large setup violation  
+There is a large setup violation of -7.229 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col2_q_reg[1]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#269 Warning
+Large setup violation  
+There is a large setup violation of -7.256 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[13]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#270 Warning
+Large setup violation  
+There is a large setup violation of -7.345 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_score_q_reg[1]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#271 Warning
+Large setup violation  
+There is a large setup violation of -7.349 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[10]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#272 Warning
+Large setup violation  
+There is a large setup violation of -7.382 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col3_q_reg[1]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#273 Warning
+Large setup violation  
+There is a large setup violation of -7.404 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[1]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#274 Warning
+Large setup violation  
+There is a large setup violation of -7.416 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_score_q_reg[1]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#275 Warning
+Large setup violation  
+There is a large setup violation of -7.426 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col4_q_reg[1]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#276 Warning
+Large setup violation  
+There is a large setup violation of -7.435 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p1_col4_q_reg[1]_lopt_replica/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#277 Warning
+Large setup violation  
+There is a large setup violation of -7.555 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col4_q_reg[1]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#278 Warning
+Large setup violation  
+There is a large setup violation of -7.678 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_p2_col2_q_reg[1]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#279 Warning
+Large setup violation  
+There is a large setup violation of -8.000 ns between game_beta/players/M_p1_col1_q_reg[9]/C (clocked by clk_0) and game_beta/players/M_check_win_q_reg[1]/D (clocked by clk_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-18#1 Warning
+Missing input or output delay  
+An input delay is missing on io_dip[0] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#2 Warning
+Missing input or output delay  
+An input delay is missing on io_dip[10] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#3 Warning
+Missing input or output delay  
+An input delay is missing on io_dip[11] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#4 Warning
+Missing input or output delay  
+An input delay is missing on io_dip[12] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#5 Warning
+Missing input or output delay  
+An input delay is missing on io_dip[13] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#6 Warning
+Missing input or output delay  
+An input delay is missing on io_dip[14] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#7 Warning
+Missing input or output delay  
+An input delay is missing on io_dip[15] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#8 Warning
+Missing input or output delay  
+An input delay is missing on io_dip[16] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#9 Warning
+Missing input or output delay  
+An input delay is missing on io_dip[17] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#10 Warning
+Missing input or output delay  
+An input delay is missing on io_dip[18] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#11 Warning
+Missing input or output delay  
+An input delay is missing on io_dip[19] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#12 Warning
+Missing input or output delay  
+An input delay is missing on io_dip[1] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#13 Warning
+Missing input or output delay  
+An input delay is missing on io_dip[20] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#14 Warning
+Missing input or output delay  
+An input delay is missing on io_dip[21] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#15 Warning
+Missing input or output delay  
+An input delay is missing on io_dip[22] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#16 Warning
+Missing input or output delay  
+An input delay is missing on io_dip[23] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#17 Warning
+Missing input or output delay  
+An input delay is missing on io_dip[2] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#18 Warning
+Missing input or output delay  
+An input delay is missing on io_dip[3] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#19 Warning
+Missing input or output delay  
+An input delay is missing on io_dip[4] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#20 Warning
+Missing input or output delay  
+An input delay is missing on io_dip[5] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#21 Warning
+Missing input or output delay  
+An input delay is missing on io_dip[6] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#22 Warning
+Missing input or output delay  
+An input delay is missing on io_dip[7] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#23 Warning
+Missing input or output delay  
+An input delay is missing on io_dip[8] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#24 Warning
+Missing input or output delay  
+An input delay is missing on io_dip[9] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#25 Warning
+Missing input or output delay  
+An input delay is missing on rst_n relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#26 Warning
+Missing input or output delay  
+An output delay is missing on io_led[0] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#27 Warning
+Missing input or output delay  
+An output delay is missing on io_led[10] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#28 Warning
+Missing input or output delay  
+An output delay is missing on io_led[11] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#29 Warning
+Missing input or output delay  
+An output delay is missing on io_led[12] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#30 Warning
+Missing input or output delay  
+An output delay is missing on io_led[13] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#31 Warning
+Missing input or output delay  
+An output delay is missing on io_led[14] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#32 Warning
+Missing input or output delay  
+An output delay is missing on io_led[15] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#33 Warning
+Missing input or output delay  
+An output delay is missing on io_led[16] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#34 Warning
+Missing input or output delay  
+An output delay is missing on io_led[17] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#35 Warning
+Missing input or output delay  
+An output delay is missing on io_led[18] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#36 Warning
+Missing input or output delay  
+An output delay is missing on io_led[19] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#37 Warning
+Missing input or output delay  
+An output delay is missing on io_led[1] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#38 Warning
+Missing input or output delay  
+An output delay is missing on io_led[20] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#39 Warning
+Missing input or output delay  
+An output delay is missing on io_led[21] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#40 Warning
+Missing input or output delay  
+An output delay is missing on io_led[22] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#41 Warning
+Missing input or output delay  
+An output delay is missing on io_led[23] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#42 Warning
+Missing input or output delay  
+An output delay is missing on io_led[2] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#43 Warning
+Missing input or output delay  
+An output delay is missing on io_led[3] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#44 Warning
+Missing input or output delay  
+An output delay is missing on io_led[4] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#45 Warning
+Missing input or output delay  
+An output delay is missing on io_led[5] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#46 Warning
+Missing input or output delay  
+An output delay is missing on io_led[6] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#47 Warning
+Missing input or output delay  
+An output delay is missing on io_led[7] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#48 Warning
+Missing input or output delay  
+An output delay is missing on io_led[8] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#49 Warning
+Missing input or output delay  
+An output delay is missing on io_led[9] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#50 Warning
+Missing input or output delay  
+An output delay is missing on io_ledone[0] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#51 Warning
+Missing input or output delay  
+An output delay is missing on io_ledone[1] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#52 Warning
+Missing input or output delay  
+An output delay is missing on io_ledone[2] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#53 Warning
+Missing input or output delay  
+An output delay is missing on io_ledone[3] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#54 Warning
+Missing input or output delay  
+An output delay is missing on io_ledone[4] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#55 Warning
+Missing input or output delay  
+An output delay is missing on io_ledone[5] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#56 Warning
+Missing input or output delay  
+An output delay is missing on io_ledone[6] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#57 Warning
+Missing input or output delay  
+An output delay is missing on io_ledone[7] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#58 Warning
+Missing input or output delay  
+An output delay is missing on io_seg2[0] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#59 Warning
+Missing input or output delay  
+An output delay is missing on io_seg2[1] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#60 Warning
+Missing input or output delay  
+An output delay is missing on io_seg2[2] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#61 Warning
+Missing input or output delay  
+An output delay is missing on io_seg2[3] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#62 Warning
+Missing input or output delay  
+An output delay is missing on io_seg2[4] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#63 Warning
+Missing input or output delay  
+An output delay is missing on io_seg2[5] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#64 Warning
+Missing input or output delay  
+An output delay is missing on io_seg2[6] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#65 Warning
+Missing input or output delay  
+An output delay is missing on io_seg2[7] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#66 Warning
+Missing input or output delay  
+An output delay is missing on io_seg3[0] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#67 Warning
+Missing input or output delay  
+An output delay is missing on io_seg3[1] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#68 Warning
+Missing input or output delay  
+An output delay is missing on io_seg3[2] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#69 Warning
+Missing input or output delay  
+An output delay is missing on io_seg3[3] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#70 Warning
+Missing input or output delay  
+An output delay is missing on io_seg3[4] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#71 Warning
+Missing input or output delay  
+An output delay is missing on io_seg3[5] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#72 Warning
+Missing input or output delay  
+An output delay is missing on io_seg3[6] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#73 Warning
+Missing input or output delay  
+An output delay is missing on io_seg3[7] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#74 Warning
+Missing input or output delay  
+An output delay is missing on io_seg4[0] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#75 Warning
+Missing input or output delay  
+An output delay is missing on io_seg4[1] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#76 Warning
+Missing input or output delay  
+An output delay is missing on io_seg4[2] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#77 Warning
+Missing input or output delay  
+An output delay is missing on io_seg4[3] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#78 Warning
+Missing input or output delay  
+An output delay is missing on io_seg4[4] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#79 Warning
+Missing input or output delay  
+An output delay is missing on io_seg4[5] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#80 Warning
+Missing input or output delay  
+An output delay is missing on io_seg4[6] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#81 Warning
+Missing input or output delay  
+An output delay is missing on io_seg4[7] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#82 Warning
+Missing input or output delay  
+An output delay is missing on io_seg[0] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#83 Warning
+Missing input or output delay  
+An output delay is missing on io_seg[1] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#84 Warning
+Missing input or output delay  
+An output delay is missing on io_seg[2] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#85 Warning
+Missing input or output delay  
+An output delay is missing on io_seg[3] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#86 Warning
+Missing input or output delay  
+An output delay is missing on io_seg[4] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#87 Warning
+Missing input or output delay  
+An output delay is missing on io_seg[5] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#88 Warning
+Missing input or output delay  
+An output delay is missing on io_seg[6] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#89 Warning
+Missing input or output delay  
+An output delay is missing on io_seg[7] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#90 Warning
+Missing input or output delay  
+An output delay is missing on io_sel2[0] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#91 Warning
+Missing input or output delay  
+An output delay is missing on io_sel2[1] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#92 Warning
+Missing input or output delay  
+An output delay is missing on io_sel2[2] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#93 Warning
+Missing input or output delay  
+An output delay is missing on io_sel2[3] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#94 Warning
+Missing input or output delay  
+An output delay is missing on io_sel3[0] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#95 Warning
+Missing input or output delay  
+An output delay is missing on io_sel3[1] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#96 Warning
+Missing input or output delay  
+An output delay is missing on io_sel3[2] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#97 Warning
+Missing input or output delay  
+An output delay is missing on io_sel3[3] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#98 Warning
+Missing input or output delay  
+An output delay is missing on io_sel[0] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#99 Warning
+Missing input or output delay  
+An output delay is missing on io_sel[1] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#100 Warning
+Missing input or output delay  
+An output delay is missing on io_sel[2] relative to clock(s) clk_0
+Related violations: <none>
+
+TIMING-18#101 Warning
+Missing input or output delay  
+An output delay is missing on io_sel[3] relative to clock(s) clk_0
+Related violations: <none>
+
+

@@ -15,8 +15,6 @@ The game proceeds in mini rounds of 5 seconds and the overall winner will be the
 [<img src="https://user-images.githubusercontent.com/57800546/168115308-c67bb94e-6eda-496a-afe9-801439b238a8.png" width="50%">](https://youtu.be/lBUOvSejSss "Finger Death Machine (Game)")
 
 
-Finger Death Machine (Game)
-
 ## Contributors
 
 1. Umang Gupta 

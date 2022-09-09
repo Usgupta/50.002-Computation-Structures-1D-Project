@@ -1,4 +1,4 @@
-# 50.002-Computation-Structures-1D-Project
+# 50.002-Computation-Structures-1D-Project (FDM5K)
 Group 27
 
 ## Description
